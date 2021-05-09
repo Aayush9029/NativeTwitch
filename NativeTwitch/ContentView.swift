@@ -5,17 +5,86 @@
 //  Created by Aayush Pokharel on 2021-05-07.
 //
 
+// https://twitchtokengenerator.com/quick/NIaMdzGYBR
+import Foundation
 import SwiftUI
+import HotKey
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+    var const = Constants()
+    @ObservedObject var twitchData =  TwitchData()
+    @State var streams : [Stream] = []
+    
+    let showingAppToggleHotKey = HotKey(key: .t, modifiers: [.command, .option])
+    let topBarToggleHotKey = HotKey(key: .r, modifiers: [.command, .option])
+    @State var appShown: Bool = true
+    @State var titleBarShown: Bool = false
+    
+    var body: some View{
+        Group{
+            if twitchData.status != .finished{
+                Text("Loading View")
+                    .onAppear(perform: {
+                        print(twitchData.status)
+                        
+                    })
+            }else{
+                VStack {
+                    ScrollView(.vertical, showsIndicators: false){
+                        if titleBarShown{
+                            UserView(user: twitchData.user)
+                            Divider()
+                        }
+                        ForEach(twitchData.getStreamData(), id: \.self) { stream in
+                            StreamRowView(stream: stream, const: const, stream_logo:  URL(string: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")!)
+                                .contextMenu(ContextMenu(menuItems: {
+                                    Button(action: {
+                                        print(shell("ttvQT () { open -a \"quicktime player\" $(/usr/local/bin/streamlink twitch.tv/$@ best --stream-url) ;}; ttvQT \(stream.user_name)"))
+                                    }, label: {
+                                        Text("Play")
+                                    })
+                                }))
+                            
+                        }
+                        
+                    }
+                }
+            }
+        }
+        .onAppear(perform: {
+            showingAppToggleHotKey.keyDownHandler = {
+                appShown.toggle()
+            }
+            topBarToggleHotKey.keyDownHandler = {
+                titleBarShown.toggle()
+            }
+        })
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+
+extension ContentView{
+    func shell(_ command: String) -> String {
+        let task = Process()
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.standardError = pipe
+        task.arguments = ["-c", command]
+        task.launchPath = "/bin/zsh"
+        task.launch()
+        
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: .utf8)!
+        
+        return output
+    }
+
+}
+
+
+extension NSTextField{
+    open override var focusRingType: NSFocusRingType{
+        get{.none}
+        set{}
     }
 }
