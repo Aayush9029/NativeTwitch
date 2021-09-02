@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		C269946E2647088900B3DCF7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C269946D2647088900B3DCF7 /* Alamofire */; };
 		C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C269947026470C1400B3DCF7 /* SwiftyJSON */; };
-		C269947D2647251D00B3DCF7 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269947C2647251D00B3DCF7 /* UserView.swift */; };
+		C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269947C2647251D00B3DCF7 /* SettingsView.swift */; };
 		C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994802647255000B3DCF7 /* StreamRowView.swift */; };
 		C269948426472A4100B3DCF7 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = C269948326472A4100B3DCF7 /* URLImage */; };
 		C269948626472B6500B3DCF7 /* CustomImageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269948526472B6500B3DCF7 /* CustomImageStruct.swift */; };
 		C26994882647486000B3DCF7 /* CleanButtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994872647486000B3DCF7 /* CleanButtton.swift */; };
-		C269948B26474ACD00B3DCF7 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = C269948A26474ACD00B3DCF7 /* HotKey */; };
-		C269948D26474B4D00B3DCF7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269948C26474B4D00B3DCF7 /* Keys.swift */; };
 		C26FBE55264679F1006818AB /* TwitchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchData.swift */; };
 		C26FBE5A26467B26006818AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE5926467B26006818AB /* Constants.swift */; };
 		C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */; };
@@ -25,11 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C269947C2647251D00B3DCF7 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		C269947C2647251D00B3DCF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C26994802647255000B3DCF7 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
 		C269948526472B6500B3DCF7 /* CustomImageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageStruct.swift; sourceTree = "<group>"; };
 		C26994872647486000B3DCF7 /* CleanButtton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanButtton.swift; sourceTree = "<group>"; };
-		C269948C26474B4D00B3DCF7 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C26FBE54264679F1006818AB /* TwitchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchData.swift; sourceTree = "<group>"; };
 		C26FBE5926467B26006818AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeTwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +47,6 @@
 			files = (
 				C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */,
 				C269948426472A4100B3DCF7 /* URLImage in Frameworks */,
-				C269948B26474ACD00B3DCF7 /* HotKey in Frameworks */,
 				C269946E2647088900B3DCF7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +108,6 @@
 			children = (
 				C26FBE54264679F1006818AB /* TwitchData.swift */,
 				C26FBE5926467B26006818AB /* Constants.swift */,
-				C269948C26474B4D00B3DCF7 /* Keys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,7 +115,7 @@
 		C2A7BD1C26462B320038CFB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C269947C2647251D00B3DCF7 /* UserView.swift */,
+				C269947C2647251D00B3DCF7 /* SettingsView.swift */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
 				C269948526472B6500B3DCF7 /* CustomImageStruct.swift */,
 				C26994872647486000B3DCF7 /* CleanButtton.swift */,
@@ -148,7 +143,6 @@
 				C269946D2647088900B3DCF7 /* Alamofire */,
 				C269947026470C1400B3DCF7 /* SwiftyJSON */,
 				C269948326472A4100B3DCF7 /* URLImage */,
-				C269948A26474ACD00B3DCF7 /* HotKey */,
 			);
 			productName = NativeTwitch;
 			productReference = C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */;
@@ -181,7 +175,6 @@
 				C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				C269948226472A4100B3DCF7 /* XCRemoteSwiftPackageReference "url-image" */,
-				C269948926474ACD00B3DCF7 /* XCRemoteSwiftPackageReference "HotKey" */,
 			);
 			productRefGroup = C2A7BCED26462B030038CFB5 /* Products */;
 			projectDirPath = "";
@@ -215,8 +208,7 @@
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
 				C269948626472B6500B3DCF7 /* CustomImageStruct.swift in Sources */,
-				C269947D2647251D00B3DCF7 /* UserView.swift in Sources */,
-				C269948D26474B4D00B3DCF7 /* Keys.swift in Sources */,
+				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +342,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NativeTwitch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -375,7 +367,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = NativeTwitch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -437,14 +429,6 @@
 				minimumVersion = 2.2.5;
 			};
 		};
-		C269948926474ACD00B3DCF7 /* XCRemoteSwiftPackageReference "HotKey" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/soffes/HotKey";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -462,11 +446,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C269948226472A4100B3DCF7 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
-		};
-		C269948A26474ACD00B3DCF7 /* HotKey */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C269948926474ACD00B3DCF7 /* XCRemoteSwiftPackageReference "HotKey" */;
-			productName = HotKey;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

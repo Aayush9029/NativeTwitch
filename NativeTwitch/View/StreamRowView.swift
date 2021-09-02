@@ -58,21 +58,21 @@ struct StreamRowView: View {
         .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(hovered ? Color.blue : .gray.opacity(0.25), lineWidth: 2)
                     .shadow(color: hovered ?.blue : .blue.opacity(0), radius: 10)
-                    
+                 
         )
         .onHover { isHovered in
             self.hovered = isHovered
         }
         .padding(.horizontal, 10)
-
+        
         //        .
         .animation(.default, value: hovered)
-      
+        
         
         .onAppear(perform: {
-                DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
-                    getUserLogo()
-                })
+            DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
+                getUserLogo()
+            })
         })
     }
 }
@@ -99,7 +99,7 @@ extension StreamRowView{
             }
         }
     }
-
+    
     
 }
 

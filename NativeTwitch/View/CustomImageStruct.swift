@@ -8,12 +8,12 @@
 import SwiftUI
 import URLImage
 struct CustomImageOnline: View {
-
+    
     let url: URL
-
+    
     init(url: URL) {
         self.url = url
-
+        
         formatter = NumberFormatter()
         formatter.numberStyle = .percent
     }
@@ -28,26 +28,26 @@ struct CustomImageOnline: View {
                     cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: nil) // Return cached image or download after delay
                  ),
                  empty: {
-                    Text("Nothing here")            // This view is displayed before download starts
-                 },
+            Text("Nothing here")            // This view is displayed before download starts
+        },
                  inProgress: { progress -> Text in  // Display progress
-                    if let progress = progress {
-                        return Text(formatter.string(from: progress as NSNumber) ?? "")
-                    }
-                    else {
-                        return Text("...")
-                    }
-                 },
+            if let progress = progress {
+                return Text(formatter.string(from: progress as NSNumber) ?? "")
+            }
+            else {
+                return Text("...")
+            }
+        },
                  failure: { error, retry in         // Display error and retry button
-                    VStack {
-                        Text(error.localizedDescription)
-                        Button("Retry", action: retry)
-                    }
-                 },
+            VStack {
+                Text(error.localizedDescription)
+                Button("Retry", action: retry)
+            }
+        },
                  content: { image in                // Content view
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                 })
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        })
     }
 }
