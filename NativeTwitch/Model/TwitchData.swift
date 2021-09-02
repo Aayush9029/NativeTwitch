@@ -21,10 +21,16 @@ class TwitchData: ObservableObject{
         self.user = User(client_id: "", oauthToken: "", name: "", user_id: "", isValid: false)
         self.streams = []
         self.status = .userValidating
+        self.startFetch()
+    }
+    
+    func startFetch(){
+        self.user = User(client_id: "", oauthToken: "", name: "", user_id: "", isValid: false)
+        self.streams = []
+        self.status = .userValidating
+        
         self.validateTokens() // Changes StatusStates that's all
         self.fetchUserData() // Fetches user data and excecutes get followed internally
-
-        
     }
     
     func validateTokens(){

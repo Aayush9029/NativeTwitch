@@ -16,6 +16,8 @@ struct ContentView: View {
     @State var streams : [Stream] = []
     
     let topBarToggleHotKey = HotKey(key: .comma, modifiers: [.command])
+    let refreshData = HotKey(key: .r, modifiers: [.command])
+
     @State var titleBarShown: Bool = false
     
     var body: some View{
@@ -54,6 +56,11 @@ struct ContentView: View {
             topBarToggleHotKey.keyDownHandler = {
                 withAnimation {
                     titleBarShown.toggle()
+                }
+            }
+            refreshData.keyDownHandler = {
+                withAnimation {
+                    twitchData.startFetch()
                 }
             }
         })
