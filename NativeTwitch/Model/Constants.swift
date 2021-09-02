@@ -10,6 +10,7 @@ class Constants{
     var twitchClientID = "gp762nuuoqcoxypju8c569th9wz7q5"
     var oauthToken = "3jaosugvb9bypjcrb0ks8d7stj1jdy"
     var userID = ""
+    var streamlinkLocation = "/opt/homebrew/bin/streamlink"
 }
 
 

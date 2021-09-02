@@ -39,7 +39,7 @@ struct ContentView: View {
                             StreamRowView(stream: stream, const: const, stream_logo:  URL(string: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")!)
                                 .contextMenu(ContextMenu(menuItems: {
                                     Button(action: {
-                                        print(shell("ttvQT () { open -a \"quicktime player\" $(/usr/local/bin/streamlink twitch.tv/$@ best --stream-url) ;}; ttvQT \(stream.user_name)"))
+                                        print(shell("ttvQT () { open -a \"quicktime player\" $(\(const.streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(stream.user_name)"))
                                     }, label: {
                                         Text("Play")
                                     })
