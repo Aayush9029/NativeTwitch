@@ -32,7 +32,7 @@ struct CustomImageOnline: View {
                  },
                  inProgress: { progress -> Text in  // Display progress
                     if let progress = progress {
-                        return Text(formatter.string(from: progress as NSNumber) ?? "Loading...")
+                        return Text(formatter.string(from: progress as NSNumber) ?? "")
                     }
                     else {
                         return Text("...")

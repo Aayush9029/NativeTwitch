@@ -15,17 +15,17 @@ struct ContentView: View {
     @ObservedObject var twitchData =  TwitchData()
     @State var streams : [Stream] = []
     
-    let showingAppToggleHotKey = HotKey(key: .t, modifiers: [.command, .option])
-    let topBarToggleHotKey = HotKey(key: .r, modifiers: [.command, .option])
-    @State var appShown: Bool = true
+    let topBarToggleHotKey = HotKey(key: .comma, modifiers: [.command])
     @State var titleBarShown: Bool = false
     
     var body: some View{
         Group{
             if twitchData.status != .finished{
-                Text("Loading View")
+                Text("Loading Streams")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.gray.opacity(0.5))
                     .onAppear(perform: {
-                        print(twitchData.status)
                         
                     })
             }else{
@@ -44,7 +44,6 @@ struct ContentView: View {
                                         Text("Play")
                                     })
                                 }))
-                            
                         }
                         
                     }
@@ -52,11 +51,10 @@ struct ContentView: View {
             }
         }
         .onAppear(perform: {
-            showingAppToggleHotKey.keyDownHandler = {
-                appShown.toggle()
-            }
             topBarToggleHotKey.keyDownHandler = {
-                titleBarShown.toggle()
+                withAnimation {
+                    titleBarShown.toggle()
+                }
             }
         })
     }

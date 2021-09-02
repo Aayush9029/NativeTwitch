@@ -10,20 +10,22 @@ import SwiftUI
 struct CleanButton: View {
     var image: String
     var color: Color
+    @State var isHovered = false
     var body: some View {
         VStack{
             Image(systemName: "gear")
-                .foregroundColor(.white)
+                .font(.title2.bold())
+                .foregroundColor(color)
                 .padding(5)
-                .background(color.opacity(0.25))
-                .overlay(
-                       RoundedRectangle(cornerRadius: 5)
-                           .stroke(Color.blue, lineWidth: 2)
-                   )
+                .background(isHovered ? color.opacity(0.25) : nil)
                 .cornerRadius(5)
-                .shadow(color: .blue, radius: 5, x: 0.0, y: 0.0)
         }
         .padding()
+        .onHover { _ in
+            withAnimation {
+                isHovered.toggle()
+            }
+        }
     }
 }
 
