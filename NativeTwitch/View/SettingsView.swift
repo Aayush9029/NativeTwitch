@@ -11,20 +11,24 @@ struct SettingsView: View {
     @AppStorage("twitchClientID") var twitchClientID = ""
     @AppStorage("oauthToken") var oauthToken = ""
     @AppStorage("streamlinkLocation") var streamlinkLocation = "/opt/homebrew/bin/streamlink"
+    @EnvironmentObject var twitchData: TwitchData
+
+    @State var logs = [String]()
+    @Binding var showingLogs: Bool
     
-    var user: User
     var body: some View {
+        VStack{
         VStack {
             HStack{
                 VStack(alignment: .leading){
-                    Text("\(user.name)")
+                    Text("\(twitchData.user.name)")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.red)
                         .lineLimit(1)
                 }
                 Spacer()
-            }.padding(.horizontal)
+            }.padding()
             VStack(spacing: 10){
                 TextField("Your Twitch Client ID", text: $twitchClientID)
                 
@@ -53,11 +57,47 @@ struct SettingsView: View {
             }.padding(.horizontal)
             
         }
+            Divider()
+            VStack(alignment: .leading){
+                HStack{
+                    Text("Logs")
+                        .font(.title3.bold())
+                        .padding(.top, 5)
+                    Spacer()
+                    Image(systemName: showingLogs ? "chevron.up" : "chevron.down")
+                        .font(.title3.bold())
+                        .foregroundColor(.blue)
+                        .padding(5)
+                        .background(Color.blue.opacity(0.25))
+                        .cornerRadius(5)
+                        .padding(.trailing)
+                        .onTapGesture {
+                            withAnimation {
+                                showingLogs.toggle()
+                            }
+                        }
+                }
+                Spacer()
+                Group{
+                    if showingLogs{
+                    ScrollView{
+                        VStack(alignment: .leading){
+
+                            ForEach(twitchData.logs, id: \.self){log in
+                                LogText(text: log, color: .gray)
+                            }
+                        }
+                    }
+                    }
+                }
+            }.padding(.horizontal)
+        }
     }
 }
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(user: exampleUser)
+        SettingsView(showingLogs: .constant(true))
+            .environmentObject(TwitchData())
     }
 }

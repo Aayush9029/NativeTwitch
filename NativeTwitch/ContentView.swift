@@ -27,14 +27,18 @@ struct ContentView: View {
     
     var body: some View{
         Group{
-            if twitchData.status != .finished{
+            if twitchData.status != .streamLoaded{
                 Text("Loading Streams")
                     .font(.title)
                     .bold()
                     .foregroundColor(.gray.opacity(0.5))
-                    .onAppear(perform: {
-                        
-                    })
+                
+            }
+            if (twitchData.status == .streamLoaded && twitchData.getStreamData().count == 0) {
+                Text("All streams are offline :(")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.gray.opacity(0.5))
             }
             else{
                 VStack {

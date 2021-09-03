@@ -16,6 +16,7 @@
 		C26994882647486000B3DCF7 /* CleanButtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994872647486000B3DCF7 /* CleanButtton.swift */; };
 		C26FBE55264679F1006818AB /* TwitchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchData.swift */; };
 		C26FBE5A26467B26006818AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE5926467B26006818AB /* Constants.swift */; };
+		C271885726E273E2009C8002 /* LogText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271885626E273E2009C8002 /* LogText.swift */; };
 		C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */; };
 		C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCF126462B030038CFB5 /* ContentView.swift */; };
 		C2A7BCF426462B050038CFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF326462B050038CFB5 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		C26994872647486000B3DCF7 /* CleanButtton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanButtton.swift; sourceTree = "<group>"; };
 		C26FBE54264679F1006818AB /* TwitchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchData.swift; sourceTree = "<group>"; };
 		C26FBE5926467B26006818AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C271885626E273E2009C8002 /* LogText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogText.swift; sourceTree = "<group>"; };
 		C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeTwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchApp.swift; sourceTree = "<group>"; };
 		C2A7BCF126462B030038CFB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
 				C269948526472B6500B3DCF7 /* CustomImageStruct.swift */,
 				C26994872647486000B3DCF7 /* CleanButtton.swift */,
+				C271885626E273E2009C8002 /* LogText.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				C26994882647486000B3DCF7 /* CleanButtton.swift in Sources */,
 				C26FBE5A26467B26006818AB /* Constants.swift in Sources */,
+				C271885726E273E2009C8002 /* LogText.swift in Sources */,
 				C26FBE55264679F1006818AB /* TwitchData.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
