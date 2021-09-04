@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("twitchClientID") var twitchClientID = ""
-    @AppStorage("oauthToken") var oauthToken = ""
-    @AppStorage("streamlinkLocation") var streamlinkLocation = "/opt/homebrew/bin/streamlink"
+    @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
+    @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
+    @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
+    
     @EnvironmentObject var twitchData: TwitchDataViewModel
 
     @State var logs = [String]()

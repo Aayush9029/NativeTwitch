@@ -25,3 +25,9 @@ enum StatusStates: String {
     case streamLoaded = "Stream Has Been Loaded"
 }
 
+enum AppStorageStrings: String{
+    case clientID = "twitchClientID"
+    case oauthToken = "oauthToken"
+    case streamlinkLocation = "streamlinkLocation"
+    case showingInfo = "showingInfo"
+}

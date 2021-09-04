@@ -13,14 +13,14 @@ import SwiftyJSON
 class TwitchDataViewModel: ObservableObject{
     
     @Published var showingSettings: Bool = false
-    @AppStorage("showingInfo") var showingInfo: Bool = false
+    @AppStorage(AppStorageStrings.showingInfo.rawValue) var showingInfo: Bool = false
 
 //     Stores current responses and states if it's not something that's not expected
     @Published var logs = [String]()
 
-    @AppStorage("twitchClientID") var twitchClientID = ""
-    @AppStorage("oauthToken") var oauthToken = ""
-    @AppStorage("streamlinkLocation") var streamlinkLocation = "/opt/homebrew/bin/streamlink"
+    @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
+    @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
+    @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
     
     @Published var status: StatusStates
     
