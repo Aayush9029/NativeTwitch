@@ -14,6 +14,7 @@
 
 import Foundation
 import SwiftUI
+
 struct ContentView: View {
     
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""

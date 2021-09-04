@@ -9,7 +9,7 @@ import SwiftUI
 import URLImage
 struct CustomImageOnline: View {
     
-    let url: URL
+    var url: URL
     
     init(url: URL) {
         self.url = url
