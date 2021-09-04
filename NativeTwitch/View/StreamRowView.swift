@@ -12,8 +12,11 @@ import SwiftyJSON
 struct StreamRowView: View {
     var stream: Stream
     var const: Constants
-    @State private var hovered = false
     
+//    For More Info Settings (Command + i) *Will migrate to Settings View Model Later?* *maybe idk*
+    @EnvironmentObject var twitchData: TwitchDataViewModel
+    
+    @State private var hovered = false
     @State var stream_logo: URL
     
     var body: some View {
@@ -43,9 +46,19 @@ struct StreamRowView: View {
                     }
                     HStack {
                         Text(stream.title)
-                            .lineLimit(1)
+                            .font(.caption2)
+                            .lineLimit(twitchData.showingInfo ? 3: 1)
                             .foregroundColor(.gray)
                         Spacer()
+                    }
+                    if twitchData.showingInfo{
+                        HStack{
+                            Text(stream.game_name)
+                                .lineLimit(1)
+                                .font(.caption)
+                                .foregroundColor(.red.opacity(0.75))
+                            Spacer()
+                        }
                     }
                 }
                 
@@ -60,17 +73,12 @@ struct StreamRowView: View {
                     .shadow(color: hovered ?.blue : .blue.opacity(0), radius: 10)
                  
         )
-        .onHover { isHovered in
-            self.hovered = isHovered
-        }
+        .onHover { isHovered in self.hovered = isHovered }
         .padding(.horizontal, 10)
-        
-        //        .
         .animation(.default, value: hovered)
-        
-        
         .onAppear(perform: {
-            DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
+//            A hacky way of loading logo once the view appears
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 getUserLogo()
             })
         })

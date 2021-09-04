@@ -12,6 +12,7 @@ struct NativeTwitchApp: App {
     @State var hightLightWarnings = false
     @StateObject var twitchData =  TwitchDataViewModel()
     @State var showingLogs = false
+    
 
     var body: some Scene {
         WindowGroup {
