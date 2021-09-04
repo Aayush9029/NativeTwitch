@@ -20,7 +20,7 @@ struct ContentView: View {
     @AppStorage("oauthToken") var oauthToken = ""
     @AppStorage("streamlinkLocation") var streamlinkLocation = "/opt/homebrew/bin/streamlink"
     
-    @EnvironmentObject var twitchData: TwitchData
+    @EnvironmentObject var twitchData: TwitchDataViewModel
     
     @State var streams : [Stream] = []
     
@@ -47,7 +47,14 @@ struct ContentView: View {
                             StreamRowView(stream: stream, const: Constants(twitchClientID: twitchClientID, oauthToken: oauthToken, streamlinkLocation: streamlinkLocation), stream_logo:  URL(string: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")!)
                                 .contextMenu(ContextMenu(menuItems: {
                                     Button(action: {
-                                        print(shell("ttvQT () { open -a \"quicktime player\" $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(stream.user_name)"))
+                                        let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(stream.user_name)")
+                                        if shell_out.isEmpty{
+                                            twitchData.addToLogs(response: "\(streamlinkLocation):🎉 Success 🎉")
+                                        }else{
+                                            twitchData.addToLogs(response: shell_out)
+                                            twitchData.addToLogs(response: "BIG FAIL 😩 @ \(streamlinkLocation)")
+                                            twitchData.addToLogs(response: shell("which streamlink"))
+                                        }
                                     }, label: {
                                         Text("Play")
                                     })

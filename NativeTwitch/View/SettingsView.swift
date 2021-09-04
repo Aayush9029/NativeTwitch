@@ -11,7 +11,7 @@ struct SettingsView: View {
     @AppStorage("twitchClientID") var twitchClientID = ""
     @AppStorage("oauthToken") var oauthToken = ""
     @AppStorage("streamlinkLocation") var streamlinkLocation = "/opt/homebrew/bin/streamlink"
-    @EnvironmentObject var twitchData: TwitchData
+    @EnvironmentObject var twitchData: TwitchDataViewModel
 
     @State var logs = [String]()
     @Binding var showingLogs: Bool
@@ -98,6 +98,6 @@ struct SettingsView: View {
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(showingLogs: .constant(true))
-            .environmentObject(TwitchData())
+            .environmentObject(TwitchDataViewModel())
     }
 }

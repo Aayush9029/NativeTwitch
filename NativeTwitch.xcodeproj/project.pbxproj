@@ -14,9 +14,11 @@
 		C269948426472A4100B3DCF7 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = C269948326472A4100B3DCF7 /* URLImage */; };
 		C269948626472B6500B3DCF7 /* CustomImageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269948526472B6500B3DCF7 /* CustomImageStruct.swift */; };
 		C26994882647486000B3DCF7 /* CleanButtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994872647486000B3DCF7 /* CleanButtton.swift */; };
-		C26FBE55264679F1006818AB /* TwitchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchData.swift */; };
+		C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */; };
 		C26FBE5A26467B26006818AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE5926467B26006818AB /* Constants.swift */; };
 		C271885726E273E2009C8002 /* LogText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271885626E273E2009C8002 /* LogText.swift */; };
+		C2948E1926E424FC001EABC0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1826E424FC001EABC0 /* Stream.swift */; };
+		C2948E1B26E4250A001EABC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1A26E4250A001EABC0 /* User.swift */; };
 		C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */; };
 		C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCF126462B030038CFB5 /* ContentView.swift */; };
 		C2A7BCF426462B050038CFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF326462B050038CFB5 /* Assets.xcassets */; };
@@ -28,9 +30,11 @@
 		C26994802647255000B3DCF7 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
 		C269948526472B6500B3DCF7 /* CustomImageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageStruct.swift; sourceTree = "<group>"; };
 		C26994872647486000B3DCF7 /* CleanButtton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanButtton.swift; sourceTree = "<group>"; };
-		C26FBE54264679F1006818AB /* TwitchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchData.swift; sourceTree = "<group>"; };
+		C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchDataViewModel.swift; sourceTree = "<group>"; };
 		C26FBE5926467B26006818AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C271885626E273E2009C8002 /* LogText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogText.swift; sourceTree = "<group>"; };
+		C2948E1826E424FC001EABC0 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		C2948E1A26E4250A001EABC0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeTwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchApp.swift; sourceTree = "<group>"; };
 		C2A7BCF126462B030038CFB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2948E1726E424F0001EABC0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		C2A7BCE326462B030038CFB5 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +91,7 @@
 				C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */,
 				C2A7BCF126462B030038CFB5 /* ContentView.swift */,
 				C2A7BD1C26462B320038CFB5 /* View */,
+				C2948E1726E424F0001EABC0 /* View Model */,
 				C2A7BD1B26462B2C0038CFB5 /* Model */,
 				C2A7BCF326462B050038CFB5 /* Assets.xcassets */,
 				C2A7BCF826462B050038CFB5 /* Info.plist */,
@@ -108,8 +121,9 @@
 		C2A7BD1B26462B2C0038CFB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C26FBE54264679F1006818AB /* TwitchData.swift */,
 				C26FBE5926467B26006818AB /* Constants.swift */,
+				C2948E1826E424FC001EABC0 /* Stream.swift */,
+				C2948E1A26E4250A001EABC0 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,12 +222,14 @@
 				C26994882647486000B3DCF7 /* CleanButtton.swift in Sources */,
 				C26FBE5A26467B26006818AB /* Constants.swift in Sources */,
 				C271885726E273E2009C8002 /* LogText.swift in Sources */,
-				C26FBE55264679F1006818AB /* TwitchData.swift in Sources */,
+				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
 				C269948626472B6500B3DCF7 /* CustomImageStruct.swift in Sources */,
 				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
+				C2948E1926E424FC001EABC0 /* Stream.swift in Sources */,
+				C2948E1B26E4250A001EABC0 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

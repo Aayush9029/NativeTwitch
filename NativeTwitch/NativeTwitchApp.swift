@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct NativeTwitchApp: App {
     @State var hightLightWarnings = false
-    @StateObject var twitchData =  TwitchData()
+    @StateObject var twitchData =  TwitchDataViewModel()
     @State var showingLogs = false
 
     var body: some Scene {
@@ -31,6 +31,14 @@ struct NativeTwitchApp: App {
                     }
                     .keyboardShortcut("r", modifiers: .command)
                     Divider()
+                    Button("Show Info") {
+                        withAnimation {
+                            withAnimation {
+                                twitchData.showingInfo.toggle()
+                            }
+                        }
+                    }
+                    .keyboardShortcut("i", modifiers: .command)
                 }
             }
         }

@@ -14,8 +14,8 @@
             filePath = "NativeTwitch/Model/TwitchData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "addToLogs(response:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -10,11 +10,11 @@ import Alamofire
 import SwiftyJSON
 
 
-class TwitchData: ObservableObject{
+class TwitchDataViewModel: ObservableObject{
     
-    //    VIEW MODEL CODE: App is too small to make a seperate viewmodel file
     @Published var showingSettings: Bool = false
-    
+    @Published var showingInfo: Bool = false
+
 //     Stores current responses and states if it's not something that's not expected
     @Published var logs = [String]()
 
