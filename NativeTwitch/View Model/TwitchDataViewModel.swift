@@ -13,7 +13,7 @@ import SwiftyJSON
 class TwitchDataViewModel: ObservableObject{
     
     @Published var showingSettings: Bool = false
-    @Published var showingInfo: Bool = false
+    @AppStorage("showingInfo") var showingInfo: Bool = false
 
 //     Stores current responses and states if it's not something that's not expected
     @Published var logs = [String]()

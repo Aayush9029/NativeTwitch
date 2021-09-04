@@ -46,7 +46,7 @@ struct StreamRowView: View {
                     }
                     HStack {
                         Text(stream.title)
-                            .font(.caption2)
+                            .font(.caption)
                             .lineLimit(twitchData.showingInfo ? 3: 1)
                             .foregroundColor(.gray)
                         Spacer()
@@ -61,7 +61,6 @@ struct StreamRowView: View {
                         }
                     }
                 }
-                
             }
         }
         .padding(.vertical, 10)
@@ -71,7 +70,6 @@ struct StreamRowView: View {
         .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(hovered ? Color.blue : .gray.opacity(0.25), lineWidth: 2)
                     .shadow(color: hovered ?.blue : .blue.opacity(0), radius: 10)
-                 
         )
         .onHover { isHovered in self.hovered = isHovered }
         .padding(.horizontal, 10)
