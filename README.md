@@ -13,7 +13,7 @@ App Screenshots
 
 ### How to install?
 
-1. [Download the Universal Binary from releases page](https://github.com/Aayush9029/NativeTwitch/releases/download/v0.30/NativeTwitch.app.zip)
+1. [Download the Universal Binary from releases page](https://github.com/Aayush9029/NativeTwitch/releases/download/v4.0/NativeTwitch.app.zip)
 2. Install [streamlink](https://github.com/streamlink/streamlink) via ```brew install streamlink```
 3. Open App, Press *command + r* or open app preferences
 3. Generate ClientID and Access Token via [twitchtokengenerator.com](https://twitchtokengenerator.com/quick/NIaMdzGYBR)
