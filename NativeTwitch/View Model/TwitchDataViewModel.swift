@@ -21,7 +21,8 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
-    
+    @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
+
     @Published var status: StatusStates
     
     var user: User
@@ -155,4 +156,59 @@ class TwitchDataViewModel: ObservableObject{
         return self.streams
     }
     
+    func watchStream(streamLinkLocation: String, streamerUsername: String, customIINAEnabled: Bool = false){
+        if (iinaEnabled || customIINAEnabled){
+
+            //            There is no output to validate (if it worked with quicktime and you have IINA installed it should work with IINA.
+            let _ = shell("ttvQT () { open -a iina $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
+            addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉")
+            return
+        }else{
+            let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
+            if shell_out.isEmpty{ addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉"); return } else{
+                addToLogs(response: shell_out);  addToLogs(response: "BIG FAIL 😩 @ \(streamLinkLocation)")
+            }
+        }
+        addToLogs(response: shell("which streamlink"))
+    }
+    
+    
+    func copyLogsToClipboard(redacted: Bool = true){
+        var logsText = ""
+        for log in logs {
+            logsText += log
+            logsText += "\n"
+        }
+        if redacted {
+            logsText = logsText.replacingOccurrences(of: user.client_id, with: "********CLIENTID*****")
+            logsText = logsText.replacingOccurrences(of: user.oauthToken, with: "********OAUTHTOKEN*****")
+            logsText = logsText.replacingOccurrences(of: user.name, with: "*******USERNAME********")
+            logsText = logsText.replacingOccurrences(of: user.user_id, with: "*******USER_ID********")
+        }
+        
+        let pasteBoard = NSPasteboard.general
+        pasteBoard.clearContents()
+        pasteBoard.setString(logsText, forType: .string)
+
+    }
+}
+
+
+extension TwitchDataViewModel{
+    private func copyToClipBoard(textToCopy: String) {
+    }
+    func shell(_ command: String) -> String {
+        let task = Process()
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.standardError = pipe
+        task.arguments = ["-c", command]
+        task.launchPath = "/bin/zsh"
+        task.launch()
+        
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: .utf8)!
+        
+        return output
+    }
 }

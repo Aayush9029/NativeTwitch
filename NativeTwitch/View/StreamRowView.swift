@@ -17,7 +17,7 @@ struct StreamRowView: View {
     @EnvironmentObject var twitchData: TwitchDataViewModel
     
     @State private var hovered = false
-    @State var stream_logo: URL
+    @State var stream_logo: URL?
     
     var body: some View {
         VStack{
@@ -25,7 +25,8 @@ struct StreamRowView: View {
                 AsyncImage(url: stream_logo) { image in
                     image.resizable()
                 } placeholder: {
-                    ProgressView()
+                   Image("streamer-image-placeholder")
+                        .resizable()
                 } .frame(width: 45, height: 45)
                     .clipShape(Circle())
                     .overlay(
@@ -72,7 +73,7 @@ struct StreamRowView: View {
         .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(hovered ? Color.blue : .gray.opacity(0.25), lineWidth: 2)
-                    .shadow(color: hovered ?.blue : .blue.opacity(0), radius: 10)
+                    .shadow(color: hovered ?.blue : .clear, radius: 10)
         )
         .onHover { isHovered in self.hovered = isHovered }
         .padding(.horizontal, 10)
@@ -110,28 +111,4 @@ extension StreamRowView{
     }
     
     
-}
-
-extension Double {
-    var shortStringRepresentation: String {
-        if self.isNaN {
-            return "NaN"
-        }
-        if self.isInfinite {
-            return "\(self < 0.0 ? "-" : "+")Infinity"
-        }
-        let units = ["", "k", "M"]
-        var interval = self
-        var i = 0
-        while i < units.count - 1 {
-            if abs(interval) < 1000.0 {
-                break
-            }
-            i += 1
-            interval /= 1000.0
-        }
-        // + 2 to have one digit after the comma, + 1 to not have any.
-        // Remove the * and the number of digits argument to display all the digits after the comma.
-        return "\(String(format: "%0.*g", Int(log10(abs(interval))) + 2, interval))\(units[i])"
-    }
 }

@@ -20,6 +20,9 @@
 		C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCF126462B030038CFB5 /* ContentView.swift */; };
 		C2A7BCF426462B050038CFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF326462B050038CFB5 /* Assets.xcassets */; };
 		C2A7BCF726462B050038CFB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF626462B050038CFB5 /* Preview Assets.xcassets */; };
+		C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D6272A3F54005C6858 /* Double+Extension.swift */; };
+		C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */; };
+		C2E360DB272A3FBB005C6858 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		C2A7BCF926462B050038CFB5 /* NativeTwitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeTwitch.entitlements; sourceTree = "<group>"; };
 		C2A7BD0226462B050038CFB5 /* NativeTwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchTests.swift; sourceTree = "<group>"; };
 		C2A7BD0426462B050038CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2E360D6272A3F54005C6858 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
+		C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 			children = (
 				C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */,
 				C2A7BCF126462B030038CFB5 /* ContentView.swift */,
+				C2E360D5272A3F43005C6858 /* Extensions */,
 				C2A7BD1C26462B320038CFB5 /* View */,
 				C2948E1726E424F0001EABC0 /* View Model */,
 				C2A7BD1B26462B2C0038CFB5 /* Model */,
@@ -125,11 +132,21 @@
 		C2A7BD1C26462B320038CFB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */,
 				C269947C2647251D00B3DCF7 /* SettingsView.swift */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
 				C271885626E273E2009C8002 /* LogText.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C2E360D5272A3F43005C6858 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2E360D6272A3F54005C6858 /* Double+Extension.swift */,
+				C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +230,12 @@
 				C271885726E273E2009C8002 /* LogText.swift in Sources */,
 				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
+				C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */,
+				C2E360DB272A3FBB005C6858 /* VisualEffectView.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
 				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
+				C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */,
 				C2948E1926E424FC001EABC0 /* Stream.swift in Sources */,
 				C2948E1B26E4250A001EABC0 /* User.swift in Sources */,
 			);

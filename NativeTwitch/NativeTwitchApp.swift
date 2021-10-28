@@ -18,9 +18,9 @@ struct NativeTwitchApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(twitchData)
-                .frame(width: 300, height: 420)
+                .frame(width: 320, height: 420)
         }
-        .windowStyle(HiddenTitleBarWindowStyle())
+        .windowStyle(.hiddenTitleBar)
         .commands {
             CommandMenu("Actions") {
                 VStack{
@@ -44,34 +44,13 @@ struct NativeTwitchApp: App {
             }
         }
         Settings {
-            SettingsView(showingLogs: $showingLogs).background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
+            SettingsView(showingLogs: $showingLogs)
                 .environmentObject(twitchData)
-                .frame(width: 300, height: showingLogs ? 500: 270)
+                .background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
+                .frame(width: 320, height: showingLogs ? 650: 400)
             .fixedSize()
         }
 
     }
 }
 
-
-
-struct VisualEffectView: NSViewRepresentable
-{
-    let material: NSVisualEffectView.Material
-    let blendingMode: NSVisualEffectView.BlendingMode
-    
-    func makeNSView(context: Context) -> NSVisualEffectView
-    {
-        let visualEffectView = NSVisualEffectView()
-        visualEffectView.material = material
-        visualEffectView.blendingMode = blendingMode
-        visualEffectView.state = NSVisualEffectView.State.active
-        return visualEffectView
-    }
-
-    func updateNSView(_ visualEffectView: NSVisualEffectView, context: Context)
-    {
-        visualEffectView.material = material
-        visualEffectView.blendingMode = blendingMode
-    }
-}

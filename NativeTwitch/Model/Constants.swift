@@ -30,4 +30,7 @@ enum AppStorageStrings: String{
     case oauthToken = "oauthToken"
     case streamlinkLocation = "streamlinkLocation"
     case showingInfo = "showingInfo"
+    case iinaLocation = "IINA location (optional)"
+    case iinaEnabled = "Enable IINA"
+
 }
