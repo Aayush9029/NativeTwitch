@@ -197,7 +197,9 @@ class AutoUpdater: ObservableObject {
         
         // Parse the JSON data
         let result = try JSONDecoder().decode(UpdateModel.self, from: data)
-    
+        DispatchQueue.main.sync {
+            self.updates = result
+        }
         return result
     }
     
