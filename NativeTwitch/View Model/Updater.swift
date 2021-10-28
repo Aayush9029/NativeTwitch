@@ -5,4 +5,18 @@
 //  Created by Aayush Pokharel on 2021-10-27.
 //
 
-import Foundation
+import SwiftUI
+
+
+class AutoUpdater: ObservableObject{
+    
+    
+    
+    
+    
+    
+    func currentBuildNumber() -> Int{
+    return 0
+    }
+    
+}
