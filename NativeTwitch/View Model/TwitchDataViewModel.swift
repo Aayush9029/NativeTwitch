@@ -22,7 +22,7 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
-    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/Autoupdate/version.json"
+    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
 
     @Published var status: StatusStates
     

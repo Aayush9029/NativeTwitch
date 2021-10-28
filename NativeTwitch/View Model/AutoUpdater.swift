@@ -13,13 +13,12 @@ class AutoUpdater: ObservableObject {
     @Published var updates = exampleUpdateModel
     @Published var status: UpdateStatus = .none
     @Published var showingRestartAlert: Bool = false
-    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/Autoupdate/version.json"
+    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
 
 
     enum UpdateFetcherError: Error {
         case invalidURL
         case missingData
-        
         case unzipError
     }
     
@@ -34,7 +33,7 @@ class AutoUpdater: ObservableObject {
         case downloaded = "Updates Downloaded ✅"
         
         case installing = "Installing Updates"
-        case installFailed = "Failed to install the updates ❌"
+        case installFailed = "Failed to install the updates (unzip)❌"
         case done = "Done Installing Updates ✅."
     }
     
@@ -49,7 +48,7 @@ class AutoUpdater: ObservableObject {
             do {
                 let updates = try await fetchRemoteVersion()
                 if let currentBuildNumber = getCurrentBuildNumber() {
-                    if currentBuildNumber < Double(updates.build){
+                    if Double(updates.build) > currentBuildNumber {
                         DispatchQueue.main.sync {
                             self.status = .yesUpdates
                             print("New updates is avaiable")
@@ -145,11 +144,12 @@ class AutoUpdater: ObservableObject {
             }
             
             do{
-                try! self.installApp(for: path!)
+//                throws unzip error no plans on using that yet.. global catch should suffice
+                try self.installApp(for: path!)
             }catch{
                 print("ERROR UNZIPPING / Installing App")
                 DispatchQueue.main.sync {
-                    self.status = .failed
+                    self.status = .installFailed
                 }
             }
         }
