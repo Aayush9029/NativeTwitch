@@ -12,8 +12,7 @@ class AutoUpdater: ObservableObject {
     
     @Published var updates = exampleUpdateModel
     @Published var status: UpdateStatus = .none
-    
-
+    @Published var showingRestartAlert: Bool = false
     
     enum UpdateFetcherError: Error {
         case invalidURL
@@ -44,46 +43,17 @@ class AutoUpdater: ObservableObject {
     
     
     func checkForUpdates(){
-
         Task{
             do {
                 let updates = try await fetchRemoteVersion()
                 if let currentBuildNumber = getCurrentBuildNumber() {
                     if currentBuildNumber > Double(updates.build){
-                        print("New version found updating...")
                         DispatchQueue.main.sync {
                             self.status = .yesUpdates
+                            print("New updates is avaiable")
                         }
-                        let url = URL(string: updates.downloadlink)
-                        DispatchQueue.main.sync {
-                            self.status = .downloading
-                        }
-                        AutoUpdater.loadFileAsync(url: url!) { (path, error) in
-                            if let _ = error {
-                                self.status = .errorDownloading
-                            }
-                            print("Zip File downloaded to : \(path!)")
-                            DispatchQueue.main.sync {
-                                self.status = .downloaded
-                            }
-                            
-                            print("Unzipping folder")
-                            DispatchQueue.main.sync {
-                                self.status = .installing
-                            }
-
-                            do{
-                                let unzipppedPath = try? self.unzipFolder(for: path!)
-                                print(unzipppedPath?.absoluteURL)
-
-                            }catch{
-                                print("ERROR UNZIPPING / Installing App")
-                                DispatchQueue.main.sync {
-                                    self.status = .failed
-                                }
-                            }
-                        }
-                    }else{
+                    }
+                    else{
                         print("Current version is the latest one")
                         self.status = .noUpdates
                     }
@@ -147,7 +117,42 @@ class AutoUpdater: ObservableObject {
         }
     }
     
-    func unzipFolder(for path: String) throws  -> URL{
+    func downloadAndInstall(){
+        print("New version found updating...")
+        DispatchQueue.main.sync {
+            self.status = .yesUpdates
+        }
+        
+        let url = URL(string: updates.downloadlink)
+        DispatchQueue.main.sync {
+            self.status = .downloading
+        }
+        AutoUpdater.loadFileAsync(url: url!) { (path, error) in
+            if let _ = error {
+                self.status = .errorDownloading
+            }
+            print("Zip File downloaded to : \(path!)")
+            DispatchQueue.main.sync {
+                self.status = .downloaded
+            }
+            
+            print("Unzipping folder")
+            DispatchQueue.main.sync {
+                self.status = .installing
+            }
+            
+            do{
+                try self.installApp(for: path!)
+            }catch{
+                print("ERROR UNZIPPING / Installing App")
+                DispatchQueue.main.sync {
+                    self.status = .failed
+                }
+            }
+        }
+    }
+    
+    func installApp(for path: String) throws{
         if let url = URL(string: path){
             do {
                 let filePath = url
@@ -155,17 +160,15 @@ class AutoUpdater: ObservableObject {
                 let installedPath = unzipDirectory.appendingPathComponent("NativeTwitch.app").absoluteString.replacingOccurrences(of: "file:///", with: "/")
                 print("Deleting the old App  @ \(installedPath)")
                 try? FileManager().removeItem( atPath: installedPath)
-
+                
                 print("Unzipping file @ \(Constants.installDir)")
                 try Zip.unzipFile(filePath, destination: unzipDirectory, overwrite: false, password: nil, progress: {
                     (progress: Double) -> () in
                     // print("Unzip progress: \(progress)\n")
-//                    We don't need this file is only 4 mb maybe in future
+                    //                    We don't need this file is only 4 mb maybe in future
                 })
                 print("Deleting the zip file @ \(filePath)")
                 try? FileManager().removeItem(atPath: filePath.absoluteString)
-                
-                return unzipDirectory
             }
             catch {
                 throw UpdateFetcherError.unzipError

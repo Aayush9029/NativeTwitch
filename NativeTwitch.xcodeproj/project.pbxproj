@@ -30,6 +30,7 @@
 		C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E5272A5527005C6858 /* UpdateInfoView.swift */; };
 		C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E8272A5AA5005C6858 /* NeatButton.swift */; };
 		C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = C2E4CE9F272B068900EAC8BB /* Zip */; };
+		C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		C2E360E2272A536A005C6858 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C2E360E5272A5527005C6858 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
 		C2E360E8272A5AA5005C6858 /* NeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatButton.swift; sourceTree = "<group>"; };
+		C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				C2E360D6272A3F54005C6858 /* Double+Extension.swift */,
 				C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */,
 				C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */,
+				C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				C26FBE5A26467B26006818AB /* Constants.swift in Sources */,
 				C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */,
 				C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */,
+				C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */,
 				C271885726E273E2009C8002 /* LogText.swift in Sources */,
 				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
