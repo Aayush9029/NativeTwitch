@@ -11,8 +11,6 @@
 		C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C269947026470C1400B3DCF7 /* SwiftyJSON */; };
 		C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269947C2647251D00B3DCF7 /* SettingsView.swift */; };
 		C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994802647255000B3DCF7 /* StreamRowView.swift */; };
-		C269948426472A4100B3DCF7 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = C269948326472A4100B3DCF7 /* URLImage */; };
-		C269948626472B6500B3DCF7 /* CustomImageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269948526472B6500B3DCF7 /* CustomImageStruct.swift */; };
 		C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */; };
 		C26FBE5A26467B26006818AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE5926467B26006818AB /* Constants.swift */; };
 		C271885726E273E2009C8002 /* LogText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271885626E273E2009C8002 /* LogText.swift */; };
@@ -27,7 +25,6 @@
 /* Begin PBXFileReference section */
 		C269947C2647251D00B3DCF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C26994802647255000B3DCF7 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
-		C269948526472B6500B3DCF7 /* CustomImageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageStruct.swift; sourceTree = "<group>"; };
 		C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchDataViewModel.swift; sourceTree = "<group>"; };
 		C26FBE5926467B26006818AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C271885626E273E2009C8002 /* LogText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogText.swift; sourceTree = "<group>"; };
@@ -50,7 +47,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */,
-				C269948426472A4100B3DCF7 /* URLImage in Frameworks */,
 				C269946E2647088900B3DCF7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +127,6 @@
 			children = (
 				C269947C2647251D00B3DCF7 /* SettingsView.swift */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
-				C269948526472B6500B3DCF7 /* CustomImageStruct.swift */,
 				C271885626E273E2009C8002 /* LogText.swift */,
 			);
 			path = View;
@@ -156,7 +151,6 @@
 			packageProductDependencies = (
 				C269946D2647088900B3DCF7 /* Alamofire */,
 				C269947026470C1400B3DCF7 /* SwiftyJSON */,
-				C269948326472A4100B3DCF7 /* URLImage */,
 			);
 			productName = NativeTwitch;
 			productReference = C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */;
@@ -188,7 +182,6 @@
 			packageReferences = (
 				C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				C269948226472A4100B3DCF7 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = C2A7BCED26462B030038CFB5 /* Products */;
 			projectDirPath = "";
@@ -221,7 +214,6 @@
 				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
-				C269948626472B6500B3DCF7 /* CustomImageStruct.swift in Sources */,
 				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
 				C2948E1926E424FC001EABC0 /* Stream.swift in Sources */,
@@ -366,7 +358,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,7 +385,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,14 +433,6 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		C269948226472A4100B3DCF7 /* XCRemoteSwiftPackageReference "url-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.5;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -461,11 +445,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
-		};
-		C269948326472A4100B3DCF7 /* URLImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C269948226472A4100B3DCF7 /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

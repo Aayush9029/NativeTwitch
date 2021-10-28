@@ -13,7 +13,7 @@ struct StreamRowView: View {
     var stream: Stream
     var const: Constants
     
-//    For More Info Settings (Command + i) *Will migrate to Settings View Model Later?* *maybe idk*
+    //    For More Info Settings (Command + i) *Will migrate to Settings View Model Later?* *maybe idk*
     @EnvironmentObject var twitchData: TwitchDataViewModel
     
     @State private var hovered = false
@@ -22,8 +22,11 @@ struct StreamRowView: View {
     var body: some View {
         VStack{
             HStack{
-                CustomImageOnline(url: stream_logo)
-                    .frame(width: 45, height: 45)
+                AsyncImage(url: stream_logo) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                } .frame(width: 45, height: 45)
                     .clipShape(Circle())
                     .overlay(
                         Circle()
@@ -75,7 +78,7 @@ struct StreamRowView: View {
         .padding(.horizontal, 10)
         .animation(.default, value: hovered)
         .onAppear(perform: {
-//            A hacky way of loading logo once the view appears
+            //            A hacky way of loading logo once the view appears
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 getUserLogo()
             })

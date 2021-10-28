@@ -18,7 +18,7 @@ struct NativeTwitchApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(twitchData)
-                .frame(width: 300, height: 400)
+                .frame(width: 300, height: 420)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
         .commands {
