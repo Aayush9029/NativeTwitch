@@ -22,6 +22,7 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
+    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/Autoupdate/version.json"
 
     @Published var status: StatusStates
     
@@ -141,11 +142,16 @@ class TwitchDataViewModel: ObservableObject{
         }
     }
     
-    func addToLogs(response: String? = nil){
-        logs.append("\(Date()) | \(self.status.rawValue)")
-        if response != nil{
-            logs.append("response: \(response!)\n")
+    func addToLogs(response: String? = nil, hidestatus: Bool? = false){
+        if hidestatus != false{
+            logs.append("\(Date()) | \(response ?? "")")
+        }else{
+            logs.append("\(Date()) | \(self.status.rawValue)")
+            if response != nil{
+                logs.append("response: \(response!)\n")
+            }
         }
+
     }
     
     func getUserData() -> User{

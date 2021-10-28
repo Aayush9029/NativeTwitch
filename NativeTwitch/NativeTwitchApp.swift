@@ -12,7 +12,6 @@ struct NativeTwitchApp: App {
     @StateObject var twitchData =  TwitchDataViewModel()
     @StateObject var updater =  AutoUpdater()
 
-    @State var showingUpdateView = false
 
     @State var showingLogs = false
     @State var hightLightWarnings = false
@@ -25,13 +24,16 @@ struct NativeTwitchApp: App {
                 .frame(width: 320, height: 420)
                 .task {
                     updater.checkForUpdates()
-                    showingUpdateView = (updater.status == .yesUpdates)
+                }
+                .onChange(of: updater.status, perform: { newValue in
+                    if (updater.status == .yesUpdates){
                     UpdateInfoView(update: updater.updates)
                         .environmentObject(updater)
                         .background(VisualEffectView(material: NSVisualEffectView.Material.hudWindow, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
                         .openNewWindow(with: "New Update Available")
-
-                }
+                    }
+                    twitchData.addToLogs(response: updater.status.rawValue, hidestatus: true)
+                })
                 .alert(Text("Restart app to finish update"), isPresented: $updater.showingRestartAlert) {
                     HStack{
                         Button("ok"){

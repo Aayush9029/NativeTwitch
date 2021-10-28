@@ -37,4 +37,5 @@ enum AppStorageStrings: String{
     case iinaLocation = "IINA location (optional)"
     case iinaEnabled = "Enable IINA"
     case tmpDirectory = "Temporary Updates Download Directory"
+    case remoteUpdateJson = "URL Remote Version"
 }

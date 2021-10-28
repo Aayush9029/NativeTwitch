@@ -48,6 +48,9 @@ struct SettingsView: View {
                     
                     TextField("Stream link Location", text: $streamlinkLocation)
                     
+                    Divider()
+                    TextField("Custom Update URL", text: $twitchData.remoteUpdateJson)
+
                 }.padding([.bottom])
                     .textFieldStyle(.roundedBorder)
                 
@@ -103,21 +106,13 @@ struct SettingsView: View {
                                 
                                 ForEach(twitchData.logs, id: \.self){log in
                                     LogText(text: log, color: .gray)
-                                }
+                                }                                        .id(UUID())
+
                             }
                         }
                     }
                 }
             }
         }.padding(.horizontal)
-    }
-}
-
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(showingLogs: .constant(false))
-            .environmentObject(TwitchDataViewModel())
-            .frame(width: 300, height: 670)
-        
     }
 }

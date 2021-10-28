@@ -13,7 +13,9 @@ class AutoUpdater: ObservableObject {
     @Published var updates = exampleUpdateModel
     @Published var status: UpdateStatus = .none
     @Published var showingRestartAlert: Bool = false
-    
+    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/Autoupdate/version.json"
+
+
     enum UpdateFetcherError: Error {
         case invalidURL
         case missingData
@@ -22,17 +24,18 @@ class AutoUpdater: ObservableObject {
     }
     
     enum UpdateStatus: String {
-        case none = "Nothing has happened yet"
-        case failed = "Update checking failed"
-        case noUpdates = "Current version is the latest version"
-        case yesUpdates = "Updates are available"
+        case none = "Nothing has happened yet "
+        case failed = "Update checking failed ❌"
+        case noUpdates = "Current version is the latest version ✅"
+        case yesUpdates = "Updates are available ✅"
         
-        case errorDownloading = "There was a error while downloading the zip file"
-        case downloading = "Downloading updates"
-        case downloaded = "Updates Downloaded"
+        case errorDownloading = "There was a error while downloading the zip file ❌"
+        case downloading = "Downloading updates ✅"
+        case downloaded = "Updates Downloaded ✅"
         
         case installing = "Installing Updates"
-        case done = "Done."
+        case installFailed = "Failed to install the updates ❌"
+        case done = "Done Installing Updates ✅."
     }
     
     
@@ -41,13 +44,12 @@ class AutoUpdater: ObservableObject {
     }
     
     
-    
     func checkForUpdates(){
         Task{
             do {
                 let updates = try await fetchRemoteVersion()
                 if let currentBuildNumber = getCurrentBuildNumber() {
-                    if currentBuildNumber > Double(updates.build){
+                    if currentBuildNumber < Double(updates.build){
                         DispatchQueue.main.sync {
                             self.status = .yesUpdates
                             print("New updates is avaiable")
@@ -55,12 +57,16 @@ class AutoUpdater: ObservableObject {
                     }
                     else{
                         print("Current version is the latest one")
-                        self.status = .noUpdates
+                        DispatchQueue.main.sync {
+                            self.status = .noUpdates
+                        }
                     }
                 }
             } catch {
-                print("Request failed with error: \(error)")
-                self.status = .failed
+                print("Request failed with error: \(error.localizedDescription)")
+                DispatchQueue.main.sync {
+                    self.status = .noUpdates
+                }
             }
             
         }
@@ -119,21 +125,18 @@ class AutoUpdater: ObservableObject {
     
     func downloadAndInstall(){
         print("New version found updating...")
-        DispatchQueue.main.sync {
-            self.status = .yesUpdates
-        }
+        self.status = .yesUpdates
+
         
         let url = URL(string: updates.downloadlink)
-        DispatchQueue.main.sync {
-            self.status = .downloading
-        }
+        self.status = .downloading
+
         AutoUpdater.loadFileAsync(url: url!) { (path, error) in
             if let _ = error {
                 self.status = .errorDownloading
             }
             print("Zip File downloaded to : \(path!)")
             DispatchQueue.main.sync {
-                self.status = .downloaded
             }
             
             print("Unzipping folder")
@@ -142,7 +145,7 @@ class AutoUpdater: ObservableObject {
             }
             
             do{
-                try self.installApp(for: path!)
+                try! self.installApp(for: path!)
             }catch{
                 print("ERROR UNZIPPING / Installing App")
                 DispatchQueue.main.sync {
@@ -169,17 +172,22 @@ class AutoUpdater: ObservableObject {
                 })
                 print("Deleting the zip file @ \(filePath)")
                 try? FileManager().removeItem(atPath: filePath.absoluteString)
+                DispatchQueue.main.sync {
+                    showingRestartAlert.toggle()
+                }
             }
             catch {
                 throw UpdateFetcherError.unzipError
             }
         }
-        throw UpdateFetcherError.unzipError
+        DispatchQueue.main.sync {
+            self.status = .done
+        }
     }
     
     func fetchRemoteVersion() async throws -> UpdateModel {
         
-        guard let url = URL(string: "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/Autoupdate/version.json") else {
+        guard let url = URL(string: remoteUpdateJson) else {
             throw UpdateFetcherError.invalidURL
         }
         
@@ -189,6 +197,7 @@ class AutoUpdater: ObservableObject {
         
         // Parse the JSON data
         let result = try JSONDecoder().decode(UpdateModel.self, from: data)
+    
         return result
     }
     

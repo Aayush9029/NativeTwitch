@@ -26,7 +26,6 @@
 		C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DC272A451A005C6858 /* AutoUpdater.swift */; };
 		C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DE272A4576005C6858 /* UpdateModel.swift */; };
 		C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */; };
-		C2E360E3272A536A005C6858 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E2272A536A005C6858 /* SettingsViewModel.swift */; };
 		C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E5272A5527005C6858 /* UpdateInfoView.swift */; };
 		C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E8272A5AA5005C6858 /* NeatButton.swift */; };
 		C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = C2E4CE9F272B068900EAC8BB /* Zip */; };
@@ -56,7 +55,6 @@
 		C2E360DC272A451A005C6858 /* AutoUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
 		C2E360DE272A4576005C6858 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
 		C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
-		C2E360E2272A536A005C6858 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C2E360E5272A5527005C6858 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
 		C2E360E8272A5AA5005C6858 /* NeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatButton.swift; sourceTree = "<group>"; };
 		C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			children = (
 				C2E360DC272A451A005C6858 /* AutoUpdater.swift */,
 				C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */,
-				C2E360E2272A536A005C6858 /* SettingsViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 				C2948E1926E424FC001EABC0 /* Stream.swift in Sources */,
 				C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */,
 				C2948E1B26E4250A001EABC0 /* User.swift in Sources */,
-				C2E360E3272A536A005C6858 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,11 +16,11 @@ struct UpdateInfoView: View {
                 Text("What's new in NativeTwitch \(update.version) build \(update.build)?")
                     .italic()
                 Spacer()
-                NeatButton(title: "Install Update", symbol: "arrow.down")
+                
+                NeatButton(title: autoUpdater.status != .yesUpdates ? "Installing updates": "Install Update", symbol: autoUpdater.status != .yesUpdates ? "bolt.fill" : "arrow.down")
                     .onTapGesture {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                            
-                            autoUpdater.showingRestartAlert.toggle()
+                        if autoUpdater.status == .yesUpdates{
+                            autoUpdater.downloadAndInstall()
                         }
                     }
                 
