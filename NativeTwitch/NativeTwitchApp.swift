@@ -9,25 +9,50 @@ import SwiftUI
 
 @main
 struct NativeTwitchApp: App {
-    @State var hightLightWarnings = false
     @StateObject var twitchData =  TwitchDataViewModel()
+    @StateObject var updater =  AutoUpdater()
+
+
     @State var showingLogs = false
-    
+    @State var hightLightWarnings = false
+
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(twitchData)
                 .frame(width: 320, height: 420)
+                .task {
+                    updater.checkForUpdates()
+                }
+                .onChange(of: updater.status, perform: { newValue in
+                    if (updater.status == .yesUpdates){
+                    UpdateInfoView(update: updater.updates)
+                        .environmentObject(updater)
+                        .background(VisualEffectView(material: NSVisualEffectView.Material.hudWindow, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
+                        .openNewWindow(with: "New Update Available")
+                    }
+                    twitchData.addToLogs(response: updater.status.rawValue, hidestatus: true)
+                })
+                .alert(Text("Restart app to finish update"), isPresented: $updater.showingRestartAlert) {
+                    HStack{
+                        Button("ok"){
+                            print("ok")
+                        }
+                    }
+                }
         }
         .windowStyle(.hiddenTitleBar)
+
         .commands {
             CommandMenu("Actions") {
                 VStack{
                     Button("Refresh") {
                         withAnimation {
                             withAnimation {
-                                twitchData.startFetch()                            }
+                                twitchData.startFetch()
+                                
+                            }
                         }
                     }
                     .keyboardShortcut("r", modifiers: .command)
@@ -50,7 +75,7 @@ struct NativeTwitchApp: App {
                 .frame(width: 320, height: showingLogs ? 650: 400)
             .fixedSize()
         }
-
+        
     }
 }
 

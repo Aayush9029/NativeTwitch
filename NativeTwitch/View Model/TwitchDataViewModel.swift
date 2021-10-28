@@ -22,6 +22,7 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
+    @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
 
     @Published var status: StatusStates
     
@@ -141,11 +142,16 @@ class TwitchDataViewModel: ObservableObject{
         }
     }
     
-    func addToLogs(response: String? = nil){
-        logs.append("\(Date()) | \(self.status.rawValue)")
-        if response != nil{
-            logs.append("response: \(response!)\n")
+    func addToLogs(response: String? = nil, hidestatus: Bool? = false){
+        if hidestatus != false{
+            logs.append("\(Date()) | \(response ?? "")")
+        }else{
+            logs.append("\(Date()) | \(self.status.rawValue)")
+            if response != nil{
+                logs.append("response: \(response!)\n")
+            }
         }
+
     }
     
     func getUserData() -> User{
@@ -194,21 +200,17 @@ class TwitchDataViewModel: ObservableObject{
 }
 
 
-extension TwitchDataViewModel{
-    private func copyToClipBoard(textToCopy: String) {
-    }
-    func shell(_ command: String) -> String {
-        let task = Process()
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.standardError = pipe
-        task.arguments = ["-c", command]
-        task.launchPath = "/bin/zsh"
-        task.launch()
-        
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)!
-        
-        return output
-    }
+func shell(_ command: String) -> String {
+    let task = Process()
+    let pipe = Pipe()
+    task.standardOutput = pipe
+    task.standardError = pipe
+    task.arguments = ["-c", command]
+    task.launchPath = "/bin/zsh"
+    task.launch()
+    
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    let output = String(data: data, encoding: .utf8)!
+    
+    return output
 }
