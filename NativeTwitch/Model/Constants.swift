@@ -5,11 +5,15 @@
 //  Created by Aayush Pokharel on 2021-05-08.
 //
 
+import Foundation
 
 struct Constants {
     let twitchClientID: String
     let oauthToken: String
     let streamlinkLocation: String
+    static let downloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let installDir = FileManager.default.urls(for: .applicationDirectory, in: .localDomainMask).first!
+
 }
 
 enum StatusStates: String {

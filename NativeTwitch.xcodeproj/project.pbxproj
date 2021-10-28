@@ -29,6 +29,7 @@
 		C2E360E3272A536A005C6858 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E2272A536A005C6858 /* SettingsViewModel.swift */; };
 		C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E5272A5527005C6858 /* UpdateInfoView.swift */; };
 		C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E8272A5AA5005C6858 /* NeatButton.swift */; };
+		C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = C2E4CE9F272B068900EAC8BB /* Zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */,
 				C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */,
 				C269946E2647088900B3DCF7 /* Alamofire in Frameworks */,
 			);
@@ -202,6 +204,7 @@
 			packageProductDependencies = (
 				C269946D2647088900B3DCF7 /* Alamofire */,
 				C269947026470C1400B3DCF7 /* SwiftyJSON */,
+				C2E4CE9F272B068900EAC8BB /* Zip */,
 			);
 			productName = NativeTwitch;
 			productReference = C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */;
@@ -233,6 +236,7 @@
 			packageReferences = (
 				C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = C2A7BCED26462B030038CFB5 /* Products */;
 			projectDirPath = "";
@@ -493,6 +497,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -505,6 +517,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		C2E4CE9F272B068900EAC8BB /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

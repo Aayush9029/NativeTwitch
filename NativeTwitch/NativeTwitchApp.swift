@@ -32,7 +32,9 @@ struct NativeTwitchApp: App {
                     Button("Refresh") {
                         withAnimation {
                             withAnimation {
-                                twitchData.startFetch()                            }
+                                twitchData.startFetch()
+                                
+                            }
                         }
                     }
                     .keyboardShortcut("r", modifiers: .command)
