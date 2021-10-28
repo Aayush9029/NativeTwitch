@@ -152,8 +152,12 @@ class AutoUpdater: ObservableObject {
             do {
                 let filePath = url
                 let unzipDirectory = Constants.installDir
+                let installedPath = unzipDirectory.appendingPathComponent("NativeTwitch.app").absoluteString.replacingOccurrences(of: "file:///", with: "/")
+                print("Deleting the old App  @ \(installedPath)")
+                try? FileManager().removeItem( atPath: installedPath)
+
                 print("Unzipping file @ \(Constants.installDir)")
-                try Zip.unzipFile(filePath, destination: unzipDirectory, overwrite: true, password: nil, progress: {
+                try Zip.unzipFile(filePath, destination: unzipDirectory, overwrite: false, password: nil, progress: {
                     (progress: Double) -> () in
                     // print("Unzip progress: \(progress)\n")
 //                    We don't need this file is only 4 mb maybe in future
