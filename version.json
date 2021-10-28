@@ -1,7 +1,7 @@
 {
     "published": "2021-10-27",
     "version": "1.0",
-    "build": 6,
+    "build": 5,
     "title": "Auto Update testing will this be rendered?",
     "mainfeature": "You can now play streams using IINA instead of Quicktime.",
     "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v4.0/NativeTwitch.app.zip",
