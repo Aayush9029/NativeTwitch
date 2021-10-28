@@ -48,6 +48,9 @@ struct SettingsView: View {
                     
                     TextField("Stream link Location", text: $streamlinkLocation)
                     
+                    Divider()
+                    TextField("Custom Update URL", text: $twitchData.remoteUpdateJson)
+
                 }.padding([.bottom])
                     .textFieldStyle(.roundedBorder)
                 
@@ -103,41 +106,13 @@ struct SettingsView: View {
                                 
                                 ForEach(twitchData.logs, id: \.self){log in
                                     LogText(text: log, color: .gray)
-                                }
+                                }                                        .id(UUID())
+
                             }
                         }
                     }
                 }
             }
         }.padding(.horizontal)
-    }
-}
-
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(showingLogs: .constant(false))
-            .environmentObject(TwitchDataViewModel())
-            .frame(width: 300, height: 670)
-        
-    }
-}
-
-struct NeatButton: View {
-    let title: String
-    let symbol: String
-    @State var isHoverd: Bool = false
-    var body: some View {
-        Group{
-            Label(title, systemImage: symbol)
-            .buttonStyle(.borderless)
-            .padding(8)
-            .background(isHoverd ? .ultraThickMaterial : .ultraThinMaterial)
-            .cornerRadius(8)
-            .shadow(color: isHoverd ? .red.opacity(0.25) : .clear, radius: 2)
-
-        }
-        .onHover { val in
-            isHoverd = val
-        }
     }
 }

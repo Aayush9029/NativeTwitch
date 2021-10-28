@@ -23,6 +23,13 @@
 		C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D6272A3F54005C6858 /* Double+Extension.swift */; };
 		C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */; };
 		C2E360DB272A3FBB005C6858 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */; };
+		C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DC272A451A005C6858 /* AutoUpdater.swift */; };
+		C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DE272A4576005C6858 /* UpdateModel.swift */; };
+		C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */; };
+		C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E5272A5527005C6858 /* UpdateInfoView.swift */; };
+		C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E8272A5AA5005C6858 /* NeatButton.swift */; };
+		C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = C2E4CE9F272B068900EAC8BB /* Zip */; };
+		C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +52,12 @@
 		C2E360D6272A3F54005C6858 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
 		C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		C2E360DC272A451A005C6858 /* AutoUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
+		C2E360DE272A4576005C6858 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
+		C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		C2E360E5272A5527005C6858 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
+		C2E360E8272A5AA5005C6858 /* NeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatButton.swift; sourceTree = "<group>"; };
+		C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */,
 				C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */,
 				C269946E2647088900B3DCF7 /* Alamofire in Frameworks */,
 			);
@@ -63,6 +77,7 @@
 		C2948E1726E424F0001EABC0 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2E360DC272A451A005C6858 /* AutoUpdater.swift */,
 				C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */,
 			);
 			path = "View Model";
@@ -122,6 +137,7 @@
 		C2A7BD1B26462B2C0038CFB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2E360DE272A4576005C6858 /* UpdateModel.swift */,
 				C26FBE5926467B26006818AB /* Constants.swift */,
 				C2948E1826E424FC001EABC0 /* Stream.swift */,
 				C2948E1A26E4250A001EABC0 /* User.swift */,
@@ -132,6 +148,8 @@
 		C2A7BD1C26462B320038CFB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2E360E7272A5A9A005C6858 /* SubViews */,
+				C2E360E4272A5508005C6858 /* UpdateView */,
 				C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */,
 				C269947C2647251D00B3DCF7 /* SettingsView.swift */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
@@ -145,8 +163,26 @@
 			children = (
 				C2E360D6272A3F54005C6858 /* Double+Extension.swift */,
 				C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */,
+				C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */,
+				C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C2E360E4272A5508005C6858 /* UpdateView */ = {
+			isa = PBXGroup;
+			children = (
+				C2E360E5272A5527005C6858 /* UpdateInfoView.swift */,
+			);
+			path = UpdateView;
+			sourceTree = "<group>";
+		};
+		C2E360E7272A5A9A005C6858 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				C2E360E8272A5AA5005C6858 /* NeatButton.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +204,7 @@
 			packageProductDependencies = (
 				C269946D2647088900B3DCF7 /* Alamofire */,
 				C269947026470C1400B3DCF7 /* SwiftyJSON */,
+				C2E4CE9F272B068900EAC8BB /* Zip */,
 			);
 			productName = NativeTwitch;
 			productReference = C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */;
@@ -199,6 +236,7 @@
 			packageReferences = (
 				C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = C2A7BCED26462B030038CFB5 /* Products */;
 			projectDirPath = "";
@@ -227,6 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26FBE5A26467B26006818AB /* Constants.swift in Sources */,
+				C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */,
+				C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */,
+				C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */,
 				C271885726E273E2009C8002 /* LogText.swift in Sources */,
 				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
@@ -234,9 +275,12 @@
 				C2E360DB272A3FBB005C6858 /* VisualEffectView.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
 				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
+				C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */,
+				C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
 				C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */,
 				C2948E1926E424FC001EABC0 /* Stream.swift in Sources */,
+				C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */,
 				C2948E1B26E4250A001EABC0 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +412,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -379,7 +423,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -395,7 +439,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -406,7 +450,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -453,6 +497,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -465,6 +517,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		C2E4CE9F272B068900EAC8BB /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
