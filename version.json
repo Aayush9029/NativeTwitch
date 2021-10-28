@@ -4,6 +4,7 @@
     "build": 4,
     "title": "Play using IINA",
     "mainfeature": "You can now play streams using IINA instead of Quicktime.",
+    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v4.0/NativeTwitch.app.zip",
     "image": [
         {
             "image": "https://user-images.githubusercontent.com/43297314/139175873-1200ec82-2d8f-4380-8ee6-ee18c11c2061.png",
