@@ -32,5 +32,5 @@ enum AppStorageStrings: String{
     case showingInfo = "showingInfo"
     case iinaLocation = "IINA location (optional)"
     case iinaEnabled = "Enable IINA"
-
+    case tmpDirectory = "Temporary Updates Download Directory"
 }

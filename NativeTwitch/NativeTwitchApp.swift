@@ -9,16 +9,21 @@ import SwiftUI
 
 @main
 struct NativeTwitchApp: App {
-    @State var hightLightWarnings = false
     @StateObject var twitchData =  TwitchDataViewModel()
+    @StateObject var updater =  AutoUpdater()
+
     @State var showingLogs = false
-    
+    @State var hightLightWarnings = false
+
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(twitchData)
                 .frame(width: 320, height: 420)
+                .task {
+                    updater.checkForUpdates()
+                }
         }
         .windowStyle(.hiddenTitleBar)
         .commands {
