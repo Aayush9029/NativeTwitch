@@ -5,15 +5,10 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build:
-
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: swift package init --type executable
-    - name: Run tests
-      run: swift test -v
