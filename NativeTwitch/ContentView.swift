@@ -5,13 +5,6 @@
 //  Created by Aayush Pokharel on 2021-05-07.
 //
 
-/*
- https://twitchtokengenerator.com/quick/NIaMdzGYBR
- Copy Generate Client ID  and Access Token
- Client ID = Client ID
- Access token = Oauth Key (learnt this the hard way)
- */
-
 import Foundation
 import SwiftUI
 
@@ -26,7 +19,7 @@ struct ContentView: View {
     @State var streams : [Stream] = []
     
     
-    var body: some View{
+    var body: some View {
         Group{
             if twitchData.status != .streamLoaded{
                 Text("Loading Streams")
@@ -51,13 +44,8 @@ struct ContentView: View {
                                 })
                                 .contextMenu(ContextMenu(menuItems: {
                                     VStack {
-                                        Button("Play"){
+                                        Button("Play \(twitchData.iinaEnabled ? "using iina" : "")"){
                                             twitchData.watchStream(streamLinkLocation: streamlinkLocation, streamerUsername: stream.user_name)
-                                        }
-                                        if !twitchData.iinaEnabled{
-                                            Button("Play using IINA"){
-                                                twitchData.watchStream(streamLinkLocation: streamlinkLocation, streamerUsername: stream.user_name, customIINAEnabled: true)
-                                            }
                                         }
                                         Divider()
                                         Button("Open chat"){
@@ -67,7 +55,6 @@ struct ContentView: View {
                                         Divider()
                                         Button("Open twitch.tv/\(stream.user_name)"){
                                             NSWorkspace.shared.open(stream.getStreamURL())
-                                            
                                         }
                                     }
                                     

@@ -29,7 +29,6 @@ class TwitchDataViewModel: ObservableObject{
     var user: User
     var streams: [Stream]
     
-    
     init() {
         self.user = User(client_id: "", oauthToken: "", name: "", user_id: "", isValid: false)
         self.streams = []
@@ -164,7 +163,6 @@ class TwitchDataViewModel: ObservableObject{
     
     func watchStream(streamLinkLocation: String, streamerUsername: String, customIINAEnabled: Bool = false){
         if (iinaEnabled || customIINAEnabled){
-
             //            There is no output to validate (if it worked with quicktime and you have IINA installed it should work with IINA.
             let _ = shell("ttvQT () { open -a iina $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
             addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉")

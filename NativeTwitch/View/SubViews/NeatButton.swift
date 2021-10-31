@@ -19,7 +19,7 @@ struct NeatButton: View {
             .padding(8)
             .background(isHoverd ? .ultraThickMaterial : .ultraThinMaterial)
             .cornerRadius(8)
-            .shadow(color: isHoverd ? .red.opacity(0.25) : .clear, radius: 2)
+            .shadow(color: isHoverd ? .purple.opacity(0.25) : .clear, radius: 2)
 
         }
         .onHover { val in

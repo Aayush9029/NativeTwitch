@@ -25,7 +25,7 @@ struct SettingsView: View {
                         Text("\(twitchData.user.name)")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(.red)
+                            .foregroundColor(.purple)
                             .lineLimit(1)
                     }
                     Spacer()
@@ -67,7 +67,7 @@ struct SettingsView: View {
                 Toggle("Use IINA", isOn: $twitchData.iinaEnabled)
                     .font(.title3.bold())
                     .toggleStyle(.switch)
-                    .accentColor(.red)
+                    .accentColor(.purple)
                 Text("Quicktime is used by default but you can use IINA. Install it via brew for optimal results.")
                     .font(.caption)
                     .foregroundColor(.gray)
