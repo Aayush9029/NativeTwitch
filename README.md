@@ -14,14 +14,17 @@ App Screenshots
 ### How to install?
 
 1. [Download the Universal Binary from releases page](https://github.com/Aayush9029/NativeTwitch/releases/download/v4.0/NativeTwitch.app.zip)
-2. Install [streamlink](https://github.com/streamlink/streamlink) via ```brew install streamlink```
-3. Open App, Press *command + r* or open app preferences
-3. Generate ClientID and Access Token via [twitchtokengenerator.com](https://twitchtokengenerator.com/quick/NIaMdzGYBR)
-4. Find streamlink installed location via ```which streamlink``` and paste it in field named Stream link location.
+2. Install [Home brew](https://brew.sh/) 
+3. Install [streamlink](https://github.com/streamlink/streamlink) via ```brew install streamlink```
+4. Open app preferences, `Command + ,`
+5. Generate ClientID and Access Token via [twitchtokengenerator.com](https://twitchtokengenerator.com/quick/NIaMdzGYBR)
+6. Find streamlink installed location via ```which streamlink``` and paste it in field named Stream link location.
 
 
->  -  Why Generate Oauth? => *This way the app won't need to store your password.*
->  -  Why Streamlink? => *Streamlink handles video pipe (streaming video from twitch's server to your mac) flawlessly.*
+
+> Why Generate Oauth? => *This way the app won't need to store your password.*
+>
+> Why Streamlink? => *Streamlink handles video pipe (streaming video from twitch's server to your mac) flawlessly.*
 
 ---
 
