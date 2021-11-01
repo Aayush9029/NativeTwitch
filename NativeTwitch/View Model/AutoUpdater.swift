@@ -10,7 +10,7 @@ import Zip
 
 class AutoUpdater: ObservableObject {
     
-    @Published var updates = exampleUpdateModel
+    @Published var updates = UpdateModel.exampleUpdateModel
     @Published var status: UpdateStatus = .none
     @Published var showingRestartAlert: Bool = false
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"

@@ -13,7 +13,6 @@ struct StreamRowView: View {
     var stream: Stream
     var const: Constants
     
-    //    For More Info Settings (Command + i) *Will migrate to Settings View Model Later?* *maybe idk*
     @EnvironmentObject var twitchData: TwitchDataViewModel
     
     @State private var hovered = false

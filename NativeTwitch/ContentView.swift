@@ -16,18 +16,21 @@ struct ContentView: View {
     
     @EnvironmentObject var twitchData: TwitchDataViewModel
     
-    @State var streams : [Stream] = []
     
     
     var body: some View {
         Group{
+            switch twitchData.status{
+            default:
+                Text("")
+            }
             if twitchData.status != .streamLoaded{
                 Text("Loading Streams")
                     .font(.title)
                     .bold()
                     .foregroundColor(.gray.opacity(0.5))
             }
-            if (twitchData.status == .streamLoaded && twitchData.getStreamData().count == 0) {
+            if (twitchData.status == .streamLoaded && twitchData.streams.count == 0) {
                 Text("All streams are offline :(")
                     .font(.title)
                     .bold()
@@ -36,7 +39,7 @@ struct ContentView: View {
             else{
                 VStack {
                     ScrollView(.vertical, showsIndicators: false){
-                        ForEach(twitchData.getStreamData(), id: \.self) { stream in
+                        ForEach(twitchData.streams, id: \.self) { stream in
                             StreamRowView(stream: stream, const: Constants(twitchClientID: twitchClientID, oauthToken: oauthToken, streamlinkLocation: streamlinkLocation))
                                 .environmentObject(twitchData)
                                 .onTapGesture(count: 2, perform: {

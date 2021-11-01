@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Constants
 struct Constants {
     let twitchClientID: String
     let oauthToken: String
@@ -14,8 +15,11 @@ struct Constants {
     static let downloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let installDir = FileManager.default.urls(for: .applicationDirectory, in: .localDomainMask).first!
 
+    static let oauthValidate = "https://id.twitch.tv/oauth2/validate"
 }
 
+
+// MARK: - Status States Debugging.
 enum StatusStates: String {
     case starting = "Starting.."
     case badOuath = "Incorrect Access Token"
@@ -29,6 +33,8 @@ enum StatusStates: String {
     case streamLoaded = "Stream Has Been Loaded"
 }
 
+
+// MARK: - Enums for Appstorage strings.
 enum AppStorageStrings: String{
     case clientID = "twitchClientID"
     case oauthToken = "oauthToken"

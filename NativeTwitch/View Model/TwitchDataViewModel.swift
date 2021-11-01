@@ -24,13 +24,13 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
 
-    @Published var status: StatusStates
+    @Published var status: StatusStates = .starting
     
-    var user: User
-    var streams: [Stream]
+    @Published var user: User
+    @Published var streams: [Stream]
     
     init() {
-        self.user = User(client_id: "", oauthToken: "", name: "", user_id: "", isValid: false)
+        self.user = User.exampleUser
         self.streams = []
         self.status = .starting
         self.startFetch()
@@ -38,17 +38,17 @@ class TwitchDataViewModel: ObservableObject{
     
     func startFetch(){
         self.logs = []
-        self.user = User(client_id: "", oauthToken: "", name: "", user_id: "", isValid: false)
+        self.user = User.exampleUser
         self.streams = []
         
-        self.validateTokens() // Changes StatusStates that's all
-        self.fetchUserData() // Fetches user data and excecutes get followed internally
+        self.validateTokens()
+        self.fetchUserData()
     }
     
     func validateTokens(){
         self.status = .userValidating
         
-        let url = "https://id.twitch.tv/oauth2/validate"
+        let url = Constants.oauthValidate
         // 2
         let headers: HTTPHeaders = [
             "Client-ID": twitchClientID,
@@ -84,8 +84,8 @@ class TwitchDataViewModel: ObservableObject{
     func fetchUserData(){
         self.status = .userLoading
         
-        let url = "https://id.twitch.tv/oauth2/validate"
-        // 2
+        let url = Constants.oauthValidate
+
         let headers: HTTPHeaders = [
             "Client-ID": self.twitchClientID,
             "Authorization": " Bearer \(self.oauthToken)"
@@ -141,45 +141,43 @@ class TwitchDataViewModel: ObservableObject{
         }
     }
     
-    func addToLogs(response: String? = nil, hidestatus: Bool? = false){
-        if hidestatus != false{
-            logs.append("\(Date()) | \(response ?? "")")
-        }else{
-            logs.append("\(Date()) | \(self.status.rawValue)")
-            if response != nil{
-                logs.append("response: \(response!)\n")
-            }
-        }
-
-    }
-    
-    func getUserData() -> User{
-        return self.user
-    }
-    
     func getStreamData() -> [Stream]{
         return self.streams
     }
     
     func watchStream(streamLinkLocation: String, streamerUsername: String, customIINAEnabled: Bool = false){
         if (iinaEnabled || customIINAEnabled){
-            //            There is no output to validate (if it worked with quicktime and you have IINA installed it should work with IINA.
+            /*
+             There is no output to validate.
+             If it worked with quicktime and IINA is installed correctly it should work.
+             */
             let _ = shell("ttvQT () { open -a iina $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
-            addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉")
+            self.addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉")
             return
         }else{
             let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
             if shell_out.isEmpty{ addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉"); return } else{
-                addToLogs(response: shell_out);  addToLogs(response: "BIG FAIL 😩 @ \(streamLinkLocation)")
+                self.addToLogs(response: shell_out);  addToLogs(response: "BIG FAIL 😩 @ \(streamLinkLocation)")
             }
         }
-        addToLogs(response: shell("which streamlink"))
+        self.addToLogs(response: shell("which streamlink"))
     }
     
+    func addToLogs(response: String? = nil, hidestatus: Bool? = false){
+        if hidestatus != false{
+            self.logs.append("\(Date()) | \(response ?? "")")
+        }else{
+            self.logs.append("\(Date()) | \(self.status.rawValue)")
+            if response != nil{
+                self.logs.append("response: \(response!)\n")
+            }
+        }
+
+    }
     
     func copyLogsToClipboard(redacted: Bool = true){
         var logsText = ""
-        for log in logs {
+        for log in self.logs {
             logsText += log
             logsText += "\n"
         }
@@ -193,7 +191,6 @@ class TwitchDataViewModel: ObservableObject{
         let pasteBoard = NSPasteboard.general
         pasteBoard.clearContents()
         pasteBoard.setString(logsText, forType: .string)
-
     }
 }
 

@@ -84,7 +84,7 @@ struct UpdateInfoView: View {
 
 struct UpdateInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateInfoView(update: exampleUpdateModel)
+        UpdateInfoView(update: UpdateModel.exampleUpdateModel)
             .frame(width: 500, height: 500)
                     .environmentObject(AutoUpdater())
     }
