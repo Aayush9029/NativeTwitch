@@ -18,6 +18,7 @@ extension View {
         window.isReleasedWhenClosed = false
         window.title = title
         window.makeKeyAndOrderFront(nil)
+        window.level = .floating
         return window
     }
     
