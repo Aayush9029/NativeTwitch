@@ -22,7 +22,7 @@
 		C2A7BCF726462B050038CFB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF626462B050038CFB5 /* Preview Assets.xcassets */; };
 		C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D6272A3F54005C6858 /* Double+Extension.swift */; };
 		C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */; };
-		C2E360DB272A3FBB005C6858 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */; };
+		C2E360DB272A3FBB005C6858 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DA272A3FBB005C6858 /* NSView+Extension.swift */; };
 		C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DC272A451A005C6858 /* AutoUpdater.swift */; };
 		C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DE272A4576005C6858 /* UpdateModel.swift */; };
 		C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */; };
@@ -51,7 +51,7 @@
 		C2A7BD0426462B050038CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E360D6272A3F54005C6858 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
-		C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		C2E360DA272A3FBB005C6858 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
 		C2E360DC272A451A005C6858 /* AutoUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
 		C2E360DE272A4576005C6858 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
 		C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -150,10 +150,8 @@
 			children = (
 				C2E360E7272A5A9A005C6858 /* SubViews */,
 				C2E360E4272A5508005C6858 /* UpdateView */,
-				C2E360DA272A3FBB005C6858 /* VisualEffectView.swift */,
 				C269947C2647251D00B3DCF7 /* SettingsView.swift */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
-				C271885626E273E2009C8002 /* LogText.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +159,7 @@
 		C2E360D5272A3F43005C6858 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C2E360DA272A3FBB005C6858 /* NSView+Extension.swift */,
 				C2E360D6272A3F54005C6858 /* Double+Extension.swift */,
 				C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */,
 				C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */,
@@ -180,6 +179,7 @@
 		C2E360E7272A5A9A005C6858 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				C271885626E273E2009C8002 /* LogText.swift */,
 				C2E360E8272A5AA5005C6858 /* NeatButton.swift */,
 			);
 			path = SubViews;
@@ -272,7 +272,7 @@
 				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
 				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
 				C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */,
-				C2E360DB272A3FBB005C6858 /* VisualEffectView.swift in Sources */,
+				C2E360DB272A3FBB005C6858 /* NSView+Extension.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
 				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
 				C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 import Foundation
 
+// MARK: - Stream Model
 struct Stream: Hashable{
     var user_name: String
     var user_id: String
@@ -28,6 +29,15 @@ struct Stream: Hashable{
         }
         return getStreamURL()
     }
+    
+    static let exampleStream = Stream(
+        user_name: "xQcOW",
+        user_id: "71092938",
+        viewer_count: 122577,
+        type: "live",
+        game_name: "Grand Theft Auto V",
+        title: "[Nopixel] RIDEALONG PIERRE PP PAUL RIDS LOS SANTOS OF ALL THE CRIMINAL SCUM",
+        user_logo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+    )
 }
 
-let exampleStream = Stream(user_name: "xQcOW", user_id: "71092938", viewer_count: 122577, type: "live", game_name: "Grand Theft Auto V", title: "[Nopixel] RIDEALONG PIERRE PP PAUL RIDS LOS SANTOS OF ALL THE CRIMINAL SCUM", user_logo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")

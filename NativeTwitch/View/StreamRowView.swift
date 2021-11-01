@@ -13,7 +13,6 @@ struct StreamRowView: View {
     var stream: Stream
     var const: Constants
     
-    //    For More Info Settings (Command + i) *Will migrate to Settings View Model Later?* *maybe idk*
     @EnvironmentObject var twitchData: TwitchDataViewModel
     
     @State private var hovered = false
@@ -40,19 +39,23 @@ struct StreamRowView: View {
                         Text(stream.user_name)
                             .font(.title2)
                             .fontWeight(.bold)
+                            .foregroundStyle(.primary)
                         Spacer()
                         if(stream.type == "live"){
                             Circle()
                                 .frame(width: 10, height: 10)
                                 .foregroundColor(.red)
+                                .foregroundStyle(.secondary)
+
                             Text("\(Double(stream.viewer_count).shortStringRepresentation)")
+                                .foregroundStyle(.primary)
                         }
                     }
                     HStack {
                         Text(stream.title)
                             .font(.caption)
                             .lineLimit(twitchData.showingInfo ? 3: 1)
-                            .foregroundColor(.gray)
+                            .foregroundStyle(.secondary)
                         Spacer()
                     }
                     if twitchData.showingInfo{
@@ -60,7 +63,7 @@ struct StreamRowView: View {
                             Text(stream.game_name)
                                 .lineLimit(1)
                                 .font(.caption)
-                                .foregroundColor(.red.opacity(0.75))
+                                .foregroundStyle(.tertiary)
                             Spacer()
                         }
                     }
@@ -69,10 +72,10 @@ struct StreamRowView: View {
         }
         .padding(.vertical, 10)
         .padding(.horizontal)
-        .background(hovered ? Color.blue.opacity(0.5) : Color.white.opacity(0.025))
+        .background(hovered ? Color("AccentColor").opacity(0.5) : Color.white.opacity(0.025))
         .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(hovered ? Color.blue : .gray.opacity(0.25), lineWidth: 2)
+                    .stroke(hovered ? .purple : .gray.opacity(0.25), lineWidth: 2)
                     .shadow(color: hovered ?.blue : .clear, radius: 10)
         )
         .onHover { isHovered in self.hovered = isHovered }

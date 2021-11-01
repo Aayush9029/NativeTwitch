@@ -60,7 +60,7 @@ struct UpdateInfoView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.red, lineWidth: 2)
+                                    .stroke(.purple, lineWidth: 2)
                                     .shadow(color: Color.pink.opacity(0.75), radius: 5)
                             )
                             .padding(5)
@@ -84,8 +84,8 @@ struct UpdateInfoView: View {
 
 struct UpdateInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateInfoView(update: exampleUpdateModel)
+        UpdateInfoView(update: UpdateModel.exampleUpdateModel)
             .frame(width: 500, height: 500)
-        //            .environmentObject(AutoUpdater())
+                    .environmentObject(AutoUpdater())
     }
 }
