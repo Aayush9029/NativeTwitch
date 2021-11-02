@@ -2,8 +2,8 @@
 <div align="center">
   <h1>NativeTwitch</h1>
   
-![NativeYouTube_Logo-1-196](https://user-images.githubusercontent.com/43297314/139798460-ac6e46a5-7935-46d7-9cbf-e2d86930e912.png)
-  
+  <img src="https://user-images.githubusercontent.com/43297314/139798460-ac6e46a5-7935-46d7-9cbf-e2d86930e912.png" width="200px">
+
 *Native, Opensource Twitch app for your mac.*
   
   
