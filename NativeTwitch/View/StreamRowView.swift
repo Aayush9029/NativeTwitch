@@ -82,10 +82,9 @@ struct StreamRowView: View {
         .padding(.horizontal, 10)
         .animation(.default, value: hovered)
         .onAppear(perform: {
-            //            A hacky way of loading logo once the view appears
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                getUserLogo()
-            })
+            
+            getUserLogo()
+
         })
     }
 }
