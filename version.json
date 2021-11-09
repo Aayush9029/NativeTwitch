@@ -1,7 +1,7 @@
 {
     "published": "2021-11-8",
     "version": "1.2",
-    "build": 6,
+    "build": 7,
     "title": "New NativeTwitch Update",
     "mainfeature": "Open In Native Chat",
     "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v1.1/NativeTwitch.app.zip",
