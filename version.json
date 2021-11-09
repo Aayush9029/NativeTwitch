@@ -1,15 +1,15 @@
 {
-    "published": "2021-10-31",
-    "version": "1.1",
-    "build": 6,
+    "published": "2021-11-8",
+    "version": "1.2",
+    "build": 7,
     "title": "New NativeTwitch Update",
-    "mainfeature": "Better theme",
+    "mainfeature": "Open In Native Chat",
     "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v1.1/NativeTwitch.app.zip",
     "image": [
         {
-            "image": "https://user-images.githubusercontent.com/43297314/139606253-303eafee-2830-498e-8b71-fdea33d45466.png",
-            "title": "Mmmm Purple",
-            "description": "The UI has been refined to look more royal. There's a new ICON!"
+            "image": "https://user-images.githubusercontent.com/43297314/140845436-0f3df666-9353-42c4-ab40-76fe5451dce9.png",
+            "title": "Open in Native chat app (it's in alpha phase)",
+            "description": "Streamers thumbnail loads a way faster now!!"
         }
     ]
 }
