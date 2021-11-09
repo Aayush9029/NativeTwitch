@@ -15,7 +15,6 @@ class AutoUpdater: ObservableObject {
     @Published var showingRestartAlert: Bool = false
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
 
-
     enum UpdateFetcherError: Error {
         case invalidURL
         case missingData

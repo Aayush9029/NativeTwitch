@@ -16,7 +16,6 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.showingInfo.rawValue) var showingInfo: Bool = false
 
 //     Stores current responses and states if it's not something that's not expected
-    @Published var logs = [String]()
 
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
@@ -25,10 +24,11 @@ class TwitchDataViewModel: ObservableObject{
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
 
     @Published var status: StatusStates = .starting
-    
     @Published var user: User
     @Published var streams: [Stream]
-    
+    @Published var isShowingNativeChatAlert: Bool = false
+    @Published var logs = [String]()
+
     init() {
         self.user = User.exampleUser
         self.streams = []
@@ -209,3 +209,4 @@ func shell(_ command: String) -> String {
     
     return output
 }
+

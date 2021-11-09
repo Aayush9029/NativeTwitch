@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @EnvironmentObject var twitchData: TwitchDataViewModel
     
-    
+    @Environment(\.openURL) var openURL
     
     var body: some View {
         Group{
@@ -50,18 +50,39 @@ struct ContentView: View {
                                         Button("Play \(twitchData.iinaEnabled ? "using iina" : "")"){
                                             twitchData.watchStream(streamLinkLocation: streamlinkLocation, streamerUsername: stream.user_name)
                                         }
-                                        Divider()
-                                        Button("Open chat"){
-                                            NSWorkspace.shared.open(stream.getChatURL())
+                                        Button("Open chat in Native Chat"){
+                                            
+                                            openURL(URL(string: "nativechat://\(stream.user_name)")!) { accepted in
+                                                DispatchQueue.main.sync {
+                                                    twitchData.isShowingNativeChatAlert = !accepted
+                                                }
+                                            }
                                         }
 
                                         Divider()
+                                        
                                         Button("Open twitch.tv/\(stream.user_name)"){
                                             NSWorkspace.shared.open(stream.getStreamURL())
                                         }
+                                        
+                                        Button("Open chat in Safari"){
+                                            NSWorkspace.shared.open(stream.getChatURL())
+                                        }
+
                                     }
                                     
                                 }))
+                        }.padding(.bottom)
+                    }
+                }
+                
+                .alert(Text("Native Chat isn't installed"), isPresented: $twitchData.isShowingNativeChatAlert) {
+                    HStack{
+                        Button("What's Native chat?"){
+                            openURL(URL(string: "https://github.com/Aayush9029/NativeChat")!)
+                        }
+                        Button("Don't care, Didn't ask"){
+                            print("OK")
                         }
                     }
                 }
