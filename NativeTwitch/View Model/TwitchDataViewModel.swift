@@ -154,7 +154,7 @@ class TwitchDataViewModel: ObservableObject{
         self.temp_streamlink_location = streamLinkLocation
         self.temp_stream_user = streamUsername
         
-        DispatchQueue.global(qos: .background).async {            
+        DispatchQueue.global(qos: .background).async {
             print("VLC PLAY")
             let command = "\(self.temp_streamlink_location) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
             print(command)
