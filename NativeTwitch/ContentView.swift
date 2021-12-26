@@ -50,6 +50,9 @@ struct ContentView: View {
                                         Button("Play \(twitchData.iinaEnabled ? "using iina" : "")"){
                                             twitchData.watchStream(streamLinkLocation: streamlinkLocation, streamerUsername: stream.user_name)
                                         }
+                                        Button("Low latency using VLC"){
+                                            twitchData.watchLowLatencyWithVLC(streamLinkLocation: streamlinkLocation, streamUsername: stream.user_name)
+                                        }
                                         Button("Open chat in Native Chat"){
                                             
                                             openURL(URL(string: "nativechat://\(stream.user_name)")!) { accepted in

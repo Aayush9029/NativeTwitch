@@ -28,6 +28,10 @@ class TwitchDataViewModel: ObservableObject{
     @Published var streams: [Stream]
     @Published var isShowingNativeChatAlert: Bool = false
     @Published var logs = [String]()
+    
+    
+    var temp_streamlink_location = ""
+    var temp_stream_user = ""
 
     init() {
         self.user = User.exampleUser
@@ -145,7 +149,30 @@ class TwitchDataViewModel: ObservableObject{
         return self.streams
     }
     
+    func watchLowLatencyWithVLC(streamLinkLocation: String, streamUsername: String) {
+        
+        self.temp_streamlink_location = streamLinkLocation
+        self.temp_stream_user = streamUsername
+        
+        DispatchQueue.global(qos: .background).async {            
+            print("VLC PLAY")
+            let command = "\(self.temp_streamlink_location) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
+            print(command)
+            let shell_out = shell(command)
+            print(shell_out)
+            self.addToLogs(response: "\(self.temp_streamlink_location):🎉 Success 🎉")
+            
+            if shell_out.isEmpty{ self.addToLogs(response: "\(self.temp_streamlink_location):🎉 Success 🎉"); return } else{
+                self.addToLogs(response: shell_out);  self.addToLogs(response: "BIG FAIL 😩 @ \(self.temp_streamlink_location)")
+            }
+            self.addToLogs(response: shell("which streamlink"))
+        }
+        
+
+    }
+    
     func watchStream(streamLinkLocation: String, streamerUsername: String, customIINAEnabled: Bool = false){
+        
         if (iinaEnabled || customIINAEnabled){
             /*
              There is no output to validate.
