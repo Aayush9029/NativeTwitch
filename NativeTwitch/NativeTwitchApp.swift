@@ -32,7 +32,7 @@ struct NativeTwitchApp: App {
                         .background(VisualEffectView(material: NSVisualEffectView.Material.hudWindow, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
                         .openNewWindow(with: "New Update Available")
                     }
-                    twitchData.addToLogs(response: updater.status.rawValue, hidestatus: true)
+                    twitchData.addToLogs(updater.status.rawValue, hidestatus: true)
                 })
                 .alert(Text("Restart app to finish update"), isPresented: $updater.showingRestartAlert) {
                     HStack{
@@ -72,7 +72,7 @@ struct NativeTwitchApp: App {
             SettingsView(showingLogs: $showingLogs)
                 .environmentObject(twitchData)
                 .background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
-                .frame(width: 320, height: showingLogs ? 650: 400)
+                .frame(width: 320, height: showingLogs ? 720: 460)
             .fixedSize()
         }
         

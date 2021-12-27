@@ -40,8 +40,8 @@ enum AppStorageStrings: String{
     case oauthToken = "oauthToken"
     case streamlinkLocation = "streamlinkLocation"
     case showingInfo = "showingInfo"
-    case iinaLocation = "IINA location (optional)"
     case iinaEnabled = "Enable IINA"
+    case experimental = "Experimental Features"
     case tmpDirectory = "Temporary Updates Download Directory"
     case remoteUpdateJson = "URL Remote Version"
 }

@@ -13,26 +13,23 @@ import SwiftyJSON
 class TwitchDataViewModel: ObservableObject{
     
     @Published var showingSettings: Bool = false
+    
     @AppStorage(AppStorageStrings.showingInfo.rawValue) var showingInfo: Bool = false
-
-//     Stores current responses and states if it's not something that's not expected
-
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
+    @AppStorage(AppStorageStrings.experimental.rawValue) var experimental = false
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
-
+    
     @Published var status: StatusStates = .starting
     @Published var user: User
     @Published var streams: [Stream]
     @Published var isShowingNativeChatAlert: Bool = false
     @Published var logs = [String]()
     
-    
-    var temp_streamlink_location = ""
     var temp_stream_user = ""
-
+    
     init() {
         self.user = User.exampleUser
         self.streams = []
@@ -44,7 +41,6 @@ class TwitchDataViewModel: ObservableObject{
         self.logs = []
         self.user = User.exampleUser
         self.streams = []
-        
         self.validateTokens()
         self.fetchUserData()
     }
@@ -67,19 +63,19 @@ class TwitchDataViewModel: ObservableObject{
                 if json["client_id"].string == self.twitchClientID{
                     if json["scopes"] != ["user:read:follows"]{
                         self.status = .badScopes
-                        self.addToLogs(response: json.rawString())
+                        self.addToLogs(json.rawString())
                     }else{
                         self.status = .userValidated
-                        self.addToLogs(response: json.rawString())
+                        self.addToLogs(json.rawString())
                     }
-                    self.addToLogs(response: json.rawString())
+                    self.addToLogs(json.rawString())
                 }else{
                     self.status = .badClient
-                    self.addToLogs(response: json.rawString())
+                    self.addToLogs(json.rawString())
                 }
             }else{
                 self.status = .badScopes
-                self.addToLogs(response: response.description)
+                self.addToLogs(response.description)
             }
         }
     }
@@ -89,7 +85,7 @@ class TwitchDataViewModel: ObservableObject{
         self.status = .userLoading
         
         let url = Constants.oauthValidate
-
+        
         let headers: HTTPHeaders = [
             "Client-ID": self.twitchClientID,
             "Authorization": " Bearer \(self.oauthToken)"
@@ -103,7 +99,7 @@ class TwitchDataViewModel: ObservableObject{
                     self.user = User(client_id: self.twitchClientID, oauthToken: self.oauthToken, name: name, user_id: json["user_id"].string!, isValid: true)
                 }else{
                     self.status = .badOuath
-                    self.addToLogs(response: json.rawString())
+                    self.addToLogs(json.rawString())
                 }
                 self.status = .userLoaded
                 self.addFollowedStreams()
@@ -126,7 +122,7 @@ class TwitchDataViewModel: ObservableObject{
         ]
         
         let task = AF.request(url, parameters: parameters, headers: headers)
-        
+
         task.responseData { response in
             
             if let json = try? JSON(data: response.data!){
@@ -134,10 +130,10 @@ class TwitchDataViewModel: ObservableObject{
                     let d = subJson
                     
                     self.streams.append(Stream(user_name: d["user_name"].string!, user_id: d["user_id"].string!, viewer_count: d["viewer_count"].int!, type: d["type"].string!, game_name: d["game_name"].string!, title: d["title"].string!))
-
+                    
                 }
                 self.status = .streamLoaded
-                self.addToLogs(response: json.rawString())
+                self.addToLogs(json.rawString())
             }else{
                 self.status = .badScopes
                 self.addToLogs()
@@ -145,60 +141,68 @@ class TwitchDataViewModel: ObservableObject{
         }
     }
     
-    func getStreamData() -> [Stream]{
-        return self.streams
-    }
-    
-    func watchLowLatencyWithVLC(streamLinkLocation: String, streamUsername: String) {
+    func watchLowLatencyWithVLC(_ streamUsername: String) {
         
-        self.temp_streamlink_location = streamLinkLocation
         self.temp_stream_user = streamUsername
         
         DispatchQueue.global(qos: .background).async {
-            print("VLC PLAY")
-            let command = "\(self.temp_streamlink_location) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
-            print(command)
-            let shell_out = shell(command)
-            print(shell_out)
-            self.addToLogs(response: "\(self.temp_streamlink_location):🎉 Success 🎉")
             
-            if shell_out.isEmpty{ self.addToLogs(response: "\(self.temp_streamlink_location):🎉 Success 🎉"); return } else{
-                self.addToLogs(response: shell_out);  self.addToLogs(response: "BIG FAIL 😩 @ \(self.temp_streamlink_location)")
+            let command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
+            self.addToLogs(command, hidestatus: false)
+            
+            let shell_out = shell(command)
+            self.addToLogs("\(self.streamlinkLocation):🎉 Success 🎉")
+            
+            if shell_out.isEmpty{
+                self.addToLogs("\(self.streamlinkLocation):🎉 Success 🎉")
+                return
+            } else{
+                self.addToLogs(shell_out)
+                self.addToLogs("BIG FAIL 😩 @ \(self.streamlinkLocation)")
             }
-            self.addToLogs(response: shell("which streamlink"))
+            self.addToLogs(shell("which streamlink"))
         }
         
-
+        
     }
     
-    func watchStream(streamLinkLocation: String, streamerUsername: String, customIINAEnabled: Bool = false){
-        if (iinaEnabled || customIINAEnabled){
-            /*
-             There is no output to validate.
-             If it worked with quicktime and IINA is installed correctly it should work.
-             */
-            let _ = shell("ttvQT () { open -a iina $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
-            self.addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉")
-            return
-        }else{
-            let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(streamerUsername)")
-            if shell_out.isEmpty{ addToLogs(response: "\(streamLinkLocation):🎉 Success 🎉"); return } else{
-                self.addToLogs(response: shell_out);  addToLogs(response: "BIG FAIL 😩 @ \(streamLinkLocation)")
+    func watchStream(_ streamerUsername: String){
+        
+        self.temp_stream_user = streamerUsername
+        
+        DispatchQueue.global(qos: .background).async {
+            if self.iinaEnabled {
+                let _ = shell("ttvQT () { open -a iina $(\(self.streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(self.temp_stream_user )")
+                self.addToLogs("\(self.streamlinkLocation):🎉 Success 🎉")
+                return
+            }else{
+                let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(self.streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(self.temp_stream_user )")
+                if shell_out.isEmpty {
+                    self.addToLogs("\(self.streamlinkLocation):🎉 Success 🎉")
+                    return
+                } else{
+                    self.addToLogs(shell_out)
+                    self.addToLogs("BIG FAIL 😩 @ \(self.streamlinkLocation)")
+                }
             }
+            self.addToLogs(shell("which streamlink"))
         }
-        self.addToLogs(response: shell("which streamlink"))
     }
     
-    func addToLogs(response: String? = nil, hidestatus: Bool? = false){
-        if hidestatus != false{
-            self.logs.append("\(Date()) | \(response ?? "")")
-        }else{
-            self.logs.append("\(Date()) | \(self.status.rawValue)")
-            if response != nil{
-                self.logs.append("response: \(response!)\n")
+    
+    
+    func addToLogs(_ response: String? = nil, hidestatus: Bool = false){
+        DispatchQueue.main.async {
+            if hidestatus{
+                self.logs.append("\(Date()) | \(response ?? "")")
+            }else{
+                self.logs.append("\(Date()) | \(self.status.rawValue)")
+                if response != nil{
+                    self.logs.append("response: \(response!)\n")
+                }
             }
         }
-
+        
     }
     
     func copyLogsToClipboard(redacted: Bool = true){
@@ -220,7 +224,7 @@ class TwitchDataViewModel: ObservableObject{
     }
 }
 
-
+//    MARK: - Shell function
 func shell(_ command: String) -> String {
     let task = Process()
     let pipe = Pipe()
