@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct NativeTwitchApp: App {
-    @StateObject var twitchData =  TwitchDataViewModel()
-    @StateObject var updater =  AutoUpdater()
+    @StateObject var twitchData = TwitchDataViewModel()
+    @StateObject var updater = AutoUpdater()
 
 
     @State var showingLogs = false
@@ -78,4 +78,3 @@ struct NativeTwitchApp: App {
         
     }
 }
-
