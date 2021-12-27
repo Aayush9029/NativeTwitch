@@ -1,15 +1,15 @@
 {
-    "published": "2021-11-8",
-    "version": "1.2",
-    "build": 7,
+    "published": "2021-12-26",
+    "version": "1.5",
+    "build": 8,
     "title": "New NativeTwitch Update",
-    "mainfeature": "Open In Native Chat",
-    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v1.2/NativeTwitch.app.zip",
+    "mainfeature": "Experimental Toggle",
+    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v1.5/NativeTwitch.app.zip",
     "image": [
         {
-            "image": "https://user-images.githubusercontent.com/43297314/140845436-0f3df666-9353-42c4-ab40-76fe5451dce9.png",
-            "title": "Open in Native chat app (it's in alpha phase)",
-            "description": "Streamers thumbnail loads a way faster now!!"
+            "image": "https://user-images.githubusercontent.com/43297314/147424959-05c6a6a1-08f5-40ed-bbd7-4393a9a194a8.png",
+            "title": "Open in Native chat app (it's in beta phase)",
+            "description": "Command + , > Enable Experimental Features!"
         }
     ]
 }
