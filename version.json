@@ -3,7 +3,7 @@
     "version": "1.5",
     "build": 8,
     "title": "New NativeTwitch Update",
-    "mainfeature": "Experimental Toggle",
+    "mainfeature": "Experimental Toggle and Speediness",
     "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v1.5/NativeTwitch.app.zip",
     "image": [
         {
