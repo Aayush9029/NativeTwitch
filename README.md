@@ -5,9 +5,8 @@
   <img src="https://user-images.githubusercontent.com/43297314/139798460-ac6e46a5-7935-46d7-9cbf-e2d86930e912.png" width="200px">
 
 *Native, Opensource Twitch app for your mac.*
-  
-  
-<img src="https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/assets/ryan.png"> <img src="https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/assets/sykk.png">
+
+<img src="https://user-images.githubusercontent.com/43297314/147424959-05c6a6a1-08f5-40ed-bbd7-4393a9a194a8.png">
   
 </div>
 
@@ -27,7 +26,8 @@
 > Why Generate Oauth? => *This way the app won't need to store your password.*
 >
 > Why Streamlink? => *Streamlink handles video pipe (streaming video from twitch's server to your mac) flawlessly.*
-
+>
+> Why VLC? => *Vlc* handles low latency stream 👌 *experimental* 
 ---
 
 ### Check [Releases](https://github.com/Aayush9029/NativeTwitch/releases) for release notes.
