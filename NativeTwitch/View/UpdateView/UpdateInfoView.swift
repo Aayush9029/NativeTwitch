@@ -12,18 +12,18 @@ struct UpdateInfoView: View {
     let update: UpdateModel
     var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Text("What's new in NativeTwitch \(update.version) build \(update.build)?")
                     .italic()
                 Spacer()
-                
+
                 NeatButton(title: autoUpdater.status != .yesUpdates ? "Installing updates": "Install Update", symbol: autoUpdater.status != .yesUpdates ? "bolt.fill" : "arrow.down")
                     .onTapGesture {
-                        if autoUpdater.status == .yesUpdates{
+                        if autoUpdater.status == .yesUpdates {
                             autoUpdater.downloadAndInstall()
                         }
                     }
-                
+
                 NeatButton(title: "Open Releases", symbol: "globe")
                     .onTapGesture {
                         NSWorkspace.shared.open(URL(string: "https://github.com/Aayush9029/NativeTwitch/releases")!)
@@ -31,20 +31,19 @@ struct UpdateInfoView: View {
             }
             .padding()
             ScrollView {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
 
-                    
-                    VStack{
-                        HStack{
+                    VStack {
+                        HStack {
                             Text(update.title)
                                 .font(.title.bold())
                             Spacer()
                         }
-                        
+
                         Divider()
-                        
-                        ForEach(update.image, id:\.self){imageDetail in
-                            HStack{
+
+                        ForEach(update.image, id: \.self) {imageDetail in
+                            HStack {
                                 Text(imageDetail.title)
                                     .bold()
                                 Spacer()
@@ -71,14 +70,14 @@ struct UpdateInfoView: View {
                     }
                     Text("You can watch streams while the app is updating :)")
                         .italic()
-                    
+
                     Spacer()
-                    
+
                 }
                 .padding()
             }
         }
-        
+
     }
 }
 

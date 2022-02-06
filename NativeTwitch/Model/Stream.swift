@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - Stream Model
-struct Stream: Hashable{
+struct Stream: Hashable {
     var user_name: String
     var user_id: String
     var viewer_count: Int
@@ -15,21 +15,21 @@ struct Stream: Hashable{
     var game_name: String
     var title: String
     var user_logo: String?
-    
+
     func getStreamURL() -> URL {
-        if let url = URL(string: "https://www.twitch.tv/\(user_name)"){
+        if let url = URL(string: "https://www.twitch.tv/\(user_name)") {
             return url
         }
         return URL(string: "https://www.twitch.tv")!
     }
-    
+
     func getChatURL() -> URL {
-        if let url = URL(string: "https://www.twitch.tv/popout/\(user_name)/chat"){
+        if let url = URL(string: "https://www.twitch.tv/popout/\(user_name)/chat") {
             return url
         }
         return getStreamURL()
     }
-    
+
     static let exampleStream = Stream(
         user_name: "xQcOW",
         user_id: "71092938",
@@ -40,4 +40,3 @@ struct Stream: Hashable{
         user_logo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
     )
 }
-

@@ -12,10 +12,8 @@ struct NativeTwitchApp: App {
     @StateObject var twitchData = TwitchDataViewModel()
     @StateObject var updater = AutoUpdater()
 
-
     @State var showingLogs = false
     @State var hightLightWarnings = false
-
 
     var body: some Scene {
         WindowGroup {
@@ -25,8 +23,8 @@ struct NativeTwitchApp: App {
                 .task {
                     updater.checkForUpdates()
                 }
-                .onChange(of: updater.status, perform: { newValue in
-                    if (updater.status == .yesUpdates){
+                .onChange(of: updater.status, perform: { _ in
+                    if updater.status == .yesUpdates {
                     UpdateInfoView(update: updater.updates)
                         .environmentObject(updater)
                         .background(VisualEffectView(material: NSVisualEffectView.Material.hudWindow, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
@@ -35,8 +33,8 @@ struct NativeTwitchApp: App {
                     twitchData.addToLogs(updater.status.rawValue, hidestatus: true)
                 })
                 .alert(Text("Restart app to finish update"), isPresented: $updater.showingRestartAlert) {
-                    HStack{
-                        Button("ok"){
+                    HStack {
+                        Button("ok") {
                             print("ok")
                         }
                     }
@@ -46,12 +44,12 @@ struct NativeTwitchApp: App {
 
         .commands {
             CommandMenu("Actions") {
-                VStack{
+                VStack {
                     Button("Refresh") {
                         withAnimation {
                             withAnimation {
                                 twitchData.startFetch()
-                                
+
                             }
                         }
                     }
@@ -75,6 +73,6 @@ struct NativeTwitchApp: App {
                 .frame(width: 320, height: showingLogs ? 720: 460)
             .fixedSize()
         }
-        
+
     }
 }

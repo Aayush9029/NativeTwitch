@@ -14,9 +14,8 @@ struct User {
     var isValid = false
     static let exampleUser = User(
         client_id: "",
-        oauthToken:  "",
-        name:  "Example User" , user_id:  "" ,
+        oauthToken: "",
+        name: "Example User", user_id: "" ,
         isValid: false
     )
 }
-

@@ -18,7 +18,6 @@ struct Constants {
     static let oauthValidate = "https://id.twitch.tv/oauth2/validate"
 }
 
-
 // MARK: - Status States Debugging.
 enum StatusStates: String {
     case starting = "Starting.."
@@ -33,9 +32,8 @@ enum StatusStates: String {
     case streamLoaded = "Stream Has Been Loaded"
 }
 
-
 // MARK: - Enums for Appstorage strings.
-enum AppStorageStrings: String{
+enum AppStorageStrings: String {
     case clientID = "twitchClientID"
     case oauthToken = "oauthToken"
     case streamlinkLocation = "streamlinkLocation"

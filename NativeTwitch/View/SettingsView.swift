@@ -11,16 +11,16 @@ struct SettingsView: View {
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
-    
+
     @EnvironmentObject var twitchData: TwitchDataViewModel
-    
+
     @State var logs = [String]()
     @Binding var showingLogs: Bool
-    
+
     var body: some View {
-        VStack(alignment: .leading){
-            HStack{
-                VStack(alignment: .leading){
+        VStack(alignment: .leading) {
+            HStack {
+                VStack(alignment: .leading) {
                     Text("\(twitchData.user.name)")
                         .font(.title)
                         .fontWeight(.bold)
@@ -29,11 +29,11 @@ struct SettingsView: View {
                 }
                 Spacer()
             }.padding(.vertical)
-            VStack(spacing: 10){
+            VStack(spacing: 10) {
                 TextField("Your Twitch Client ID", text: $twitchClientID)
-                
+
                 TextField("Your Twitch Access Token", text: $oauthToken)
-                
+
                 Link(
                     destination: URL(string: "https://twitchtokengenerator.com/quick/NIaMdzGYBR")!,
                     label: {
@@ -44,22 +44,22 @@ struct SettingsView: View {
                     }
                 )
                 Divider()
-                
+
                 TextField("Stream link Location", text: $streamlinkLocation)
-                
+
                 Divider()
                 TextField("Custom Update URL", text: $twitchData.remoteUpdateJson)
-                
+
             }.padding([.bottom])
                 .textFieldStyle(.roundedBorder)
-            
-            VStack{
-                if oauthToken.count < 10{
+
+            VStack {
+                if oauthToken.count < 10 {
                     Text("Press Command + R to save")
                         .foregroundColor(.gray)
                 }
             }
-            
+
             Divider()
             VStack(alignment: .leading, spacing: 10) {
                 Toggle("Use IINA", isOn: $twitchData.iinaEnabled)
@@ -71,7 +71,7 @@ struct SettingsView: View {
                     .foregroundColor(.gray)
             }
             Divider()
-            
+
             VStack(alignment: .leading, spacing: 10) {
                 Toggle("Experimental Features", isOn: $twitchData.experimental)
                     .font(.title3.bold())
@@ -81,47 +81,47 @@ struct SettingsView: View {
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-            
+
             Divider()
-            VStack(alignment: .leading){
-                HStack{
+            VStack(alignment: .leading) {
+                HStack {
                     Text("Logs")
                         .font(.title3.bold())
                         .padding(.top, 5)
                     Spacer()
-                    
-                    NeatButton(title: "Copy", symbol:  "paperclip")
+
+                    NeatButton(title: "Copy", symbol: "paperclip")
                         .onTapGesture {
                             twitchData.copyLogsToClipboard()
                         }
                         .contextMenu {
-                            Button("Copy Raw"){
+                            Button("Copy Raw") {
                                 twitchData.copyLogsToClipboard(redacted: false)
                             }
-                            Button("Copy Redacted"){
+                            Button("Copy Redacted") {
                                 twitchData.copyLogsToClipboard(redacted: true)
                             }
                         }
-                    NeatButton(title: showingLogs ? "Hide" : "Show", symbol:  showingLogs ? "chevron.up" : "chevron.down")
+                    NeatButton(title: showingLogs ? "Hide" : "Show", symbol: showingLogs ? "chevron.up" : "chevron.down")
                         .onTapGesture {
                             showingLogs.toggle()
                         }
                 }
                 Spacer()
-                Group{
-                    if showingLogs{
-                        ScrollView(.vertical, showsIndicators: false){
-                            VStack(alignment: .leading){
-                                
-                                ForEach(twitchData.logs, id: \.self){log in
+                Group {
+                    if showingLogs {
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack(alignment: .leading) {
+
+                                ForEach(twitchData.logs, id: \.self) {log in
                                     LogText(text: log, color: .gray)
                                 }                                        .id(UUID())
-                                
+
                             }
                         }
                     }
                 }
-                
+
             }
         }
         .padding()

@@ -21,7 +21,7 @@ extension View {
         window.level = .floating
         return window
     }
-    
+
     func openNewWindow(with title: String = "new Window") {
         self.newWindowInternal(with: title).contentView = NSHostingView(rootView: self)
     }

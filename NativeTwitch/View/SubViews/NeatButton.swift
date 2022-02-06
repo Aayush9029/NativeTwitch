@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-
 struct NeatButton: View {
     let title: String
     let symbol: String
     @State var isHoverd: Bool = false
     var body: some View {
-        Group{
+        Group {
             Label(title, systemImage: symbol)
             .buttonStyle(.borderless)
             .padding(8)

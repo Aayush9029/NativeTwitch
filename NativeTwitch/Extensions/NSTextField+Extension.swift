@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-extension NSTextField{
-    open override var focusRingType: NSFocusRingType{
-        get{.none}
-        set{}
+extension NSTextField {
+    open override var focusRingType: NSFocusRingType {
+        get {.none}
+        set {}
     }
 }

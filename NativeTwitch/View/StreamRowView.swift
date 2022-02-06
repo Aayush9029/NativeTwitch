@@ -12,15 +12,15 @@ import SwiftyJSON
 struct StreamRowView: View {
     var stream: Stream
     var const: Constants
-    
+
     @EnvironmentObject var twitchData: TwitchDataViewModel
-    
+
     @State private var hovered = false
     @State var stream_logo: URL?
-    
+
     var body: some View {
-        VStack{
-            HStack{
+        VStack {
+            HStack {
                 AsyncImage(url: stream_logo) { image in
                     image.resizable()
                 } placeholder: {
@@ -34,14 +34,14 @@ struct StreamRowView: View {
                             .shadow(color: Color.pink.opacity(0.75), radius: 5)
                     )
                     .padding(5)
-                VStack{
+                VStack {
                     HStack {
                         Text(stream.user_name)
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.primary)
                         Spacer()
-                        if(stream.type == "live"){
+                        if stream.type == "live" {
                             Circle()
                                 .frame(width: 10, height: 10)
                                 .foregroundColor(.red)
@@ -58,8 +58,8 @@ struct StreamRowView: View {
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
-                    if twitchData.showingInfo{
-                        HStack{
+                    if twitchData.showingInfo {
+                        HStack {
                             Text(stream.game_name)
                                 .lineLimit(1)
                                 .font(.caption)
@@ -82,19 +82,17 @@ struct StreamRowView: View {
         .padding(.horizontal, 10)
         .animation(.default, value: hovered)
         .onAppear(perform: {
-            
+
             getUserLogo()
 
         })
     }
 }
 
-
-
-extension StreamRowView{
-    func getUserLogo(){
+extension StreamRowView {
+    func getUserLogo() {
         let url = "https://api.twitch.tv/helix/users"
-        
+
         let headers: HTTPHeaders = [
             "Client-ID": const.twitchClientID,
             "Authorization": " Bearer \(const.oauthToken)"
@@ -102,15 +100,14 @@ extension StreamRowView{
         let parameters: Parameters = [
             "id": stream.user_id
         ]
-        
+
         let task = AF.request(url, parameters: parameters, headers: headers)
-        
+
         task.responseData { response in
-            if let json = try? JSON(data: response.data!){
+            if let json = try? JSON(data: response.data!) {
                 stream_logo  = URL(string: json["data"][0]["profile_image_url"].string!)!
             }
         }
     }
-    
-    
+
 }
