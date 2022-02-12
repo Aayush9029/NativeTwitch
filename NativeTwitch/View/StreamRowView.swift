@@ -24,7 +24,7 @@ struct StreamRowView: View {
                 AsyncImage(url: stream_logo) { image in
                     image.resizable()
                 } placeholder: {
-                   Image("streamer-image-placeholder")
+                    Image("streamer-image-placeholder")
                         .resizable()
                 } .frame(width: 45, height: 45)
                     .clipShape(Circle())
@@ -42,29 +42,24 @@ struct StreamRowView: View {
                             .foregroundStyle(.primary)
                         Spacer()
                         if stream.type == "live" {
-                            Circle()
-                                .frame(width: 10, height: 10)
-                                .foregroundColor(.red)
-                                .foregroundStyle(.secondary)
-
-                            Text("\(Double(stream.viewer_count).shortStringRepresentation)")
-                                .foregroundStyle(.primary)
+                            LiveBadgeView(viewCount: "\(Double(stream.viewer_count).shortStringRepresentation)")
                         }
                     }
                     HStack {
-                        Text(stream.title)
-                            .font(.caption)
-                            .lineLimit(twitchData.showingInfo ? 3: 1)
+                        Text(stream.game_name)
+                            .lineLimit( twitchData.showingInfo ? 3 : 1)
+                            .font(.callout)
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
-                    if twitchData.showingInfo {
-                        HStack {
-                            Text(stream.game_name)
-                                .lineLimit(1)
-                                .font(.caption)
-                                .foregroundStyle(.tertiary)
-                            Spacer()
+                    Group {
+                        if twitchData.showingInfo {
+                            HStack {
+                                Text(stream.title)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                Spacer()
+                            }
                         }
                     }
                 }

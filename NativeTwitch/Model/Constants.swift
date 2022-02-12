@@ -11,7 +11,10 @@ import Foundation
 struct Constants {
     let twitchClientID: String
     let oauthToken: String
+
     let streamlinkLocation: String
+    let streamlinkConfig: String
+
     static let downloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let installDir = FileManager.default.urls(for: .applicationDirectory, in: .localDomainMask).first!
 
@@ -37,6 +40,7 @@ enum AppStorageStrings: String {
     case clientID = "twitchClientID"
     case oauthToken = "oauthToken"
     case streamlinkLocation = "streamlinkLocation"
+    case streamlinkConfig = "streamLinkConfig"
     case showingInfo = "showingInfo"
     case iinaEnabled = "Enable IINA"
     case experimental = "Experimental Features"

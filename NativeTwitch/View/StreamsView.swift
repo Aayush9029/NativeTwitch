@@ -15,12 +15,13 @@ struct StreamsView: View {
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
+    @AppStorage(AppStorageStrings.streamlinkConfig.rawValue) var streamlinkConfig = ""
 
     var body: some View {
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(twitchData.streams, id: \.self) { stream in
-                        StreamRowView(stream: stream, const: Constants(twitchClientID: twitchClientID, oauthToken: oauthToken, streamlinkLocation: streamlinkLocation))
+                        StreamRowView(stream: stream, const: Constants(twitchClientID: twitchClientID, oauthToken: oauthToken, streamlinkLocation: streamlinkLocation, streamlinkConfig: streamlinkConfig))
                             .environmentObject(twitchData)
                             .onTapGesture(count: 2, perform: {
                                 twitchData.watchStream(stream.user_name)
@@ -31,7 +32,7 @@ struct StreamsView: View {
                                         twitchData.watchStream(stream.user_name)
                                     }
                                     if twitchData.experimental {
-                                        Button("Low latency using VLC") {
+                                        Button("Play (low latency)") {
                                             twitchData.watchLowLatencyWithVLC(stream.user_name)
                                         }
 
@@ -44,6 +45,11 @@ struct StreamsView: View {
                                                 }
                                             }
                                         }
+
+                                        Button("Open chat in Safari") {
+                                            NSWorkspace.shared.open(stream.getChatURL())
+                                        }
+
                                     } else {
                                         Button("Open chat in Safari") {
                                             NSWorkspace.shared.open(stream.getChatURL())

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2188F4027B75BA900868039 /* LiveBadgeView.swift */; };
 		C24D9C5C2779457B005B3380 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D9C5B2779457B005B3380 /* StreamsView.swift */; };
 		C269946E2647088900B3DCF7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C269946D2647088900B3DCF7 /* Alamofire */; };
 		C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C269947026470C1400B3DCF7 /* SwiftyJSON */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2188F4027B75BA900868039 /* LiveBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBadgeView.swift; sourceTree = "<group>"; };
 		C24D9C5B2779457B005B3380 /* StreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsView.swift; sourceTree = "<group>"; };
 		C269947C2647251D00B3DCF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C26994802647255000B3DCF7 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				C271885626E273E2009C8002 /* LogText.swift */,
 				C2E360E8272A5AA5005C6858 /* NeatButton.swift */,
+				C2188F4027B75BA900868039 /* LiveBadgeView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
 				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
 				C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */,
+				C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */,
 				C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
 				C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */,

@@ -11,6 +11,7 @@ struct SettingsView: View {
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
+    @AppStorage(AppStorageStrings.streamlinkConfig.rawValue) var streamlinkConfig = ""
 
     @EnvironmentObject var twitchData: TwitchDataViewModel
 
@@ -33,6 +34,8 @@ struct SettingsView: View {
                 TextField("Your Twitch Client ID", text: $twitchClientID)
 
                 TextField("Your Twitch Access Token", text: $oauthToken)
+
+                TextField("Streamlink Config (optional)", text: $streamlinkConfig)
 
                 Link(
                     destination: URL(string: "https://twitchtokengenerator.com/quick/NIaMdzGYBR")!,
@@ -115,7 +118,7 @@ struct SettingsView: View {
 
                                 ForEach(twitchData.logs, id: \.self) {log in
                                     LogText(text: log, color: .gray)
-                                }                                        .id(UUID())
+                                }.id(UUID())
 
                             }
                         }

@@ -55,7 +55,7 @@ struct NativeTwitchApp: App {
                     }
                     .keyboardShortcut("r", modifiers: .command)
                     Divider()
-                    Button("Show Info") {
+                    Button("\(twitchData.showingInfo ? "Hide" : "Show") Title") {
                         withAnimation {
                             withAnimation {
                                 twitchData.showingInfo.toggle()

@@ -14,9 +14,13 @@ class TwitchDataViewModel: ObservableObject {
     @Published var showingSettings: Bool = false
 
     @AppStorage(AppStorageStrings.showingInfo.rawValue) var showingInfo: Bool = false
+
     @AppStorage(AppStorageStrings.clientID.rawValue) var twitchClientID = ""
     @AppStorage(AppStorageStrings.oauthToken.rawValue) var oauthToken = ""
+
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
+    @AppStorage(AppStorageStrings.streamlinkConfig.rawValue) var streamlinkConfig = ""
+
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
     @AppStorage(AppStorageStrings.experimental.rawValue) var experimental = false
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
@@ -143,8 +147,11 @@ class TwitchDataViewModel: ObservableObject {
         self.temp_stream_user = streamUsername
 
         DispatchQueue.global(qos: .background).async {
+            var command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
 
-            let command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
+            if self.streamlinkConfig.count > 5 {
+                command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency --config \(self.streamlinkConfig)"
+            }
             self.addToLogs(command, hidestatus: false)
 
             let shell_out = shell(command)
