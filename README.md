@@ -27,7 +27,7 @@
 >
 > Why Streamlink? => *Streamlink handles video pipe (streaming video from twitch's server to your mac) flawlessly.*
 >
-> Why VLC? => *Vlc* handles low latency stream 👌 *experimental* 
+> Why IINA? => *IINA* handles low latency streams a lot better than quicktime does atm 👌*change streamlink config first*
 ---
 
 ### Check [Releases](https://github.com/Aayush9029/NativeTwitch/releases) for release notes.
