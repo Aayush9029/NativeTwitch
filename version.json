@@ -1,15 +1,15 @@
 {
-    "published": "2021-12-26",
-    "version": "1.5",
-    "build": 8,
+    "published": "2022-02-11",
+    "version": "1.6",
+    "build": 9,
     "title": "New NativeTwitch Update",
-    "mainfeature": "Experimental Toggle and Speediness",
-    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v1.5/NativeTwitch.app.zip",
+    "mainfeature": "UI/UX, lowlatency using IINA (streamlink config)",
+    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v5.1.6/NativeTwitch.app.zipp",
     "image": [
         {
-            "image": "https://user-images.githubusercontent.com/43297314/147424959-05c6a6a1-08f5-40ed-bbd7-4393a9a194a8.png",
-            "title": "Open in Native chat app (it's in beta phase)",
-            "description": "Command + , > Enable Experimental Features!"
+            "image": "https://user-images.githubusercontent.com/43297314/153694775-f2d3ff14-0873-47da-b815-ec946bbf0842.png",
+            "title": "Minor UI/UX Fixes, Custom Streamlink config file support",
+            "description": "Command + , > Add custom streamlink config"
         }
     ]
 }
