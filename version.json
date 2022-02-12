@@ -2,7 +2,7 @@
     "published": "2022-02-11",
     "version": "1.6",
     "build": 9,
-    "title": "New NativeTwitch Update",
+    "title": "New NativeTwitch Update (Click Open Releases and download latest version manually *something broke*)",
     "mainfeature": "UI/UX, lowlatency using IINA (streamlink config)",
     "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v5.1.6/NativeTwitch.app.zipp",
     "image": [
