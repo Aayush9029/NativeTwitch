@@ -15,16 +15,17 @@ struct Stream: Hashable {
     var game_name: String
     var title: String
     var user_logo: String?
+    var user_login: String // using this instead of username (fixes Chinise character issue)
 
     func getStreamURL() -> URL {
-        if let url = URL(string: "https://www.twitch.tv/\(user_name)") {
+        if let url = URL(string: "https://www.twitch.tv/\(user_login)") {
             return url
         }
         return URL(string: "https://www.twitch.tv")!
     }
 
     func getChatURL() -> URL {
-        if let url = URL(string: "https://www.twitch.tv/popout/\(user_name)/chat") {
+        if let url = URL(string: "https://www.twitch.tv/popout/\(user_login)/chat") {
             return url
         }
         return getStreamURL()
@@ -37,6 +38,7 @@ struct Stream: Hashable {
         type: "live",
         game_name: "Grand Theft Auto V",
         title: "[Nopixel] RIDEALONG PIERRE PP PAUL RIDS LOS SANTOS OF ALL THE CRIMINAL SCUM",
-        user_logo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+        user_logo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        user_login: "xqcow"
     )
 }

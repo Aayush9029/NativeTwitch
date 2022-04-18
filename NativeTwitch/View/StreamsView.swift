@@ -24,22 +24,22 @@ struct StreamsView: View {
                         StreamRowView(stream: stream, const: Constants(twitchClientID: twitchClientID, oauthToken: oauthToken, streamlinkLocation: streamlinkLocation, streamlinkConfig: streamlinkConfig))
                             .environmentObject(twitchData)
                             .onTapGesture(count: 2, perform: {
-                                twitchData.watchStream(stream.user_name)
+                                twitchData.watchStream(stream.user_login)
                             })
                             .contextMenu(ContextMenu(menuItems: {
                                 VStack {
                                     Button("Play \(twitchData.iinaEnabled ? "using iina" : "")") {
-                                        twitchData.watchStream(stream.user_name)
+                                        twitchData.watchStream(stream.user_login)
                                     }
                                     if twitchData.experimental {
                                         Button("Play (low latency)") {
-                                            twitchData.watchLowLatencyWithVLC(stream.user_name)
+                                            twitchData.watchLowLatencyWithVLC(stream.user_login)
                                         }
 
                                         Divider()
 
                                         Button("Open chat in Native Chat") {
-                                            openURL(URL(string: "nativechat://\(stream.user_name)")!) { accepted in
+                                            openURL(URL(string: "nativechat://\(stream.user_login)")!) { accepted in
                                                 DispatchQueue.main.sync {
                                                     twitchData.isShowingNativeChatAlert = !accepted
                                                 }
@@ -57,7 +57,7 @@ struct StreamsView: View {
 
                                         Divider()
 
-                                        Button("Open twitch.tv/\(stream.user_name)") {
+                                        Button("Open twitch.tv/\(stream.user_login)") {
                                             NSWorkspace.shared.open(stream.getStreamURL())
                                         }
                                     }
