@@ -17,14 +17,14 @@ struct UpdateInfoView: View {
                     .italic()
                 Spacer()
 
-                NeatButton(title: autoUpdater.status != .yesUpdates ? "Installing updates": "Install Update", symbol: autoUpdater.status != .yesUpdates ? "bolt.fill" : "arrow.down")
+                NeatButton(title: autoUpdater.status != .yesUpdates ? "Installing updates": "Install Update", symbol: autoUpdater.status != .yesUpdates ? "bolt.fill" : "arrow.down", color: .blue)
                     .onTapGesture {
                         if autoUpdater.status == .yesUpdates {
                             autoUpdater.downloadAndInstall()
                         }
                     }
 
-                NeatButton(title: "Open Releases", symbol: "globe")
+                NeatButton(title: "Open Releases", symbol: "globe", color: .green)
                     .onTapGesture {
                         NSWorkspace.shared.open(URL(string: "https://github.com/Aayush9029/NativeTwitch/releases")!)
                     }

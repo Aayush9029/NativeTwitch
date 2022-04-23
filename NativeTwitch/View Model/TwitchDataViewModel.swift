@@ -21,6 +21,8 @@ class TwitchDataViewModel: ObservableObject {
     @AppStorage(AppStorageStrings.streamlinkLocation.rawValue) var streamlinkLocation = ""
     @AppStorage(AppStorageStrings.streamlinkConfig.rawValue) var streamlinkConfig = ""
 
+    @AppStorage(AppStorageStrings.defaultResolution.rawValue) var defaultResolution = ""
+
     @AppStorage(AppStorageStrings.iinaEnabled.rawValue) var iinaEnabled = false
     @AppStorage(AppStorageStrings.experimental.rawValue) var experimental = false
     @AppStorage(AppStorageStrings.remoteUpdateJson.rawValue) var remoteUpdateJson = "https://raw.githubusercontent.com/Aayush9029/NativeTwitch/main/version.json"
@@ -147,10 +149,10 @@ class TwitchDataViewModel: ObservableObject {
         self.temp_stream_user = streamUsername
 
         DispatchQueue.global(qos: .background).async {
-            var command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency"
+            var command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) \(self.defaultResolution) --twitch-low-latency"
 
             if self.streamlinkConfig.count > 5 {
-                command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) best --twitch-low-latency --config \(self.streamlinkConfig)"
+                command = "\(self.streamlinkLocation) twitch.tv/\(self.temp_stream_user) \(self.defaultResolution) --twitch-low-latency --config \(self.streamlinkConfig)"
             }
             self.addToLogs(command, hidestatus: false)
 
@@ -175,11 +177,11 @@ class TwitchDataViewModel: ObservableObject {
 
         DispatchQueue.global(qos: .background).async {
             if self.iinaEnabled {
-                _ = shell("ttvQT () { open -a iina $(\(self.streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(self.temp_stream_user )")
+                _ = shell("ttvQT () { open -a iina $(\(self.streamlinkLocation) twitch.tv/$@ \(self.defaultResolution) --stream-url) ;}; ttvQT \(self.temp_stream_user )")
                 self.addToLogs("\(self.streamlinkLocation):🎉 Success 🎉")
                 return
             } else {
-                let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(self.streamlinkLocation) twitch.tv/$@ best --stream-url) ;}; ttvQT \(self.temp_stream_user )")
+                let shell_out = shell("ttvQT () { open -a \"quicktime player\" $(\(self.streamlinkLocation) twitch.tv/$@ \(self.defaultResolution) --stream-url) ;}; ttvQT \(self.temp_stream_user )")
                 if shell_out.isEmpty {
                     self.addToLogs("\(self.streamlinkLocation):🎉 Success 🎉")
                     return

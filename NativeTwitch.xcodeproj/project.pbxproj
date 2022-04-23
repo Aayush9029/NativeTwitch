@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B23F5E972814BC2400A8DD89 /* AuthSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E962814BC2400A8DD89 /* AuthSettingView.swift */; };
+		B23F5E992814BCCC00A8DD89 /* GeneralPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */; };
+		B23F5E9B2814BCD500A8DD89 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */; };
+		B23F5E9D2814BD8400A8DD89 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E9C2814BD8400A8DD89 /* LogsView.swift */; };
 		C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2188F4027B75BA900868039 /* LiveBadgeView.swift */; };
 		C24D9C5C2779457B005B3380 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D9C5B2779457B005B3380 /* StreamsView.swift */; };
 		C269946E2647088900B3DCF7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C269946D2647088900B3DCF7 /* Alamofire */; };
 		C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C269947026470C1400B3DCF7 /* SwiftyJSON */; };
-		C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269947C2647251D00B3DCF7 /* SettingsView.swift */; };
 		C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994802647255000B3DCF7 /* StreamRowView.swift */; };
 		C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */; };
 		C26FBE5A26467B26006818AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE5926467B26006818AB /* Constants.swift */; };
@@ -35,9 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B23F5E962814BC2400A8DD89 /* AuthSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSettingView.swift; sourceTree = "<group>"; };
+		B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceView.swift; sourceTree = "<group>"; };
+		B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		B23F5E9C2814BD8400A8DD89 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
 		C2188F4027B75BA900868039 /* LiveBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBadgeView.swift; sourceTree = "<group>"; };
 		C24D9C5B2779457B005B3380 /* StreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsView.swift; sourceTree = "<group>"; };
-		C269947C2647251D00B3DCF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C26994802647255000B3DCF7 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
 		C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchDataViewModel.swift; sourceTree = "<group>"; };
 		C26FBE5926467B26006818AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -78,6 +84,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B23F5E952814BC0700A8DD89 /* PreferencesView */ = {
+			isa = PBXGroup;
+			children = (
+				B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */,
+				B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */,
+				B23F5E962814BC2400A8DD89 /* AuthSettingView.swift */,
+				B23F5E9C2814BD8400A8DD89 /* LogsView.swift */,
+			);
+			path = PreferencesView;
+			sourceTree = "<group>";
+		};
 		C2948E1726E424F0001EABC0 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,10 +169,10 @@
 		C2A7BD1C26462B320038CFB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B23F5E952814BC0700A8DD89 /* PreferencesView */,
 				C24D9C5B2779457B005B3380 /* StreamsView.swift */,
 				C2E360E7272A5A9A005C6858 /* SubViews */,
 				C2E360E4272A5508005C6858 /* UpdateView */,
-				C269947C2647251D00B3DCF7 /* SettingsView.swift */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
 			);
 			path = View;
@@ -271,7 +288,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26FBE5A26467B26006818AB /* Constants.swift in Sources */,
+				B23F5E9D2814BD8400A8DD89 /* LogsView.swift in Sources */,
 				C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */,
+				B23F5E972814BC2400A8DD89 /* AuthSettingView.swift in Sources */,
 				C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */,
 				C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */,
 				C271885726E273E2009C8002 /* LogText.swift in Sources */,
@@ -280,8 +299,9 @@
 				C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */,
 				C2E360DB272A3FBB005C6858 /* NSView+Extension.swift in Sources */,
 				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
-				C269947D2647251D00B3DCF7 /* SettingsView.swift in Sources */,
+				B23F5E992814BCCC00A8DD89 /* GeneralPreferenceView.swift in Sources */,
 				C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */,
+				B23F5E9B2814BCD500A8DD89 /* PreferencesView.swift in Sources */,
 				C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */,
 				C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */,
 				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,

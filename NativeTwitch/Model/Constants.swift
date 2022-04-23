@@ -46,4 +46,15 @@ enum AppStorageStrings: String {
     case experimental = "Experimental Features"
     case tmpDirectory = "Temporary Updates Download Directory"
     case remoteUpdateJson = "URL Remote Version"
+    case defaultResolution = "best"
 }
+
+// MARK: - Avail Resolutions
+let availResolutions = [
+    "audio_only",
+    "worst",
+    "360p",
+    "480p",
+    "720p60",
+    "best"
+]

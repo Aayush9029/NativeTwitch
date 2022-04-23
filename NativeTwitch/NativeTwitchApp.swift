@@ -67,7 +67,7 @@ struct NativeTwitchApp: App {
             }
         }
         Settings {
-            SettingsView(showingLogs: $showingLogs)
+            PreferencesView()
                 .environmentObject(twitchData)
                 .background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
                 .frame(width: 320, height: showingLogs ? 720: 460)
