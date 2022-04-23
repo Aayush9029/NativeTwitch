@@ -27,5 +27,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>© Github.com/Aayush9029 2022</string>
 </dict>
 </plist>

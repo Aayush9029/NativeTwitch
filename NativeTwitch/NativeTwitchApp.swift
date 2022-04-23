@@ -12,9 +12,6 @@ struct NativeTwitchApp: App {
     @StateObject var twitchData = TwitchDataViewModel()
     @StateObject var updater = AutoUpdater()
 
-    @State var showingLogs = false
-    @State var hightLightWarnings = false
-
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -70,7 +67,7 @@ struct NativeTwitchApp: App {
             PreferencesView()
                 .environmentObject(twitchData)
                 .background(VisualEffectView(material: NSVisualEffectView.Material.sidebar, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
-                .frame(width: 320, height: showingLogs ? 720: 460)
+                .frame(width: 320, height: 460)
             .fixedSize()
         }
 

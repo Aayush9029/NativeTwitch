@@ -16,6 +16,7 @@ struct GeneralPreferenceView: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundStyle(.green)
+                .padding(.bottom)
 
             Group {
                 Text("Streamlink Location")
@@ -27,6 +28,8 @@ struct GeneralPreferenceView: View {
                     .foregroundStyle(.secondary)
                 TextField("Streamlink Config (optional)", text: $twitchData.streamlinkConfig)
                     .font(.title3)
+                    .padding(.bottom)
+
             }
 
             Divider()
