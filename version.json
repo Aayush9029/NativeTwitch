@@ -1,15 +1,15 @@
 {
     "published": "2022-02-11",
-    "version": "1.6",
-    "build": 9,
+    "version": "1.7",
+    "build": 10,
     "title": "New NativeTwitch Update",
-    "mainfeature": "UI/UX, lowlatency using IINA (streamlink config)",
-    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v5.1.6/NativeTwitch.app.zip",
+    "mainfeature": "Better Prefrences, Custom Resolution",
+    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v5.2/NativeTwitch.app.zip",
     "image": [
         {
-            "image": "https://user-images.githubusercontent.com/43297314/153694775-f2d3ff14-0873-47da-b815-ec946bbf0842.png",
-            "title": "Minor UI/UX Fixes, Custom Streamlink config file support",
-            "description": "Command + , > Add custom streamlink config"
+            "image": "https://user-images.githubusercontent.com/43297314/164950151-34c4fb13-51c9-4547-9093-7e903568c69c.png",
+            "title": "Prefrences Panel Got Overhauled",
+            "description": "Command + , = Magic"
         }
     ]
 }
