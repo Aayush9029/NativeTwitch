@@ -21,7 +21,7 @@ struct StreamsView: View {
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(twitchData.streams, id: \.self) { stream in
-                        StreamRowView(stream: stream, const: Constants(twitchClientID: twitchClientID, oauthToken: oauthToken, streamlinkLocation: streamlinkLocation, streamlinkConfig: streamlinkConfig))
+                        StreamRowView(stream: stream)
                             .environmentObject(twitchData)
                             .onTapGesture(count: 2, perform: {
                                 twitchData.watchStream(stream.user_login)
@@ -64,7 +64,7 @@ struct StreamsView: View {
                                 }
 
                             }))
-                    }.padding(.bottom)
+                    }.padding(.vertical)
                 }
             }
             .alert(Text("Native Chat isn't installed"), isPresented: $twitchData.isShowingNativeChatAlert) {

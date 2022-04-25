@@ -132,7 +132,7 @@ class TwitchDataViewModel: ObservableObject {
                 for (_, subJson):(String, JSON) in json["data"] {
                     let d = subJson
 
-                    self.streams.append(Stream(user_name: d["user_name"].string!, user_id: d["user_id"].string!, viewer_count: d["viewer_count"].int!, type: d["type"].string!, game_name: d["game_name"].string!, title: d["title"].string!, user_login: d["user_login"].string ?? "Unknown"))
+                    self.streams.append(Stream(user_name: d["user_name"].string!, user_id: d["user_id"].string!, viewer_count: d["viewer_count"].int!, type: d["type"].string!, game_name: d["game_name"].string!, title: d["title"].string!, user_login: d["user_login"].string ?? "Unknown", thumbnail_url: d["thumbnail_url"].string!))
 
                 }
                 self.status = .streamLoaded

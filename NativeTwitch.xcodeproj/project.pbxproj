@@ -11,6 +11,7 @@
 		B23F5E992814BCCC00A8DD89 /* GeneralPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */; };
 		B23F5E9B2814BCD500A8DD89 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */; };
 		B23F5E9D2814BD8400A8DD89 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E9C2814BD8400A8DD89 /* LogsView.swift */; };
+		B2960446281626E500F0E491 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B2960445281626E500F0E491 /* SDWebImageSwiftUI */; };
 		C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2188F4027B75BA900868039 /* LiveBadgeView.swift */; };
 		C24D9C5C2779457B005B3380 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D9C5B2779457B005B3380 /* StreamsView.swift */; };
 		C269946E2647088900B3DCF7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C269946D2647088900B3DCF7 /* Alamofire */; };
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2960446281626E500F0E491 /* SDWebImageSwiftUI in Frameworks */,
 				C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */,
 				C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */,
 				C269946E2647088900B3DCF7 /* Alamofire in Frameworks */,
@@ -169,10 +171,10 @@
 		C2A7BD1C26462B320038CFB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2E360E4272A5508005C6858 /* UpdateView */,
+				C2E360E7272A5A9A005C6858 /* SubViews */,
 				B23F5E952814BC0700A8DD89 /* PreferencesView */,
 				C24D9C5B2779457B005B3380 /* StreamsView.swift */,
-				C2E360E7272A5A9A005C6858 /* SubViews */,
-				C2E360E4272A5508005C6858 /* UpdateView */,
 				C26994802647255000B3DCF7 /* StreamRowView.swift */,
 			);
 			path = View;
@@ -228,6 +230,7 @@
 				C269946D2647088900B3DCF7 /* Alamofire */,
 				C269947026470C1400B3DCF7 /* SwiftyJSON */,
 				C2E4CE9F272B068900EAC8BB /* Zip */,
+				B2960445281626E500F0E491 /* SDWebImageSwiftUI */,
 			);
 			productName = NativeTwitch;
 			productReference = C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */;
@@ -260,6 +263,7 @@
 				C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */,
+				B2960444281626E500F0E491 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = C2A7BCED26462B030038CFB5 /* Products */;
 			projectDirPath = "";
@@ -440,7 +444,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -451,7 +455,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -467,7 +471,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -478,7 +482,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -509,6 +513,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B2960444281626E500F0E491 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -536,6 +548,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B2960445281626E500F0E491 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2960444281626E500F0E491 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		C269946D2647088900B3DCF7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */;

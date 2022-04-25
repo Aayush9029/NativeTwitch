@@ -13,21 +13,38 @@ struct ContentView: View {
 
     var body: some View {
         Group {
+            HStack {
+                Spacer()
+            }
             if twitchData.status != .streamLoaded {
-                Text("Loading Streams")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.gray.opacity(0.5))
+                VStack {
+                    Spacer()
+                    ProgressView()
+                        .opacity(0.75)
+                        .padding(.bottom)
+
+                    Text("Loading Streams")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.gray.opacity(0.5))
+                }
+
             }
             if twitchData.status == .streamLoaded && twitchData.streams.count == 0 {
+                VStack {
+                    Spacer()
                 Text("All streams are offline :(")
                     .font(.title)
                     .bold()
                     .foregroundColor(.gray.opacity(0.5))
+                    Spacer()
+                }
             } else {
                 StreamsView()
                     .environmentObject(twitchData)
             }
         }
+        .padding(.top, 24)
+        .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)).ignoresSafeArea()
     }
 }
