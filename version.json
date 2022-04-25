@@ -1,14 +1,14 @@
 {
-    "published": "2022-02-11",
-    "version": "1.7",
-    "build": 10,
+    "published": "2022-04-24",
+    "version": "2.0",
+    "build": 11,
     "title": "New NativeTwitch Update",
-    "mainfeature": "Better Prefrences, Custom Resolution",
-    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v5.2/NativeTwitch.app.zip",
+    "mainfeature": "Frost View",
+    "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v6/NativeTwitch.app.zip",
     "image": [
         {
-            "image": "https://user-images.githubusercontent.com/43297314/164950151-34c4fb13-51c9-4547-9093-7e903568c69c.png",
-            "title": "Prefrences Panel Got Overhauled",
+            "image": "https://user-images.githubusercontent.com/43297314/165005928-342df8f1-ed85-489e-a325-598a2c6002b1.png",
+            "title": "Frost View, Image Caching, Thumbnail Preview",
             "description": "Command + , = Magic"
         }
     ]
