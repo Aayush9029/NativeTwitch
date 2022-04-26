@@ -9,12 +9,12 @@
         {
             "image": "https://user-images.githubusercontent.com/43297314/165197169-7231529a-1231-4fe0-a1f6-07571ec898a4.png",
             "title": "App UI / UX Got HUGE Update",
-            "description": "The app will now stay in your menu bar, stay hidden and use almost no resources"
+            "description": "The app stays in your menu bar, tucked away and hidden untill you decide to use it. It uses almost no resources when tucked away."
         },
         {
             "image": "https://user-images.githubusercontent.com/43297314/165195933-2702ffb1-345a-4a49-9dbb-7ea6ad239a54.png",
-            "title": "Secure AF",
-            "description": "NOTE: You will need to re-enter ClientID, AccessToken, All settings have been reset.\nThe app now saves your oauth token and client ID in keychain instead of Storing it in a 'file'"
+            "title": "SUPER DUPER.. Secure AF",
+            "description": "NOTE: **All settings have been reset, Including your ClientID and AccessToken**\n The app now stores your credentials in Keychain. I'd recommended you to revoke your old accessToken and create a new one!!!"
         },
         
         {
