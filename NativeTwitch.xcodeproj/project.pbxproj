@@ -3,223 +3,299 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B23F5E972814BC2400A8DD89 /* AuthSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E962814BC2400A8DD89 /* AuthSettingView.swift */; };
-		B23F5E992814BCCC00A8DD89 /* GeneralPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */; };
-		B23F5E9B2814BCD500A8DD89 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */; };
-		B23F5E9D2814BD8400A8DD89 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F5E9C2814BD8400A8DD89 /* LogsView.swift */; };
-		B2960446281626E500F0E491 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B2960445281626E500F0E491 /* SDWebImageSwiftUI */; };
-		C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2188F4027B75BA900868039 /* LiveBadgeView.swift */; };
-		C24D9C5C2779457B005B3380 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D9C5B2779457B005B3380 /* StreamsView.swift */; };
-		C269946E2647088900B3DCF7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C269946D2647088900B3DCF7 /* Alamofire */; };
-		C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C269947026470C1400B3DCF7 /* SwiftyJSON */; };
-		C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26994802647255000B3DCF7 /* StreamRowView.swift */; };
-		C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */; };
-		C26FBE5A26467B26006818AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26FBE5926467B26006818AB /* Constants.swift */; };
-		C271885726E273E2009C8002 /* LogText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271885626E273E2009C8002 /* LogText.swift */; };
-		C2948E1926E424FC001EABC0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1826E424FC001EABC0 /* Stream.swift */; };
-		C2948E1B26E4250A001EABC0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1A26E4250A001EABC0 /* User.swift */; };
-		C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */; };
-		C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7BCF126462B030038CFB5 /* ContentView.swift */; };
-		C2A7BCF426462B050038CFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF326462B050038CFB5 /* Assets.xcassets */; };
-		C2A7BCF726462B050038CFB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A7BCF626462B050038CFB5 /* Preview Assets.xcassets */; };
-		C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D6272A3F54005C6858 /* Double+Extension.swift */; };
-		C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */; };
-		C2E360DB272A3FBB005C6858 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DA272A3FBB005C6858 /* NSView+Extension.swift */; };
-		C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DC272A451A005C6858 /* AutoUpdater.swift */; };
-		C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360DE272A4576005C6858 /* UpdateModel.swift */; };
-		C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */; };
-		C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E5272A5527005C6858 /* UpdateInfoView.swift */; };
-		C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E360E8272A5AA5005C6858 /* NeatButton.swift */; };
-		C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = C2E4CE9F272B068900EAC8BB /* Zip */; };
-		C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */; };
+		B280676028170EE30040E0E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674A28170EE30040E0E4 /* ContentView.swift */; };
+		B280676228170EE90040E0E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674C28170EE30040E0E4 /* AppDelegate.swift */; };
+		B280676328170EEF0040E0E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674928170EE30040E0E4 /* Constants.swift */; };
+		B280676428170EF00040E0E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674928170EE30040E0E4 /* Constants.swift */; };
+		B280676728170F170040E0E4 /* StreamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675A28170EE30040E0E4 /* StreamRowView.swift */; };
+		B280676828170F3E0040E0E4 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675328170EE30040E0E4 /* StreamsView.swift */; };
+		B280676928170F400040E0E4 /* EmptyStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675528170EE30040E0E4 /* EmptyStreamView.swift */; };
+		B280676A28170F440040E0E4 /* LiveBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675828170EE30040E0E4 /* LiveBadgeView.swift */; };
+		B280676B28170F460040E0E4 /* StreamerLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675928170EE30040E0E4 /* StreamerLogoView.swift */; };
+		B280676D281714DA0040E0E4 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280676C281714DA0040E0E4 /* KeychainHelper.swift */; };
+		B280677628171E0B0040E0E4 /* TwitchDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280677528171E0B0040E0E4 /* TwitchDataViewModel.swift */; };
+		B2806779281722FA0040E0E4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B2806778281722FA0040E0E4 /* Alamofire */; };
+		B280677C281723040040E0E4 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = B280677B281723040040E0E4 /* Zip */; };
+		B280677F281728890040E0E4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B280677E281728890040E0E4 /* SwiftyJSON */; };
+		B280678128172BFA0040E0E4 /* StreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280678028172BFA0040E0E4 /* StreamModel.swift */; };
+		B2806788281733500040E0E4 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806786281733460040E0E4 /* NSView+Extension.swift */; };
+		B2806789281733500040E0E4 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806783281733460040E0E4 /* View+Extension.swift */; };
+		B280678A281733500040E0E4 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806784281733460040E0E4 /* Bundle+Extension.swift */; };
+		B280678B281733500040E0E4 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806787281733460040E0E4 /* NSTextField+Extension.swift */; };
+		B280678C281733500040E0E4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806785281733460040E0E4 /* Double+Extension.swift */; };
+		B280678D281733550040E0E4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806785281733460040E0E4 /* Double+Extension.swift */; };
+		B2806791281735D90040E0E4 /* AddAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806790281735D90040E0E4 /* AddAuthView.swift */; };
+		B2806794281743740040E0E4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B2806793281743740040E0E4 /* SDWebImageSwiftUI */; };
+		B28067962817499B0040E0E4 /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067952817499B0040E0E4 /* ContextMenuView.swift */; };
+		B28067AD2817503E0040E0E4 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067AB281750280040E0E4 /* PreferencesView.swift */; };
+		B28067AE2817503E0040E0E4 /* GeneralPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067A9281750280040E0E4 /* GeneralPreferenceView.swift */; };
+		B28067AF2817503E0040E0E4 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067AC281750280040E0E4 /* LogsView.swift */; };
+		B28067B02817503E0040E0E4 /* AuthSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067AA281750280040E0E4 /* AuthSettingView.swift */; };
+		B28067B2281751130040E0E4 /* LogText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067B1281751130040E0E4 /* LogText.swift */; };
+		B28067B4281751150040E0E4 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067B3281751150040E0E4 /* NeatButton.swift */; };
+		B28067B62817547C0040E0E4 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067B52817547C0040E0E4 /* BottomBarView.swift */; };
+		B28067B82817609E0040E0E4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067B72817609E0040E0E4 /* CustomTextField.swift */; };
+		B28067BA281763600040E0E4 /* LoadingStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067B9281763600040E0E4 /* LoadingStreamView.swift */; };
+		B28067BE28176BF90040E0E4 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067BD28176BF90040E0E4 /* AutoUpdater.swift */; };
+		B28067BF28176C020040E0E4 /* UpdateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067BC28176BF50040E0E4 /* UpdateInfoView.swift */; };
+		B28067C128176C8A0040E0E4 /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067C028176C8A0040E0E4 /* UpdateModel.swift */; };
+		B2BAF8E228170E3000CF193C /* NativeTwitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAF8E128170E3000CF193C /* NativeTwitchApp.swift */; };
+		B2BAF8E628170E3100CF193C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2BAF8E528170E3100CF193C /* Assets.xcassets */; };
+		B2BAF8E928170E3100CF193C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2BAF8E828170E3100CF193C /* Preview Assets.xcassets */; };
+		B2BAF8F428170E3100CF193C /* NativeTwitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAF8F328170E3100CF193C /* NativeTwitchTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B2BAF8F028170E3100CF193C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2BAF8D628170E3000CF193C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2BAF8DD28170E3000CF193C;
+			remoteInfo = NativeTwitch;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		B23F5E962814BC2400A8DD89 /* AuthSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSettingView.swift; sourceTree = "<group>"; };
-		B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceView.swift; sourceTree = "<group>"; };
-		B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		B23F5E9C2814BD8400A8DD89 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
-		C2188F4027B75BA900868039 /* LiveBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBadgeView.swift; sourceTree = "<group>"; };
-		C24D9C5B2779457B005B3380 /* StreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsView.swift; sourceTree = "<group>"; };
-		C26994802647255000B3DCF7 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
-		C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchDataViewModel.swift; sourceTree = "<group>"; };
-		C26FBE5926467B26006818AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C271885626E273E2009C8002 /* LogText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogText.swift; sourceTree = "<group>"; };
-		C2948E1826E424FC001EABC0 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
-		C2948E1A26E4250A001EABC0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeTwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchApp.swift; sourceTree = "<group>"; };
-		C2A7BCF126462B030038CFB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C2A7BCF326462B050038CFB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C2A7BCF626462B050038CFB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C2A7BCF826462B050038CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2A7BCF926462B050038CFB5 /* NativeTwitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeTwitch.entitlements; sourceTree = "<group>"; };
-		C2A7BD0226462B050038CFB5 /* NativeTwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchTests.swift; sourceTree = "<group>"; };
-		C2A7BD0426462B050038CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2E360D6272A3F54005C6858 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
-		C2E360DA272A3FBB005C6858 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
-		C2E360DC272A451A005C6858 /* AutoUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
-		C2E360DE272A4576005C6858 /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
-		C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
-		C2E360E5272A5527005C6858 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
-		C2E360E8272A5AA5005C6858 /* NeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatButton.swift; sourceTree = "<group>"; };
-		C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		B280674928170EE30040E0E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B280674A28170EE30040E0E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B280674C28170EE30040E0E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B280675328170EE30040E0E4 /* StreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsView.swift; sourceTree = "<group>"; };
+		B280675528170EE30040E0E4 /* EmptyStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStreamView.swift; sourceTree = "<group>"; };
+		B280675828170EE30040E0E4 /* LiveBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBadgeView.swift; sourceTree = "<group>"; };
+		B280675928170EE30040E0E4 /* StreamerLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerLogoView.swift; sourceTree = "<group>"; };
+		B280675A28170EE30040E0E4 /* StreamRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamRowView.swift; sourceTree = "<group>"; };
+		B280676C281714DA0040E0E4 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		B280677528171E0B0040E0E4 /* TwitchDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchDataViewModel.swift; sourceTree = "<group>"; };
+		B280678028172BFA0040E0E4 /* StreamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamModel.swift; sourceTree = "<group>"; };
+		B2806783281733460040E0E4 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		B2806784281733460040E0E4 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		B2806785281733460040E0E4 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		B2806786281733460040E0E4 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
+		B2806787281733460040E0E4 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
+		B280678F281735B10040E0E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B2806790281735D90040E0E4 /* AddAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAuthView.swift; sourceTree = "<group>"; };
+		B28067952817499B0040E0E4 /* ContextMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuView.swift; sourceTree = "<group>"; };
+		B28067A9281750280040E0E4 /* GeneralPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceView.swift; sourceTree = "<group>"; };
+		B28067AA281750280040E0E4 /* AuthSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSettingView.swift; sourceTree = "<group>"; };
+		B28067AB281750280040E0E4 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		B28067AC281750280040E0E4 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		B28067B1281751130040E0E4 /* LogText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogText.swift; sourceTree = "<group>"; };
+		B28067B3281751150040E0E4 /* NeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatButton.swift; sourceTree = "<group>"; };
+		B28067B52817547C0040E0E4 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		B28067B72817609E0040E0E4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B28067B9281763600040E0E4 /* LoadingStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStreamView.swift; sourceTree = "<group>"; };
+		B28067BC28176BF50040E0E4 /* UpdateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoView.swift; sourceTree = "<group>"; };
+		B28067BD28176BF90040E0E4 /* AutoUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
+		B28067C028176C8A0040E0E4 /* UpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
+		B2BAF8DE28170E3000CF193C /* NativeTwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeTwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2BAF8E128170E3000CF193C /* NativeTwitchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchApp.swift; sourceTree = "<group>"; };
+		B2BAF8E528170E3100CF193C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2BAF8E828170E3100CF193C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B2BAF8EA28170E3100CF193C /* NativeTwitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeTwitch.entitlements; sourceTree = "<group>"; };
+		B2BAF8EF28170E3100CF193C /* NativeTwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativeTwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2BAF8F328170E3100CF193C /* NativeTwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C2A7BCE926462B030038CFB5 /* Frameworks */ = {
+		B2BAF8DB28170E3000CF193C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2960446281626E500F0E491 /* SDWebImageSwiftUI in Frameworks */,
-				C2E4CEA0272B068900EAC8BB /* Zip in Frameworks */,
-				C269947126470C1400B3DCF7 /* SwiftyJSON in Frameworks */,
-				C269946E2647088900B3DCF7 /* Alamofire in Frameworks */,
+				B2806794281743740040E0E4 /* SDWebImageSwiftUI in Frameworks */,
+				B280677F281728890040E0E4 /* SwiftyJSON in Frameworks */,
+				B280677C281723040040E0E4 /* Zip in Frameworks */,
+				B2806779281722FA0040E0E4 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2BAF8EC28170E3100CF193C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B23F5E952814BC0700A8DD89 /* PreferencesView */ = {
+		B280674328170EE30040E0E4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B23F5E9A2814BCD500A8DD89 /* PreferencesView.swift */,
-				B23F5E982814BCCC00A8DD89 /* GeneralPreferenceView.swift */,
-				B23F5E962814BC2400A8DD89 /* AuthSettingView.swift */,
-				B23F5E9C2814BD8400A8DD89 /* LogsView.swift */,
+				B28067BD28176BF90040E0E4 /* AutoUpdater.swift */,
+				B280677528171E0B0040E0E4 /* TwitchDataViewModel.swift */,
 			);
-			path = PreferencesView;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		C2948E1726E424F0001EABC0 /* View Model */ = {
+		B280674828170EE30040E0E4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C2E360DC272A451A005C6858 /* AutoUpdater.swift */,
-				C26FBE54264679F1006818AB /* TwitchDataViewModel.swift */,
+				B28067C028176C8A0040E0E4 /* UpdateModel.swift */,
+				B280674928170EE30040E0E4 /* Constants.swift */,
+				B280678028172BFA0040E0E4 /* StreamModel.swift */,
 			);
-			path = "View Model";
+			path = Models;
 			sourceTree = "<group>";
 		};
-		C2A7BCE326462B030038CFB5 = {
+		B280674B28170EE30040E0E4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C2A7BCEE26462B030038CFB5 /* NativeTwitch */,
-				C2A7BD0126462B050038CFB5 /* NativeTwitchTests */,
-				C2A7BCED26462B030038CFB5 /* Products */,
+				B280674C28170EE30040E0E4 /* AppDelegate.swift */,
+				B280676C281714DA0040E0E4 /* KeychainHelper.swift */,
 			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
-		C2A7BCED26462B030038CFB5 /* Products */ = {
+		B280675228170EE30040E0E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */,
+				B28067BB28176BF50040E0E4 /* UpdateView */,
+				B2806790281735D90040E0E4 /* AddAuthView.swift */,
+				B280675328170EE30040E0E4 /* StreamsView.swift */,
+				B280679C281750090040E0E4 /* PreferencesView */,
+				B280675428170EE30040E0E4 /* OtherViews */,
+				B280675628170EE30040E0E4 /* StreamRowViews */,
+				B280675B28170EE30040E0E4 /* UpdateViews */,
 			);
-			name = Products;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		C2A7BCEE26462B030038CFB5 /* NativeTwitch */ = {
+		B280675428170EE30040E0E4 /* OtherViews */ = {
 			isa = PBXGroup;
 			children = (
-				C2A7BCEF26462B030038CFB5 /* NativeTwitchApp.swift */,
-				C2A7BCF126462B030038CFB5 /* ContentView.swift */,
-				C2A7BD1C26462B320038CFB5 /* View */,
-				C2A7BD1B26462B2C0038CFB5 /* Model */,
-				C2948E1726E424F0001EABC0 /* View Model */,
-				C2E360D5272A3F43005C6858 /* Extensions */,
-				C2A7BCF326462B050038CFB5 /* Assets.xcassets */,
-				C2A7BCF826462B050038CFB5 /* Info.plist */,
-				C2A7BCF926462B050038CFB5 /* NativeTwitch.entitlements */,
-				C2A7BCF526462B050038CFB5 /* Preview Content */,
+				B28067B3281751150040E0E4 /* NeatButton.swift */,
+				B28067B1281751130040E0E4 /* LogText.swift */,
+				B280675528170EE30040E0E4 /* EmptyStreamView.swift */,
+				B28067B52817547C0040E0E4 /* BottomBarView.swift */,
+				B28067B72817609E0040E0E4 /* CustomTextField.swift */,
+				B28067B9281763600040E0E4 /* LoadingStreamView.swift */,
 			);
-			path = NativeTwitch;
+			path = OtherViews;
 			sourceTree = "<group>";
 		};
-		C2A7BCF526462B050038CFB5 /* Preview Content */ = {
+		B280675628170EE30040E0E4 /* StreamRowViews */ = {
 			isa = PBXGroup;
 			children = (
-				C2A7BCF626462B050038CFB5 /* Preview Assets.xcassets */,
+				B280675A28170EE30040E0E4 /* StreamRowView.swift */,
+				B280675728170EE30040E0E4 /* SubViews */,
 			);
-			path = "Preview Content";
+			path = StreamRowViews;
 			sourceTree = "<group>";
 		};
-		C2A7BD0126462B050038CFB5 /* NativeTwitchTests */ = {
+		B280675728170EE30040E0E4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				C2A7BD0226462B050038CFB5 /* NativeTwitchTests.swift */,
-				C2A7BD0426462B050038CFB5 /* Info.plist */,
+				B280675828170EE30040E0E4 /* LiveBadgeView.swift */,
+				B280675928170EE30040E0E4 /* StreamerLogoView.swift */,
+				B28067952817499B0040E0E4 /* ContextMenuView.swift */,
 			);
-			path = NativeTwitchTests;
+			path = SubViews;
 			sourceTree = "<group>";
 		};
-		C2A7BD1B26462B2C0038CFB5 /* Model */ = {
+		B280675B28170EE30040E0E4 /* UpdateViews */ = {
 			isa = PBXGroup;
 			children = (
-				C2E360DE272A4576005C6858 /* UpdateModel.swift */,
-				C26FBE5926467B26006818AB /* Constants.swift */,
-				C2948E1826E424FC001EABC0 /* Stream.swift */,
-				C2948E1A26E4250A001EABC0 /* User.swift */,
 			);
-			path = Model;
+			path = UpdateViews;
 			sourceTree = "<group>";
 		};
-		C2A7BD1C26462B320038CFB5 /* View */ = {
+		B28067822817331B0040E0E4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C2E360E4272A5508005C6858 /* UpdateView */,
-				C2E360E7272A5A9A005C6858 /* SubViews */,
-				B23F5E952814BC0700A8DD89 /* PreferencesView */,
-				C24D9C5B2779457B005B3380 /* StreamsView.swift */,
-				C26994802647255000B3DCF7 /* StreamRowView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C2E360D5272A3F43005C6858 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C2E360DA272A3FBB005C6858 /* NSView+Extension.swift */,
-				C2E360D6272A3F54005C6858 /* Double+Extension.swift */,
-				C2E360D8272A3F77005C6858 /* NSTextField+Extension.swift */,
-				C2E360E0272A4B5B005C6858 /* Bundle+Extension.swift */,
-				C2E4CEA1272B1D3D00EAC8BB /* View+Extension.swift */,
+				B2806784281733460040E0E4 /* Bundle+Extension.swift */,
+				B2806785281733460040E0E4 /* Double+Extension.swift */,
+				B2806787281733460040E0E4 /* NSTextField+Extension.swift */,
+				B2806786281733460040E0E4 /* NSView+Extension.swift */,
+				B2806783281733460040E0E4 /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C2E360E4272A5508005C6858 /* UpdateView */ = {
+		B280679C281750090040E0E4 /* PreferencesView */ = {
 			isa = PBXGroup;
 			children = (
-				C2E360E5272A5527005C6858 /* UpdateInfoView.swift */,
+				B28067AB281750280040E0E4 /* PreferencesView.swift */,
+				B28067AA281750280040E0E4 /* AuthSettingView.swift */,
+				B28067A9281750280040E0E4 /* GeneralPreferenceView.swift */,
+				B28067AC281750280040E0E4 /* LogsView.swift */,
+			);
+			path = PreferencesView;
+			sourceTree = "<group>";
+		};
+		B28067BB28176BF50040E0E4 /* UpdateView */ = {
+			isa = PBXGroup;
+			children = (
+				B28067BC28176BF50040E0E4 /* UpdateInfoView.swift */,
 			);
 			path = UpdateView;
 			sourceTree = "<group>";
 		};
-		C2E360E7272A5A9A005C6858 /* SubViews */ = {
+		B2BAF8D528170E3000CF193C = {
 			isa = PBXGroup;
 			children = (
-				C271885626E273E2009C8002 /* LogText.swift */,
-				C2E360E8272A5AA5005C6858 /* NeatButton.swift */,
-				C2188F4027B75BA900868039 /* LiveBadgeView.swift */,
+				B2BAF8E028170E3000CF193C /* NativeTwitch */,
+				B2BAF8F228170E3100CF193C /* NativeTwitchTests */,
+				B2BAF8DF28170E3000CF193C /* Products */,
 			);
-			path = SubViews;
+			sourceTree = "<group>";
+		};
+		B2BAF8DF28170E3000CF193C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2BAF8DE28170E3000CF193C /* NativeTwitch.app */,
+				B2BAF8EF28170E3100CF193C /* NativeTwitchTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2BAF8E028170E3000CF193C /* NativeTwitch */ = {
+			isa = PBXGroup;
+			children = (
+				B280678F281735B10040E0E4 /* Info.plist */,
+				B2BAF8E128170E3000CF193C /* NativeTwitchApp.swift */,
+				B280674A28170EE30040E0E4 /* ContentView.swift */,
+				B280675228170EE30040E0E4 /* Views */,
+				B280674328170EE30040E0E4 /* ViewModels */,
+				B280674828170EE30040E0E4 /* Models */,
+				B280674B28170EE30040E0E4 /* Helpers */,
+				B28067822817331B0040E0E4 /* Extensions */,
+				B2BAF8E528170E3100CF193C /* Assets.xcassets */,
+				B2BAF8EA28170E3100CF193C /* NativeTwitch.entitlements */,
+				B2BAF8E728170E3100CF193C /* Preview Content */,
+			);
+			path = NativeTwitch;
+			sourceTree = "<group>";
+		};
+		B2BAF8E728170E3100CF193C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B2BAF8E828170E3100CF193C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B2BAF8F228170E3100CF193C /* NativeTwitchTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2BAF8F328170E3100CF193C /* NativeTwitchTests.swift */,
+			);
+			path = NativeTwitchTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2A7BCEB26462B030038CFB5 /* NativeTwitch */ = {
+		B2BAF8DD28170E3000CF193C /* NativeTwitch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2A7BD1226462B050038CFB5 /* Build configuration list for PBXNativeTarget "NativeTwitch" */;
+			buildConfigurationList = B2BAF90328170E3100CF193C /* Build configuration list for PBXNativeTarget "NativeTwitch" */;
 			buildPhases = (
-				C2A7BCE826462B030038CFB5 /* Sources */,
-				C2A7BCE926462B030038CFB5 /* Frameworks */,
-				C2A7BCEA26462B030038CFB5 /* Resources */,
+				B2BAF8DA28170E3000CF193C /* Sources */,
+				B2BAF8DB28170E3000CF193C /* Frameworks */,
+				B2BAF8DC28170E3000CF193C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -227,107 +303,163 @@
 			);
 			name = NativeTwitch;
 			packageProductDependencies = (
-				C269946D2647088900B3DCF7 /* Alamofire */,
-				C269947026470C1400B3DCF7 /* SwiftyJSON */,
-				C2E4CE9F272B068900EAC8BB /* Zip */,
-				B2960445281626E500F0E491 /* SDWebImageSwiftUI */,
+				B2806778281722FA0040E0E4 /* Alamofire */,
+				B280677B281723040040E0E4 /* Zip */,
+				B280677E281728890040E0E4 /* SwiftyJSON */,
+				B2806793281743740040E0E4 /* SDWebImageSwiftUI */,
 			);
 			productName = NativeTwitch;
-			productReference = C2A7BCEC26462B030038CFB5 /* NativeTwitch.app */;
+			productReference = B2BAF8DE28170E3000CF193C /* NativeTwitch.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B2BAF8EE28170E3100CF193C /* NativeTwitchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2BAF90628170E3100CF193C /* Build configuration list for PBXNativeTarget "NativeTwitchTests" */;
+			buildPhases = (
+				B2BAF8EB28170E3100CF193C /* Sources */,
+				B2BAF8EC28170E3100CF193C /* Frameworks */,
+				B2BAF8ED28170E3100CF193C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2BAF8F128170E3100CF193C /* PBXTargetDependency */,
+			);
+			name = NativeTwitchTests;
+			productName = NativeTwitchTests;
+			productReference = B2BAF8EF28170E3100CF193C /* NativeTwitchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C2A7BCE426462B030038CFB5 /* Project object */ = {
+		B2BAF8D628170E3000CF193C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					C2A7BCEB26462B030038CFB5 = {
-						CreatedOnToolsVersion = 12.5;
+					B2BAF8DD28170E3000CF193C = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B2BAF8EE28170E3100CF193C = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = B2BAF8DD28170E3000CF193C;
 					};
 				};
 			};
-			buildConfigurationList = C2A7BCE726462B030038CFB5 /* Build configuration list for PBXProject "NativeTwitch" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = B2BAF8D928170E3000CF193C /* Build configuration list for PBXProject "NativeTwitch" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C2A7BCE326462B030038CFB5;
+			mainGroup = B2BAF8D528170E3000CF193C;
 			packageReferences = (
-				C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */,
-				B2960444281626E500F0E491 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				B2806777281722FA0040E0E4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B280677A281723040040E0E4 /* XCRemoteSwiftPackageReference "Zip" */,
+				B280677D281728890040E0E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				B2806792281743740040E0E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
-			productRefGroup = C2A7BCED26462B030038CFB5 /* Products */;
+			productRefGroup = B2BAF8DF28170E3000CF193C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2A7BCEB26462B030038CFB5 /* NativeTwitch */,
+				B2BAF8DD28170E3000CF193C /* NativeTwitch */,
+				B2BAF8EE28170E3100CF193C /* NativeTwitchTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C2A7BCEA26462B030038CFB5 /* Resources */ = {
+		B2BAF8DC28170E3000CF193C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2A7BCF726462B050038CFB5 /* Preview Assets.xcassets in Resources */,
-				C2A7BCF426462B050038CFB5 /* Assets.xcassets in Resources */,
+				B2BAF8E928170E3100CF193C /* Preview Assets.xcassets in Resources */,
+				B2BAF8E628170E3100CF193C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2BAF8ED28170E3100CF193C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C2A7BCE826462B030038CFB5 /* Sources */ = {
+		B2BAF8DA28170E3000CF193C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C26FBE5A26467B26006818AB /* Constants.swift in Sources */,
-				B23F5E9D2814BD8400A8DD89 /* LogsView.swift in Sources */,
-				C2E360E9272A5AA5005C6858 /* NeatButton.swift in Sources */,
-				B23F5E972814BC2400A8DD89 /* AuthSettingView.swift in Sources */,
-				C2E360E1272A4B5B005C6858 /* Bundle+Extension.swift in Sources */,
-				C2E4CEA2272B1D3D00EAC8BB /* View+Extension.swift in Sources */,
-				C271885726E273E2009C8002 /* LogText.swift in Sources */,
-				C26FBE55264679F1006818AB /* TwitchDataViewModel.swift in Sources */,
-				C2A7BCF226462B030038CFB5 /* ContentView.swift in Sources */,
-				C2E360D7272A3F54005C6858 /* Double+Extension.swift in Sources */,
-				C2E360DB272A3FBB005C6858 /* NSView+Extension.swift in Sources */,
-				C2A7BCF026462B030038CFB5 /* NativeTwitchApp.swift in Sources */,
-				B23F5E992814BCCC00A8DD89 /* GeneralPreferenceView.swift in Sources */,
-				C2E360E6272A5527005C6858 /* UpdateInfoView.swift in Sources */,
-				B23F5E9B2814BCD500A8DD89 /* PreferencesView.swift in Sources */,
-				C2188F4127B75BA900868039 /* LiveBadgeView.swift in Sources */,
-				C2E360DF272A4576005C6858 /* UpdateModel.swift in Sources */,
-				C26994812647255000B3DCF7 /* StreamRowView.swift in Sources */,
-				C2E360D9272A3F77005C6858 /* NSTextField+Extension.swift in Sources */,
-				C2948E1926E424FC001EABC0 /* Stream.swift in Sources */,
-				C2E360DD272A451A005C6858 /* AutoUpdater.swift in Sources */,
-				C2948E1B26E4250A001EABC0 /* User.swift in Sources */,
-				C24D9C5C2779457B005B3380 /* StreamsView.swift in Sources */,
+				B280676A28170F440040E0E4 /* LiveBadgeView.swift in Sources */,
+				B28067BE28176BF90040E0E4 /* AutoUpdater.swift in Sources */,
+				B280676B28170F460040E0E4 /* StreamerLogoView.swift in Sources */,
+				B280678C281733500040E0E4 /* Double+Extension.swift in Sources */,
+				B280676828170F3E0040E0E4 /* StreamsView.swift in Sources */,
+				B28067C128176C8A0040E0E4 /* UpdateModel.swift in Sources */,
+				B280678A281733500040E0E4 /* Bundle+Extension.swift in Sources */,
+				B28067AD2817503E0040E0E4 /* PreferencesView.swift in Sources */,
+				B2806791281735D90040E0E4 /* AddAuthView.swift in Sources */,
+				B280676D281714DA0040E0E4 /* KeychainHelper.swift in Sources */,
+				B28067B82817609E0040E0E4 /* CustomTextField.swift in Sources */,
+				B28067962817499B0040E0E4 /* ContextMenuView.swift in Sources */,
+				B280678128172BFA0040E0E4 /* StreamModel.swift in Sources */,
+				B2BAF8E228170E3000CF193C /* NativeTwitchApp.swift in Sources */,
+				B280678B281733500040E0E4 /* NSTextField+Extension.swift in Sources */,
+				B280677628171E0B0040E0E4 /* TwitchDataViewModel.swift in Sources */,
+				B2806789281733500040E0E4 /* View+Extension.swift in Sources */,
+				B28067BA281763600040E0E4 /* LoadingStreamView.swift in Sources */,
+				B28067B4281751150040E0E4 /* NeatButton.swift in Sources */,
+				B2806788281733500040E0E4 /* NSView+Extension.swift in Sources */,
+				B28067B2281751130040E0E4 /* LogText.swift in Sources */,
+				B28067B62817547C0040E0E4 /* BottomBarView.swift in Sources */,
+				B280676028170EE30040E0E4 /* ContentView.swift in Sources */,
+				B280676228170EE90040E0E4 /* AppDelegate.swift in Sources */,
+				B280676328170EEF0040E0E4 /* Constants.swift in Sources */,
+				B28067AE2817503E0040E0E4 /* GeneralPreferenceView.swift in Sources */,
+				B28067BF28176C020040E0E4 /* UpdateInfoView.swift in Sources */,
+				B28067B02817503E0040E0E4 /* AuthSettingView.swift in Sources */,
+				B28067AF2817503E0040E0E4 /* LogsView.swift in Sources */,
+				B280676928170F400040E0E4 /* EmptyStreamView.swift in Sources */,
+				B280676728170F170040E0E4 /* StreamRowView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2BAF8EB28170E3100CF193C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BAF8F428170E3100CF193C /* NativeTwitchTests.swift in Sources */,
+				B280676428170EF00040E0E4 /* Constants.swift in Sources */,
+				B280678D281733550040E0E4 /* Double+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B2BAF8F128170E3100CF193C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2BAF8DD28170E3000CF193C /* NativeTwitch */;
+			targetProxy = B2BAF8F028170E3100CF193C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		C2A7BD1026462B050038CFB5 /* Debug */ = {
+		B2BAF90128170E3100CF193C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -371,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -381,14 +513,13 @@
 			};
 			name = Debug;
 		};
-		C2A7BD1126462B050038CFB5 /* Release */ = {
+		B2BAF90228170E3100CF193C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -426,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -435,77 +566,128 @@
 			};
 			name = Release;
 		};
-		C2A7BD1326462B050038CFB5 /* Debug */ = {
+		B2BAF90428170E3100CF193C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NativeTwitch/NativeTwitch.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NativeTwitch/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© Aayush Pokharel Github.com/Aayush9029 2022";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
+				MARKETING_VERSION = 6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.v2.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		C2A7BD1426462B050038CFB5 /* Release */ = {
+		B2BAF90528170E3100CF193C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NativeTwitch/NativeTwitch.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"NativeTwitch/Preview Content\"";
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NativeTwitch/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© Aayush Pokharel Github.com/Aayush9029 2022";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.NativeTwitch;
+				MARKETING_VERSION = 6.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.v2.NativeTwitch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B2BAF90728170E3100CF193C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4538W4A79B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.v2.NativeTwitchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NativeTwitch.app/Contents/MacOS/NativeTwitch";
+			};
+			name = Debug;
+		};
+		B2BAF90828170E3100CF193C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4538W4A79B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.v2.NativeTwitchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NativeTwitch.app/Contents/MacOS/NativeTwitch";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2A7BCE726462B030038CFB5 /* Build configuration list for PBXProject "NativeTwitch" */ = {
+		B2BAF8D928170E3000CF193C /* Build configuration list for PBXProject "NativeTwitch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C2A7BD1026462B050038CFB5 /* Debug */,
-				C2A7BD1126462B050038CFB5 /* Release */,
+				B2BAF90128170E3100CF193C /* Debug */,
+				B2BAF90228170E3100CF193C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2A7BD1226462B050038CFB5 /* Build configuration list for PBXNativeTarget "NativeTwitch" */ = {
+		B2BAF90328170E3100CF193C /* Build configuration list for PBXNativeTarget "NativeTwitch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C2A7BD1326462B050038CFB5 /* Debug */,
-				C2A7BD1426462B050038CFB5 /* Release */,
+				B2BAF90428170E3100CF193C /* Debug */,
+				B2BAF90528170E3100CF193C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2BAF90628170E3100CF193C /* Build configuration list for PBXNativeTarget "NativeTwitchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2BAF90728170E3100CF193C /* Debug */,
+				B2BAF90828170E3100CF193C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -513,62 +695,62 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B2960444281626E500F0E491 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		B2806777281722FA0040E0E4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.3;
+				branch = master;
+				kind = branch;
 			};
 		};
-		C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */ = {
+		B280677A281723040040E0E4 /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
+			};
+		};
+		B280677D281728890040E0E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B2806792281743740040E0E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B2960445281626E500F0E491 /* SDWebImageSwiftUI */ = {
+		B2806778281722FA0040E0E4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B2960444281626E500F0E491 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
-		C269946D2647088900B3DCF7 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C269946C2647088900B3DCF7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = B2806777281722FA0040E0E4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		C269947026470C1400B3DCF7 /* SwiftyJSON */ = {
+		B280677B281723040040E0E4 /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C269946F26470C1400B3DCF7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = B280677A281723040040E0E4 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		B280677E281728890040E0E4 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B280677D281728890040E0E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		C2E4CE9F272B068900EAC8BB /* Zip */ = {
+		B2806793281743740040E0E4 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C2E4CE9E272B068900EAC8BB /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
+			package = B2806792281743740040E0E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = C2A7BCE426462B030038CFB5 /* Project object */;
+	rootObject = B2BAF8D628170E3000CF193C /* Project object */;
 }

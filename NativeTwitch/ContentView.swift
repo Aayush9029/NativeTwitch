@@ -1,50 +1,73 @@
 //
 //  ContentView.swift
-//  NativeTwitch
+//  NativeYoutube
 //
-//  Created by Aayush Pokharel on 2021-05-07.
+//  Created by Aayush Pokharel on 2022-04-25.
 //
 
-import Foundation
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var twitchData: TwitchDataViewModel
+    @StateObject var twitchDataViewModel = TwitchDataViewModel()
+    @StateObject var updater = AutoUpdater()
+
+    private let appearNotification = Constants.popupAppearNotification
 
     var body: some View {
         Group {
-            HStack {
-                Spacer()
-            }
-            if twitchData.status != .streamLoaded {
-                VStack {
-                    Spacer()
-                    ProgressView()
-                        .opacity(0.75)
-                        .padding(.bottom)
-
-                    Text("Loading Streams")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(.gray.opacity(0.5))
-                }
-
-            }
-            if twitchData.status == .streamLoaded && twitchData.streams.count == 0 {
-                VStack {
-                    Spacer()
-                Text("All streams are offline :(")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.gray.opacity(0.5))
-                    Spacer()
-                }
+            if twitchDataViewModel.showAddAuthView {
+                AddAuthView()
+                    .environmentObject(twitchDataViewModel)
             } else {
-                StreamsView()
-                    .environmentObject(twitchData)
+                Group {
+                    if twitchDataViewModel.currentStatus == .streamsLoading {
+                        LoadingStreamView()
+                    } else if twitchDataViewModel.streams.isEmpty {
+                        EmptyStreamView()
+                    } else {
+                        StreamsView()
+                            .environmentObject(twitchDataViewModel)
+                    }
+                }
+            }
+            BottomBarView()
+                .environmentObject(twitchDataViewModel)
+            .padding()
+        }
+        .labelStyle(.iconOnly)
+        .frame(width: 360, height: 400)
+        .onAppear(perform: {
+            print("Appear")
+            updater.checkForUpdates()
+
+            twitchDataViewModel.fetchStreams()
+        })
+        .onReceive(appearNotification) { _ in
+            print("Got Notification")
+            twitchDataViewModel.fetchStreams()
+        }
+        .onChange(of: updater.status, perform: { _ in
+            if updater.status == .yesUpdates {
+                UpdateInfoView(update: updater.updates)
+                    .environmentObject(updater)
+                    .frame(minHeight: 640)
+                    .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow).ignoresSafeArea())
+                    .openNewWindow(with: "New Update Available")
+            }
+            twitchDataViewModel.addLog(updater.status.rawValue)
+        })
+        .alert(Text("Restart app to finish update"), isPresented: $updater.showingRestartAlert) {
+            HStack {
+                Button("ok") {
+                    print("ok")
+                }
             }
         }
-        .padding(.top, 24)
-        .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)).ignoresSafeArea()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }

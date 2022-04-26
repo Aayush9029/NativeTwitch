@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "f96b619bcb2383b43d898402283924b80e2c4bae",
-        "version" : "5.4.3"
+        "branch" : "master",
+        "revision" : "0621eb572397597f815f6aa16b5955abca25f997"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
       "state" : {
-        "revision" : "cd8625b7cf11a97698e180d28bb7d5d357196678",
-        "version" : "2.0.2"
+        "branch" : "master",
+        "revision" : "336d3f6d3b53729c1f274bf6b75f4532ada116eb"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
       "state" : {
-        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
-        "version" : "5.0.1"
+        "branch" : "master",
+        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/Zip.git",
       "state" : {
-        "revision" : "bd19d974e8a38cc8d3a88c90c8a107386c3b8ccf",
-        "version" : "2.1.1"
+        "branch" : "master",
+        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76"
       }
     }
   ],
