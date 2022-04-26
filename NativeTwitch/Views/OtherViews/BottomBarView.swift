@@ -71,15 +71,24 @@ struct BottomBarButton: View {
     let title: String
     let icon: String
     var color: Color = .secondary
+    
+    @State private var hovered: Bool = false
     var body: some View {
         HStack {
             Spacer()
             Label(title, systemImage: icon)
             Spacer()
         }
-        .foregroundColor(color)
+        .foregroundColor(hovered ? .white : color)
         .padding(4)
-        .background(color.opacity(0.125))
+        .background(color.opacity(hovered ? 0.5 : 0.125))
         .cornerRadius(4)
+        .shadow(color: color.opacity(0.5), radius: 6, x: 0, y: 0)
+        .onHover { hovering in
+            withAnimation {
+                hovered = hovering
+            }
+            
+        }
     }
 }

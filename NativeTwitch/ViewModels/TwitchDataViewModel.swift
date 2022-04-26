@@ -47,6 +47,7 @@ class TwitchDataViewModel: ObservableObject {
     func fetchStreams() {
         if !self.streams.isEmpty {
             self.streams.removeAll()
+            self.logs.removeAll()
         }
         if clientID.isEmpty {
             self.showAddAuthView = true

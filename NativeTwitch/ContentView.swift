@@ -32,7 +32,9 @@ struct ContentView: View {
             }
             BottomBarView()
                 .environmentObject(twitchDataViewModel)
-            .padding()
+                .padding(.horizontal)
+                .padding(.bottom, 5)
+                .cornerRadius(16)
         }
         .labelStyle(.iconOnly)
         .frame(width: 360, height: 400)
