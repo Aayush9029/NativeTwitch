@@ -2,25 +2,24 @@
     "published": "2022-04-25",
     "version": "6.0",
     "build": 12,
-    "title": "HUGE!!! NativeTwitch Update",
+    "title": "⚡ HUGE!!! NativeTwitch Update, 📓 Check Release Notes!!!",
     "mainfeature": "Complete UI / UX Overhaul, Read Release Notes",
     "downloadlink" : "https://github.com/Aayush9029/NativeTwitch/releases/download/v6/NativeTwitch.app.zip",
     "image": [
         {
             "image": "https://user-images.githubusercontent.com/43297314/165197169-7231529a-1231-4fe0-a1f6-07571ec898a4.png",
-            "title": "App UI / UX Got HUGE Update",
+            "title": "🌸 App UI / UX Got HUGE Update",
             "description": "The app stays in your menu bar, tucked away and hidden untill you decide to use it. It uses almost no resources when tucked away."
         },
         {
             "image": "https://user-images.githubusercontent.com/43297314/165195933-2702ffb1-345a-4a49-9dbb-7ea6ad239a54.png",
-            "title": "SUPER DUPER.. Secure AF",
-            "description": "NOTE: **All settings have been reset, Including your ClientID and AccessToken**\n The app now stores your credentials in Keychain. I'd recommended you to revoke your old accessToken and create a new one!!!"
-        },
-        
+            "title": "🔒 SUPER DUPER.. Secure AF",
+            "description": "NOTE: All settings will be resetted to default, This includes your ClientID and AccessToken\n  The app now stores your credentials in Keychain. I'd recommended you to revoke your old accessToken and create a new one!!!"
+        },        
         {
             "image": "https://user-images.githubusercontent.com/43297314/165194855-fd6d4d82-8a1c-42d1-af69-6a6b4f54ec0c.png",
-            "title": "New ICON",
-            "description": "The app icon is changed! Looks better than a blob imo."
+            "title": "✨ New ICON",
+            "description": "The app icon is changed! Looks better than a blob imo. Oo also streamer icon will be cached saving loading times and network bandwidth!!!"
         }
     ]
 }
