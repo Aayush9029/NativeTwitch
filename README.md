@@ -1,12 +1,12 @@
 
 <div align="center">
-  <h1>NativeTwitch</h1>
-  
-  <img src="https://user-images.githubusercontent.com/43297314/139798460-ac6e46a5-7935-46d7-9cbf-e2d86930e912.png" width="200px">
+  <h1>NativeTwitch v2</h1>
+
+  <img src="https://user-images.githubusercontent.com/43297314/165196273-24d58da9-05c7-441f-a7a0-ddf845f90d74.png" width="200px">
 
 *Native, Opensource Twitch app for your mac.*
 
-<img src="https://user-images.githubusercontent.com/43297314/147424959-05c6a6a1-08f5-40ed-bbd7-4393a9a194a8.png">
+<img src="https://user-images.githubusercontent.com/43297314/165197169-7231529a-1231-4fe0-a1f6-07571ec898a4.png">
   
 </div>
 
@@ -17,14 +17,17 @@
 1. [Download the Universal Binary from releases page](https://github.com/Aayush9029/NativeTwitch/releases/download/v4.0/NativeTwitch.app.zip)
 2. Install [Home brew](https://brew.sh/) 
 3. Install [streamlink](https://github.com/streamlink/streamlink) via ```brew install streamlink```
-4. Open app preferences, `Command + ,`
-5. Generate ClientID and Access Token via [twitchtokengenerator.com](https://twitchtokengenerator.com/quick/NIaMdzGYBR)
-6. Find streamlink installed location via ```which streamlink``` and paste it in field named Stream link location.
+4. Open app, It's a menu bar app
 
-
+> Why does this PopUp?
+> 
+> ![165195528-04b0ff1a-c31b-4b26-bc5a-af4c216308ee](https://user-images.githubusercontent.com/43297314/165195933-2702ffb1-345a-4a49-9dbb-7ea6ad239a54.png)
+> 
+> *NativeTwitch* saves your access token and client id in Keychain (securely), click Always Allow for ease!
+> [See why this is necessary](https://www.reddit.com/r/MacOS/comments/tovph8/why_does_discord_want_to_access_my_keychain_every/)
 
 > Why Generate Oauth? => *This way the app won't need to store your password.*
->
+> 
 > Why Streamlink? => *Streamlink handles video pipe (streaming video from twitch's server to your mac) flawlessly.*
 >
 > Why IINA? => *IINA* handles low latency streams a lot better than quicktime does atm 👌*change streamlink config first*
