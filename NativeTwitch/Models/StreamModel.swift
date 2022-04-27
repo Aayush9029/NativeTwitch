@@ -49,7 +49,7 @@ class StreamModel: Identifiable {
         return getStreamURL()
     }
 
-    func getThumbnail(width: Int = 400, height: Int = 248) -> URL? {
+    func getThumbnail(width: Int = 720, height: Int = 360) -> URL? {
         return URL(string: thumbnail_url.replacingOccurrences(of: "{width}", with: "\(width)").replacingOccurrences(of: "{height}", with: "\(height)"))
     }
 
