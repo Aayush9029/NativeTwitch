@@ -6,7 +6,8 @@
 
 *Native, Opensource Twitch app for your mac.*
 
-<img src="https://user-images.githubusercontent.com/43297314/165583679-14cbfef2-27c4-43f7-8470-95c03f16d2da.png">
+
+<img src="https://user-images.githubusercontent.com/43297314/165637731-5e9eb88f-fec9-4a53-8011-88cd8b5a5901.png">
   
 <img src="https://user-images.githubusercontent.com/43297314/165197169-7231529a-1231-4fe0-a1f6-07571ec898a4.png">
 
