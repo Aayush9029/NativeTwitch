@@ -71,7 +71,7 @@ struct BottomBarButton: View {
     let title: String
     let icon: String
     var color: Color = .secondary
-    
+
     @State private var hovered: Bool = false
     var body: some View {
         HStack {
@@ -88,7 +88,7 @@ struct BottomBarButton: View {
             withAnimation {
                 hovered = hovering
             }
-            
+
         }
     }
 }
