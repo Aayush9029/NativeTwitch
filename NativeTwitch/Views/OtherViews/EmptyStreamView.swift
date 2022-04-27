@@ -9,14 +9,17 @@ import SwiftUI
 
 struct EmptyStreamView: View {
     var body: some View {
-
         VStack {
+            Spacer()
             Image(systemName: "person.2.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80)
             Text("Streamers Offline")
                 .font(.title.bold())
-                .foregroundStyle(.tertiary)
             Spacer()
         }
+        .foregroundStyle(.tertiary)
     }
 }
 
