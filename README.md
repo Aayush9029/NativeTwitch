@@ -5,12 +5,12 @@
   <img src="https://user-images.githubusercontent.com/43297314/165196273-24d58da9-05c7-441f-a7a0-ddf845f90d74.png" width="200px">
 
 *Native, Opensource Twitch app for your mac.*
-
+  
+  <a href="https://github.com/Aayush9029/NativeTwitch/releases/download/v6/NativeTwitch.app.zip" target="_blank"><img src="https://user-images.githubusercontent.com/43297314/167192051-dc8cfd47-1c2d-43f1-bb95-275ae70ef8dd.svg" alt="Download App" ></a>&nbsp;&nbsp;<a href="https://www.buymeacoffee.com/swiftdev" target="_blank"><img src="https://user-images.githubusercontent.com/43297314/167192056-015e7f19-d47c-4d80-9843-75946a882078.svg" alt="Buy Me a Coffee" ></a>
+	<br>
+	<br>
 
 <img src="https://user-images.githubusercontent.com/43297314/165637731-5e9eb88f-fec9-4a53-8011-88cd8b5a5901.png">
-  
-<img src="https://user-images.githubusercontent.com/43297314/165197169-7231529a-1231-4fe0-a1f6-07571ec898a4.png">
-
 
 </div>
 
