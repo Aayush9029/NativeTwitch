@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - URL Constants
+
 struct Constants {
     static let downloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let installDir = FileManager.default.urls(for: .applicationDirectory, in: .localDomainMask).first!
@@ -22,6 +23,7 @@ struct Constants {
 }
 
 // MARK: - Status States Debugging.
+
 enum CurrentStatus: String {
     case starting = "App Launched"
     case userValidating = "User Validating"
@@ -34,7 +36,8 @@ enum CurrentStatus: String {
 }
 
 // MARK: - Enums for Appstorage strings.
-struct StorageStrings {
+
+enum StorageStrings {
     static let clientID = "com.aayush.NativeTwitch.clientID"
     static let accessToken = "com.aayush.NativeTwitch.accessToken"
     static let userName = "com.aayush.NativeTwitch.userName"
@@ -49,6 +52,7 @@ struct StorageStrings {
 }
 
 // MARK: - Avail Resolutions
+
 let availableResolutions = [
     "audio_only",
     "worst",

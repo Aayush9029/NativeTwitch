@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct StreamRowView: View {
-
     @EnvironmentObject var twitchDataViewModel: TwitchDataViewModel
     @State private var hovered = false
 
@@ -53,18 +51,13 @@ struct StreamRowView: View {
             }
             .onHover { isHovered in
                 withAnimation {
-                self.hovered = isHovered
+                    self.hovered = isHovered
                 }
             }
             .padding(6)
             .background(
                 Group {
-                    WebImage(url: stream.getThumbnail())
-                        .placeholder {
-                            RoundedRectangle(cornerRadius: 10)
-                                .background(hovered ? Color.purple.opacity(0.5) : Color.white.opacity(0.025))
-                        }
-                        .resizable()
+                    AsyncImage(url: stream.getThumbnail())
                         .scaledToFill()
                         .blur(radius: hovered ? 0 : 4)
                         .scaleEffect(hovered ? 1 : 1.125)

@@ -6,24 +6,34 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct StreamerLogoView: View {
     let url: URL?
 
     var body: some View {
-        WebImage(url: url, options: [.progressiveLoad, .delayPlaceholder])
-            .placeholder(Image("streamer-logo-placeholder").resizable())
-            .resizable()
-            .scaledToFill()
-            .frame(width: 45, height: 45)
-            .clipShape(Circle())
-            .overlay(
-                Circle()
-                    .stroke(Color.red, lineWidth: 2)
-                    .shadow(color: Color.pink.opacity(0.75), radius: 5)
-            )
-            .padding(5)
+        AsyncImage(url: url) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                image.resizable()
+            // Change this according to the taste
+            case .failure:
+                Image(systemName: "photo")
+            @unknown default:
+                EmptyView()
+            }
+        }
+
+        .scaledToFill()
+        .frame(width: 45, height: 45)
+        .clipShape(Circle())
+        .overlay(
+            Circle()
+                .stroke(Color.red, lineWidth: 2)
+                .shadow(color: Color.pink.opacity(0.75), radius: 5)
+        )
+        .padding(5)
     }
 }
 

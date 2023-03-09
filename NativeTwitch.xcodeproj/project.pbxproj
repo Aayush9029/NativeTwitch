@@ -10,7 +10,6 @@
 		B280676028170EE30040E0E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674A28170EE30040E0E4 /* ContentView.swift */; };
 		B280676228170EE90040E0E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674C28170EE30040E0E4 /* AppDelegate.swift */; };
 		B280676328170EEF0040E0E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674928170EE30040E0E4 /* Constants.swift */; };
-		B280676428170EF00040E0E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280674928170EE30040E0E4 /* Constants.swift */; };
 		B280676728170F170040E0E4 /* StreamRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675A28170EE30040E0E4 /* StreamRowView.swift */; };
 		B280676828170F3E0040E0E4 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675328170EE30040E0E4 /* StreamsView.swift */; };
 		B280676928170F400040E0E4 /* EmptyStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280675528170EE30040E0E4 /* EmptyStreamView.swift */; };
@@ -27,9 +26,7 @@
 		B280678A281733500040E0E4 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806784281733460040E0E4 /* Bundle+Extension.swift */; };
 		B280678B281733500040E0E4 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806787281733460040E0E4 /* NSTextField+Extension.swift */; };
 		B280678C281733500040E0E4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806785281733460040E0E4 /* Double+Extension.swift */; };
-		B280678D281733550040E0E4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806785281733460040E0E4 /* Double+Extension.swift */; };
 		B2806791281735D90040E0E4 /* AddAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2806790281735D90040E0E4 /* AddAuthView.swift */; };
-		B2806794281743740040E0E4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B2806793281743740040E0E4 /* SDWebImageSwiftUI */; };
 		B28067962817499B0040E0E4 /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067952817499B0040E0E4 /* ContextMenuView.swift */; };
 		B28067AD2817503E0040E0E4 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067AB281750280040E0E4 /* PreferencesView.swift */; };
 		B28067AE2817503E0040E0E4 /* GeneralPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28067A9281750280040E0E4 /* GeneralPreferenceView.swift */; };
@@ -46,18 +43,7 @@
 		B2BAF8E228170E3000CF193C /* NativeTwitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAF8E128170E3000CF193C /* NativeTwitchApp.swift */; };
 		B2BAF8E628170E3100CF193C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2BAF8E528170E3100CF193C /* Assets.xcassets */; };
 		B2BAF8E928170E3100CF193C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2BAF8E828170E3100CF193C /* Preview Assets.xcassets */; };
-		B2BAF8F428170E3100CF193C /* NativeTwitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAF8F328170E3100CF193C /* NativeTwitchTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B2BAF8F028170E3100CF193C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2BAF8D628170E3000CF193C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B2BAF8DD28170E3000CF193C;
-			remoteInfo = NativeTwitch;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B280674928170EE30040E0E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -96,8 +82,6 @@
 		B2BAF8E528170E3100CF193C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2BAF8E828170E3100CF193C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B2BAF8EA28170E3100CF193C /* NativeTwitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeTwitch.entitlements; sourceTree = "<group>"; };
-		B2BAF8EF28170E3100CF193C /* NativeTwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativeTwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2BAF8F328170E3100CF193C /* NativeTwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTwitchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,17 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2806794281743740040E0E4 /* SDWebImageSwiftUI in Frameworks */,
 				B280677F281728890040E0E4 /* SwiftyJSON in Frameworks */,
 				B280677C281723040040E0E4 /* Zip in Frameworks */,
 				B2806779281722FA0040E0E4 /* Alamofire in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2BAF8EC28170E3100CF193C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				B2BAF8E028170E3000CF193C /* NativeTwitch */,
-				B2BAF8F228170E3100CF193C /* NativeTwitchTests */,
 				B2BAF8DF28170E3000CF193C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -247,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				B2BAF8DE28170E3000CF193C /* NativeTwitch.app */,
-				B2BAF8EF28170E3100CF193C /* NativeTwitchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,14 +252,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B2BAF8F228170E3100CF193C /* NativeTwitchTests */ = {
-			isa = PBXGroup;
-			children = (
-				B2BAF8F328170E3100CF193C /* NativeTwitchTests.swift */,
-			);
-			path = NativeTwitchTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,29 +272,10 @@
 				B2806778281722FA0040E0E4 /* Alamofire */,
 				B280677B281723040040E0E4 /* Zip */,
 				B280677E281728890040E0E4 /* SwiftyJSON */,
-				B2806793281743740040E0E4 /* SDWebImageSwiftUI */,
 			);
 			productName = NativeTwitch;
 			productReference = B2BAF8DE28170E3000CF193C /* NativeTwitch.app */;
 			productType = "com.apple.product-type.application";
-		};
-		B2BAF8EE28170E3100CF193C /* NativeTwitchTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B2BAF90628170E3100CF193C /* Build configuration list for PBXNativeTarget "NativeTwitchTests" */;
-			buildPhases = (
-				B2BAF8EB28170E3100CF193C /* Sources */,
-				B2BAF8EC28170E3100CF193C /* Frameworks */,
-				B2BAF8ED28170E3100CF193C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B2BAF8F128170E3100CF193C /* PBXTargetDependency */,
-			);
-			name = NativeTwitchTests;
-			productName = NativeTwitchTests;
-			productReference = B2BAF8EF28170E3100CF193C /* NativeTwitchTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -342,10 +289,6 @@
 				TargetAttributes = {
 					B2BAF8DD28170E3000CF193C = {
 						CreatedOnToolsVersion = 13.3.1;
-					};
-					B2BAF8EE28170E3100CF193C = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = B2BAF8DD28170E3000CF193C;
 					};
 				};
 			};
@@ -362,14 +305,12 @@
 				B2806777281722FA0040E0E4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B280677A281723040040E0E4 /* XCRemoteSwiftPackageReference "Zip" */,
 				B280677D281728890040E0E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				B2806792281743740040E0E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B2BAF8DF28170E3000CF193C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B2BAF8DD28170E3000CF193C /* NativeTwitch */,
-				B2BAF8EE28170E3100CF193C /* NativeTwitchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,13 +322,6 @@
 			files = (
 				B2BAF8E928170E3100CF193C /* Preview Assets.xcassets in Resources */,
 				B2BAF8E628170E3100CF193C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2BAF8ED28170E3100CF193C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,25 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2BAF8EB28170E3100CF193C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B2BAF8F428170E3100CF193C /* NativeTwitchTests.swift in Sources */,
-				B280676428170EF00040E0E4 /* Constants.swift in Sources */,
-				B280678D281733550040E0E4 /* Double+Extension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B2BAF8F128170E3100CF193C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B2BAF8DD28170E3000CF193C /* NativeTwitch */;
-			targetProxy = B2BAF8F028170E3100CF193C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B2BAF90128170E3100CF193C /* Debug */ = {
@@ -624,44 +540,6 @@
 			};
 			name = Release;
 		};
-		B2BAF90728170E3100CF193C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4538W4A79B;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.v2.NativeTwitchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NativeTwitch.app/Contents/MacOS/NativeTwitch";
-			};
-			name = Debug;
-		};
-		B2BAF90828170E3100CF193C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4538W4A79B;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aayush.opensource.v2.NativeTwitchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NativeTwitch.app/Contents/MacOS/NativeTwitch";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -679,15 +557,6 @@
 			buildConfigurations = (
 				B2BAF90428170E3100CF193C /* Debug */,
 				B2BAF90528170E3100CF193C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B2BAF90628170E3100CF193C /* Build configuration list for PBXNativeTarget "NativeTwitchTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B2BAF90728170E3100CF193C /* Debug */,
-				B2BAF90828170E3100CF193C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -719,14 +588,6 @@
 				kind = branch;
 			};
 		};
-		B2806792281743740040E0E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -744,11 +605,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B280677D281728890040E0E4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
-		};
-		B2806793281743740040E0E4 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B2806792281743740040E0E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
