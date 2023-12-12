@@ -1,55 +1,30 @@
 //
 //  AppDelegate.swift
-//  NativeYoutube
+//  Neo
 //
-//  Created by Aayush Pokharel on 2022-04-25.
+//  Created by Aayush Pokharel on 2023-11-15.
 //
 
+import AppKit
 import SwiftUI
 
-// MARK: - Menu Bar and Icon Setup
-class AppDelegate: NSObject, ObservableObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
+    private var aboutBoxWindowController: NSWindowController?
 
-    @Published var statusItem: NSStatusItem?
-    @Published var popover = NSPopover()
-
-    private let appearNotification = Constants.popupAppearNotification
-
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        setupPopOverMenu()
-    }
-
-    func setupPopOverMenu() {
-        //        Setting Popover View
-        popover.animates = true
-        popover.behavior = .transient
-
-        //        Linking SwiftUI View
-        popover.contentViewController = NSViewController()
-        popover.contentViewController?.view = NSHostingView(rootView: ContentView())
-
-        //        Making it the "Key" window
-        popover.contentViewController?.view.window?.makeKey()
-
-        //        Setting width of the icon
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
-        //        Setting an icon and attaching show/hide function
-        if let menuButton = statusItem?.button {
-            menuButton.image = NSImage(imageLiteralResourceName: "menu-bar-icon")
-            menuButton.action = #selector(menuButtonAction(sender:))
+    func showAboutPanel() {
+        if aboutBoxWindowController == nil {
+            let styleMask: NSWindow.StyleMask = [.closable, .titled, .fullSizeContentView]
+            let window = NSWindow()
+            window.styleMask = styleMask
+            window.isMovableByWindowBackground = true
+            window.backgroundColor = .clear
+            window.titlebarAppearsTransparent = true
+            window.titleVisibility = .hidden
+            window.contentView = NSHostingView(rootView: AboutView())
+            window.center()
+            aboutBoxWindowController = NSWindowController(window: window)
         }
-    }
 
-    // MARK: - Show / Hide Function for Popover View
-    @objc func menuButtonAction(sender: AnyObject) {
-        if popover.isShown {
-            popover.performClose(sender)
-        } else {
-            if let menuButton = statusItem?.button {
-                appearNotification.center.post(name: Constants.popupAppearNotification.name, object: nil)
-                popover.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: .minY)
-            }
-        }
+        aboutBoxWindowController?.showWindow(aboutBoxWindowController?.window)
     }
 }

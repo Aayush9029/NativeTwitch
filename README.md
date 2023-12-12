@@ -1,8 +1,10 @@
 
 <div align="center">
-  <h1>NativeTwitch v2</h1>
+  <h1>NativeTwitch v4</h1>
 
-  <img src="https://user-images.githubusercontent.com/43297314/165196273-24d58da9-05c7-441f-a7a0-ddf845f90d74.png" width="200px">
+
+
+  <img src="https://github.com/Aayush9029/NativeTwitch/assets/43297314/20b8b508-baf0-4e44-af29-fcd8713b4c88" width="200px">
 
 *Native, Opensource Twitch app for your mac.*
   
@@ -19,9 +21,9 @@
 ### How to install?
 
 1. [Download the Universal Binary from releases page](https://github.com/Aayush9029/NativeTwitch/releases/download/v4.0/NativeTwitch.app.zip)
-2. Install [Home brew](https://brew.sh/) 
-3. Install [streamlink](https://github.com/streamlink/streamlink) via ```brew install streamlink```
-4. Open app, It's a menu bar app
+2. OPTIONAL: Install [Home brew](https://brew.sh/) 
+3. OPTIONAL: Install [streamlink](https://github.com/streamlink/streamlink) via ```brew install streamlink```
+4. Open app.
 
 > Why does this PopUp?
 > 
@@ -47,6 +49,10 @@
 2. Sees if any channels are online
 3. If they are and *if you choose to watch* it will stream via [streamlink](https://github.com/streamlink/streamlink).
 
----
 
-*Legal disclamer: Made for educational purposes only ;)*
+### v2 to v4?
+
+yes. so?
+  
+---
+Icon by [Orcher](https://macosicons.com/#/u/Orcher)

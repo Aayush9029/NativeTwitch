@@ -1,30 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "alamofire",
+      "identity" : "fluidgradient",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "location" : "https://github.com/Cindori/FluidGradient.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "0621eb572397597f815f6aa16b5955abca25f997"
-      }
-    },
-    {
-      "identity" : "swiftyjson",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07"
-      }
-    },
-    {
-      "identity" : "zip",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marmelroy/Zip.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76"
+        "revision" : "9ddda4cf23671ef0228e88681ec6210cb3e0d7f7",
+        "version" : "1.0.0"
       }
     }
   ],

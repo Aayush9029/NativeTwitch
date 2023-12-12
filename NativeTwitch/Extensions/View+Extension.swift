@@ -7,23 +7,24 @@
 
 import SwiftUI
 
+/// Custom View Extensions
 extension View {
-    private func newWindowInternal(with title: String) -> NSWindow {
-        let window = NSWindow(
-            contentRect: NSRect(x: 20, y: 20, width: 680, height: 320),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered,
-            defer: false)
-        window.center()
-        window.isReleasedWhenClosed = false
-        window.titleVisibility = .hidden
-        window.titlebarAppearsTransparent  = true
-        window.makeKeyAndOrderFront(nil)
-        window.level = .floating
-        return window
+    /// Custom Spacers
+    @ViewBuilder
+    func hSpacing(_ alignment: Alignment) -> some View {
+        self
+            .frame(maxWidth: .infinity, alignment: alignment)
     }
 
-    func openNewWindow(with title: String = "New Window") {
-        self.newWindowInternal(with: title).contentView = NSHostingView(rootView: self)
+    @ViewBuilder
+    func vSpacing(_ alignment: Alignment) -> some View {
+        self
+            .frame(maxHeight: .infinity, alignment: alignment)
+    }
+
+    @ViewBuilder
+    func xSpacing(_ alignment: Alignment) -> some View {
+        self
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
     }
 }

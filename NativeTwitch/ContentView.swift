@@ -1,75 +1,47 @@
 //
 //  ContentView.swift
-//  NativeYoutube
+//  NativeTwitch
 //
-//  Created by Aayush Pokharel on 2022-04-25.
+//  Created by Aayush Pokharel on 2023-12-12.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var twitchDataViewModel = TwitchDataViewModel()
-    @StateObject var updater = AutoUpdater()
-
-    private let appearNotification = Constants.popupAppearNotification
+    @Environment(TwitchVM.self) var twitchVM
 
     var body: some View {
         Group {
-            if twitchDataViewModel.showAddAuthView {
-                AddAuthView()
-                    .environmentObject(twitchDataViewModel)
-            } else {
-                Group {
-                    if twitchDataViewModel.currentStatus == .streamsLoading {
-                        LoadingStreamView()
-                    } else if twitchDataViewModel.streams.isEmpty {
-                        EmptyStreamView()
-                    } else {
-                        StreamsView()
-                            .environmentObject(twitchDataViewModel)
-                    }
+            if let streams = twitchVM.streams {
+                if streams.data.isEmpty {
+                    NoStreamsView
+                } else {
+                    StreamsView(streams)
                 }
+            } else {
+                LoginView()
             }
-            BottomBarView()
-                .environmentObject(twitchDataViewModel)
-                .padding(.horizontal)
-                .padding(.bottom, 5)
-                .cornerRadius(16)
         }
-        .labelStyle(.iconOnly)
-        .frame(width: 360, height: 400)
-        .onAppear(perform: {
-            print("Appear")
-            updater.checkForUpdates()
+        .environment(twitchVM)
+    }
 
-            twitchDataViewModel.fetchStreams()
-        })
-        .onReceive(appearNotification) { _ in
-            print("Got Notification")
-            twitchDataViewModel.fetchStreams()
-        }
-        .onChange(of: updater.status, perform: { _ in
-            if updater.status == .yesUpdates {
-                UpdateInfoView(update: updater.updates)
-                    .environmentObject(updater)
-                    .frame(minHeight: 640)
-                    .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow).ignoresSafeArea())
-                    .openNewWindow(with: "New Update Available")
-            }
-            twitchDataViewModel.addLog(updater.status.rawValue)
-        })
-        .alert(Text("Restart app to finish update"), isPresented: $updater.showingRestartAlert) {
-            HStack {
-                Button("ok") {
-                    print("ok")
+    var NoStreamsView: some View {
+        ContentUnavailableView {
+            Label("Streamers Offline", systemImage: "person.3.fill")
+        } description: {
+            Text("Seems like streamers you follow are offline time to follow new ones or touch some grass.")
+        } actions: {
+            Button("Refresh", systemImage: "arrow.counterclockwise") {
+                Task {
+                    await twitchVM.fetchFollowedStreams()
                 }
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
+        .environment(TwitchVM.shared)
+        .frame(width: 300, height: 360)
 }

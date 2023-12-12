@@ -1,29 +1,32 @@
 //
 //  StreamsView.swift
-//  NativeYoutube
+//  NativeTwitch
 //
-//  Created by Aayush Pokharel on 2022-04-25.
+//  Created by Aayush Pokharel on 2023-12-15.
 //
 
 import SwiftUI
 
 struct StreamsView: View {
-    @EnvironmentObject var twitchDataViewModel: TwitchDataViewModel
+    let streams: [StreamModel]
+
+    init(_ streams: Streams) {
+        self.streams = streams.data
+    }
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(twitchDataViewModel.streams) { stream in
-                StreamRowView(stream: stream)
-                    .environmentObject(twitchDataViewModel)
-            }.padding()
+            VStack(alignment: .leading) {
+                ForEach(streams) { stream in
+                    SingleStreamRow(stream)
+                }
+                .scrollTargetLayout()
+            }
+            .padding()
         }
     }
 }
 
-struct StreamsView_Previews: PreviewProvider {
-    static var previews: some View {
-        StreamsView()
-            .environmentObject(TwitchDataViewModel())
-            .frame(width: 320, height: 360)
-    }
+#Preview {
+    StreamsView(Streams.example)
 }
