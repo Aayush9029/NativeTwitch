@@ -21,24 +21,36 @@ extension KeychainSwift {
     static let shared = KeychainSwift()
 
     // AuthModel: Added by the user
-    static let clientIDKey: String = "com.nativetwitch.secure.clientID"
-    static let accessTokenKey: String = "com.nativetwitch.secure.accessToken"
+    static let authKey: String = "com.nativeTwitch.secure.login"
 
     // UserID:  (fetched and stored automatically)
-    static let userIDKey: String = "com.nativetwitch.secure.userID"
+    static let userIDKey: String = "com.nativeTwitch.secure.userID"
 
     static func getAuth() -> AuthModel? {
-        guard let clientID = shared.get(clientIDKey) else { return nil }
-        guard let accessToken = shared.get(accessTokenKey) else { return nil }
-        return .init(clientID, accessToken)
+        guard let data = shared.getData(authKey) else { return nil }
+        let decoder = JSONDecoder()
+        do {
+            let auth = try decoder.decode(AuthModel.self, from: data)
+            return auth
+        } catch {
+            print("Error decoding AuthModel: \(error)")
+            return nil
+        }
     }
 
     static func login(_ auth: AuthModel) -> Bool {
-        return shared.set(auth.clientID, forKey: clientIDKey) && shared.set(auth.accessToken, forKey: accessTokenKey)
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(auth)
+            return shared.set(data, forKey: authKey, withAccess: .accessibleWhenUnlocked)
+        } catch {
+            print("Error encoding AuthModel: \(error)")
+            return false
+        }
     }
 
     static func logout() -> Bool {
-        return shared.delete(accessTokenKey) && shared.delete(clientIDKey) && deleteUserID()
+        return shared.delete("authModelKey")
     }
 
     static func getUserID() -> String? {

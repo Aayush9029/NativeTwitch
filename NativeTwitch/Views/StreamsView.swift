@@ -10,8 +10,8 @@ import SwiftUI
 struct StreamsView: View {
     let streams: [StreamModel]
 
-    init(_ streams: Streams) {
-        self.streams = streams.data
+    init(_ streams: [StreamModel]) {
+        self.streams = streams
     }
 
     var body: some View {
@@ -28,5 +28,5 @@ struct StreamsView: View {
 }
 
 #Preview {
-    StreamsView(Streams.example)
+    StreamsView([.xQc, .pokelawls])
 }

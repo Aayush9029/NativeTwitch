@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Neo
+//  NativeTwitch
 //
 //  Created by Aayush Pokharel on 2023-11-15.
 //

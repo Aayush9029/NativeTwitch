@@ -89,8 +89,8 @@ struct CustomTextField: View {
 
             ZStack(alignment: .trailing) {
                 SecureField(text, text: $value)
+                    .lineLimit(1)
                     .cleanTextField()
-//                    .focusable()
 
                 Group {
                     if let pasteboard = NSPasteboard.general.string(forType: .string),

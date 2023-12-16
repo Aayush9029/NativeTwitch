@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Model Stored in Keychain
 
-struct AuthModel {
+struct AuthModel: Codable {
     var clientID: String
     var accessToken: String
 

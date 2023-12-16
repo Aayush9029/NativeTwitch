@@ -11,16 +11,13 @@ import SwiftUI
 @MainActor
 @Observable
 class TwitchVM {
+    private let logger: Logger = .init(category: "TwitchVM")
     static let shared: TwitchVM = .init()
-    let logger: Logger = .init(category: "📺")
     
     var streams: Streams? = .none
     
     init() {
-        Task {
-//            self.streams = .init(data: [StreamModel.example])
-            await fetchFollowedStreams()
-        }
+        Task { await fetchFollowedStreams() }
     }
     
     func fetchFollowedStreams() async {

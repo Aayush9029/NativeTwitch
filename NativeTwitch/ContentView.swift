@@ -9,22 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(TwitchVM.self) var twitchVM
+    let streams: [StreamModel]
 
     var body: some View {
         Group {
-            if let streams = twitchVM.streams {
-                Group {
-                    if streams.data.isEmpty {
-                        NoStreamsView
-                    } else {
-                        StreamsView(streams)
-                    }
-                }
+            if streams.isEmpty {
+                NoStreamsView
             } else {
-                LoginView()
+                StreamsView(streams)
             }
         }
-        .environment(twitchVM)
     }
 
     var NoStreamsView: some View {
@@ -42,8 +36,14 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+#Preview("Example Streams View") {
+    ContentView(streams: [.xQc, .pokelawls])
         .environment(TwitchVM.shared)
-        .frame(width: 300, height: 360)
+        .frame(width: 360, height: 480)
+}
+
+#Preview("Empty Streams View") {
+    ContentView(streams: [])
+        .environment(TwitchVM.shared)
+        .frame(width: 360, height: 480)
 }

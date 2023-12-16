@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SingleStreamRow: View {
     @Environment(\.openURL) var openURL
-    let stream: StreamModel
     @State private var hovered = false
+
+    let stream: StreamModel
 
     init(_ stream: StreamModel) {
         self.stream = stream
@@ -20,16 +21,24 @@ struct SingleStreamRow: View {
         VStack(alignment: .leading) {
             Group {
                 if !hovered {
-                    LiveBadge(stream.viewers)
-                        .blurReplace(edge: .trailing)
-                        .hSpacing(.trailing)
+                    HStack {
+                        StreamTimer(stream.startedDate)
+                        Spacer()
+                        LiveBadge(stream.viewers)
+                    }
+                    .blurReplace(edge: .top)
                     Spacer()
+                    Group {
+                        Text(stream.userName)
+                            .font(.title2.bold())
+                        Text(stream.title)
+                            .multilineTextAlignment(.leading)
+                            .fontWeight(.medium)
+                            .hSpacing(.leading)
+                    }
+                    .shadow(radius: 4)
 
-                    Text(stream.title)
-                        .fontWeight(.semibold)
-                        .shadow(radius: 6)
-                        .hSpacing(.leading)
-                        .blurReplace(edge: .bottom)
+                    .blurReplace(edge: .bottom)
                 }
             }
         }
@@ -50,13 +59,11 @@ struct SingleStreamRow: View {
         )
         .clipShape(.rect(cornerRadius: 8))
         .overlay(
-            Group {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(
-                        hovered ? .twitch : .gray.opacity(0.25),
-                        lineWidth: 2
-                    )
-            }
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(
+                    hovered ? .twitch : .gray.opacity(0.25),
+                    lineWidth: 2
+                )
         )
         .frame(height: 164)
         .onHover { hovering in

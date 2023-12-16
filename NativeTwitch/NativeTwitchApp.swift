@@ -10,20 +10,27 @@ import SwiftUI
 @main
 struct NativeTwitchApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var twitchVM: TwitchVM = .shared
+    let twitchVM: TwitchVM = .shared
 
     var body: some Scene {
         MenuBarExtra {
-            ContentView()
-                .environment(twitchVM)
-                .frame(width: 360, height: 480)
+            Group {
+                if let streams = twitchVM.streams {
+                    ContentView(streams: streams.data)
+                } else {
+                    LoginView()
+                }
+            }
+            .environment(twitchVM)
+            .frame(width: 360, height: 480)
+
         } label: {
             Image(.menuBarIcon)
         }
         .menuBarExtraStyle(.window)
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                Button("About Neo") { appDelegate.showAboutPanel() }
+                Button("About NativeTwitch") { appDelegate.showAboutPanel() }
             }
         }
     }
