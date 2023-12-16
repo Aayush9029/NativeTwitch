@@ -21,8 +21,10 @@ struct StreamsView: View {
                     SingleStreamRow(stream)
                 }
             }
+            .scrollTargetLayout()
             .padding(8)
         }
+        .scrollTargetBehavior(.viewAligned)
     }
 }
 

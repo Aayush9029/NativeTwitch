@@ -50,7 +50,7 @@ extension KeychainSwift {
     }
 
     static func logout() -> Bool {
-        return shared.delete("authModelKey")
+        return shared.delete(authKey) && shared.delete(userIDKey)
     }
 
     static func getUserID() -> String? {

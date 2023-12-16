@@ -16,4 +16,6 @@ enum Constants {
     static func followedAPIURL(with userID: String) -> URL? {
         return "\(followedAPI)?user_id=\(userID)".toURL()
     }
+
+    static let tokenGeneratorURL = "https://twitchtokengenerator.com/quick/NIaMdzGYBR".toURL()!
 }

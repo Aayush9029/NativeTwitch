@@ -9,25 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(TwitchVM.self) var twitchVM
-    @State private var streams: [StreamModel] = []
 
     var body: some View {
         Group {
-            if twitchVM.loading {
+            if !twitchVM.loggedIn {
+                LoginView()
+            } else if twitchVM.loading {
                 ProgressView()
-            } else if streams.isEmpty {
+            } else if twitchVM.streams.isEmpty {
                 NoStreamsView
             } else {
-                StreamsView(streams)
-            }
-        }
-        .onKeyboardShortcut(key: "r", modifiers: .command) {
-            Task {
-                streams = await twitchVM.fetchFollowedStreams()
+                StreamsView(twitchVM.streams)
             }
         }
         .task {
-            streams = await twitchVM.fetchFollowedStreams()
+            await twitchVM.fetchFollowedStreams()
+        }
+
+        .onKeyboardShortcut(key: "r", modifiers: .command) {
+            Task {
+                await twitchVM.fetchFollowedStreams()
+            }
         }
     }
 
@@ -39,7 +41,7 @@ struct ContentView: View {
         } actions: {
             Button("Refresh", systemImage: "arrow.counterclockwise") {
                 Task {
-                    streams = await twitchVM.fetchFollowedStreams()
+                    await twitchVM.fetchFollowedStreams()
                 }
             }
         }
@@ -48,6 +50,6 @@ struct ContentView: View {
 
 #Preview("Streams View") {
     ContentView()
-        .environment(TwitchVM.shared)
+        .environment(TwitchVM())
         .frame(width: 360, height: 480)
 }

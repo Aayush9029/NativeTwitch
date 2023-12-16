@@ -10,19 +10,13 @@ import SwiftUI
 @main
 struct NativeTwitchApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var twitchVM: TwitchVM = .shared
+    var twitchVM: TwitchVM = .init()
 
     var body: some Scene {
         MenuBarExtra {
-            Group {
-                if twitchVM.loggedIn {
-                    ContentView()
-                } else {
-                    LoginView()
-                }
-            }
-            .environment(twitchVM)
-            .frame(width: 360, height: 524)
+            ContentView()
+                .environment(twitchVM)
+                .frame(width: 320, height: 536)
 
         } label: {
             Image(.menuBarIcon)
@@ -31,6 +25,13 @@ struct NativeTwitchApp: App {
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
                 Button("About NativeTwitch") { appDelegate.showAboutPanel() }
+            }
+            if twitchVM.loggedIn {
+                CommandGroup(after: .appInfo) {
+                    Button("Log Out") {
+                        twitchVM.logout()
+                    }
+                }
             }
         }
     }

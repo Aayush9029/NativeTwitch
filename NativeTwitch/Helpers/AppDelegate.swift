@@ -27,4 +27,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         aboutBoxWindowController?.showWindow(aboutBoxWindowController?.window)
     }
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+//        NSApp.setActivationPolicy(.prohibited)
+    }
 }

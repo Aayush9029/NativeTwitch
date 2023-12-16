@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.openURL) var openURL
     @Environment(TwitchVM.self) var twitchVM
+
     @State private var auth: AuthModel = .empty
 
     var body: some View {
@@ -32,30 +34,29 @@ struct LoginView: View {
                 .opacity(0.125)
 
             Group {
-                CustomTextField(text: "Client ID", value: $auth.clientID)
+                CustomTextField(
+                    text: "Client ID",
+                    value: $auth.clientID
+                )
 
-                CustomTextField(text: "Access Token", value: $auth.accessToken)
+                CustomTextField(
+                    text: "Access Token",
+                    value: $auth.accessToken
+                )
             }
 
             Spacer()
 
             Group {
-                Button {} label: {
+                Button {
+                    openURL(Constants.tokenGeneratorURL)
+                } label: {
                     Label("Generate", systemImage: "globe")
                         .longButton(foreground: .white, background: .blue)
                 }
 
                 Button {
-                    Task {
-                        let status = KeychainSwift.login(auth)
-                        print("AUTH: \(status)")
-                        if let userID = await twitchVM.fetchUserID(with: auth.accessToken) {
-                            let status = KeychainSwift.setUserID(userID)
-                            print("USERID: \(status)")
-                        }
-                        twitchVM.loading = false
-                    }
-
+                    twitchVM.login(with: auth)
                 } label: {
                     Label("Save", systemImage: "key.fill")
                         .longButton(foreground: .white, background: .gray.opacity(0.5))
@@ -91,26 +92,6 @@ struct CustomTextField: View {
                 SecureField(text, text: $value)
                     .lineLimit(1)
                     .cleanTextField()
-
-                Group {
-                    if let pasteboard = NSPasteboard.general.string(forType: .string),
-                       value.isEmpty
-                    {
-                        Button(
-                            action: { value = pasteboard },
-                            label: {
-                                Label("Paste", systemImage: "list.clipboard.fill")
-                                    .font(.headline)
-                                    .labelStyle(.iconOnly)
-                                    .padding(3)
-                                    .background(.thickMaterial)
-                                    .clipShape(.rect(cornerRadius: 4))
-                            }
-                        )
-                        .buttonStyle(.plain)
-                        .padding(.trailing, 4)
-                    }
-                }
             }
         }
     }
@@ -120,5 +101,5 @@ struct CustomTextField: View {
     LoginView()
         .frame(width: 320, height: 360)
         .background(.gray.opacity(0.25))
-        .environment(TwitchVM.shared)
+        .environment(TwitchVM())
 }
