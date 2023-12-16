@@ -12,13 +12,17 @@ struct AboutView: View {
         VStack {
             Spacer()
             
-            logoSection
+            Group {
+                logoSection
+                
+                infoSection
+            }
             
-            infoSection
-            
-            moreInfoButton
-            
-            privacyTOS
+            Group {
+                moreInfoButton
+                
+                privacyTOS
+            }
             
             Spacer()
         }

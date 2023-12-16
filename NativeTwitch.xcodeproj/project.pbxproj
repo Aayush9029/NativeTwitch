@@ -28,13 +28,15 @@
 		45B914182B2D17D500B8D3D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914172B2D17D500B8D3D1 /* LoginView.swift */; };
 		45B9141B2B2D1BFF00B8D3D1 /* LongButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */; };
 		45B9141D2B2D1D0500B8D3D1 /* CleanTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */; };
-		45B914202B2D20E400B8D3D1 /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 45B9141F2B2D20E400B8D3D1 /* FluidGradient */; };
-		45B914222B2D20ED00B8D3D1 /* FluidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914212B2D20ED00B8D3D1 /* FluidView.swift */; };
 		45B914252B2D27B400B8D3D1 /* LiveBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914242B2D27B400B8D3D1 /* LiveBadge.swift */; };
 		45B914272B2D29CF00B8D3D1 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914262B2D29CF00B8D3D1 /* StreamsView.swift */; };
 		45B914292B2D308500B8D3D1 /* SingleStreamRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */; };
 		45B9142B2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9142A2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift */; };
 		45B9142D2B2D375200B8D3D1 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9142C2B2D375200B8D3D1 /* TransitionModifier.swift */; };
+		45B914392B2D3C6B00B8D3D1 /* GenerativePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */; };
+		45B9143A2B2D3C7600B8D3D1 /* AnimatedGradientFill.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */; };
+		45B9143B2B2D3C7600B8D3D1 /* Sinebow.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914352B2D3C5500B8D3D1 /* Sinebow.metal */; };
+		45B9143C2B2D3C7900B8D3D1 /* LightGrid.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914372B2D3C5500B8D3D1 /* LightGrid.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,12 +63,15 @@
 		45B914172B2D17D500B8D3D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongButtonModifier.swift; sourceTree = "<group>"; };
 		45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTextFieldStyle.swift; sourceTree = "<group>"; };
-		45B914212B2D20ED00B8D3D1 /* FluidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidView.swift; sourceTree = "<group>"; };
 		45B914242B2D27B400B8D3D1 /* LiveBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBadge.swift; sourceTree = "<group>"; };
 		45B914262B2D29CF00B8D3D1 /* StreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsView.swift; sourceTree = "<group>"; };
 		45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStreamRow.swift; sourceTree = "<group>"; };
 		45B9142A2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearGradient+Extensions.swift"; sourceTree = "<group>"; };
 		45B9142C2B2D375200B8D3D1 /* TransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
+		45B914352B2D3C5500B8D3D1 /* Sinebow.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Sinebow.metal; sourceTree = "<group>"; };
+		45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = AnimatedGradientFill.metal; sourceTree = "<group>"; };
+		45B914372B2D3C5500B8D3D1 /* LightGrid.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = LightGrid.metal; sourceTree = "<group>"; };
+		45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerativePreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B914202B2D20E400B8D3D1 /* FluidGradient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +106,7 @@
 			children = (
 				450871C52B291C4B00F938A2 /* NativeTwitchApp.swift */,
 				450871C72B291C4B00F938A2 /* ContentView.swift */,
+				45B914342B2D3C5500B8D3D1 /* Shaders */,
 				450871D52B291C5500F938A2 /* Views */,
 				450871D72B291C5D00F938A2 /* ViewModels */,
 				450871D62B291C5800F938A2 /* Models */,
@@ -182,7 +187,6 @@
 			children = (
 				45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */,
 				45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */,
-				45B914212B2D20ED00B8D3D1 /* FluidView.swift */,
 				45B9142C2B2D375200B8D3D1 /* TransitionModifier.swift */,
 			);
 			path = ViewModifiers;
@@ -194,6 +198,17 @@
 				45B914242B2D27B400B8D3D1 /* LiveBadge.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		45B914342B2D3C5500B8D3D1 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				45B914352B2D3C5500B8D3D1 /* Sinebow.metal */,
+				45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */,
+				45B914372B2D3C5500B8D3D1 /* LightGrid.metal */,
+				45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +228,6 @@
 			);
 			name = NativeTwitch;
 			packageProductDependencies = (
-				45B9141F2B2D20E400B8D3D1 /* FluidGradient */,
 			);
 			productName = NativeTwitch;
 			productReference = 450871C22B291C4B00F938A2 /* NativeTwitch.app */;
@@ -244,7 +258,6 @@
 			);
 			mainGroup = 450871B92B291C4B00F938A2;
 			packageReferences = (
-				45B9141E2B2D20E400B8D3D1 /* XCRemoteSwiftPackageReference "FluidGradient" */,
 			);
 			productRefGroup = 450871C32B291C4B00F938A2 /* Products */;
 			projectDirPath = "";
@@ -278,14 +291,18 @@
 				450871C82B291C4B00F938A2 /* ContentView.swift in Sources */,
 				450871E12B291C8800F938A2 /* VisualEffectView.swift in Sources */,
 				450871E62B291CDA00F938A2 /* AppDelegate.swift in Sources */,
+				45B9143C2B2D3C7900B8D3D1 /* LightGrid.metal in Sources */,
+				45B9143A2B2D3C7600B8D3D1 /* AnimatedGradientFill.metal in Sources */,
 				45B914272B2D29CF00B8D3D1 /* StreamsView.swift in Sources */,
 				45B914292B2D308500B8D3D1 /* SingleStreamRow.swift in Sources */,
+				45B9143B2B2D3C7600B8D3D1 /* Sinebow.metal in Sources */,
 				457128442B2AAE9A00838150 /* TwitchVM.swift in Sources */,
 				45B914252B2D27B400B8D3D1 /* LiveBadge.swift in Sources */,
 				450871E82B291CE400F938A2 /* AboutView.swift in Sources */,
 				450871E42B291CBA00F938A2 /* KeychainHelper.swift in Sources */,
 				457128482B2AB2EA00838150 /* OauthValidate.swift in Sources */,
 				4571283C2B2AA90700838150 /* Streams.swift in Sources */,
+				45B914392B2D3C6B00B8D3D1 /* GenerativePreview.swift in Sources */,
 				45B9142B2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift in Sources */,
 				450871DD2B291C8100F938A2 /* View+Extension.swift in Sources */,
 				45B914182B2D17D500B8D3D1 /* LoginView.swift in Sources */,
@@ -294,7 +311,6 @@
 				457128402B2AAB5C00838150 /* Constants.swift in Sources */,
 				457128462B2AAFC700838150 /* AuthModel.swift in Sources */,
 				45B9142D2B2D375200B8D3D1 /* TransitionModifier.swift in Sources */,
-				45B914222B2D20ED00B8D3D1 /* FluidView.swift in Sources */,
 				450871DE2B291C8100F938A2 /* Double+Extension.swift in Sources */,
 				450871C62B291C4B00F938A2 /* NativeTwitchApp.swift in Sources */,
 			);
@@ -356,7 +372,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -413,7 +429,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -497,25 +513,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		45B9141E2B2D20E400B8D3D1 /* XCRemoteSwiftPackageReference "FluidGradient" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Cindori/FluidGradient.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		45B9141F2B2D20E400B8D3D1 /* FluidGradient */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 45B9141E2B2D20E400B8D3D1 /* XCRemoteSwiftPackageReference "FluidGradient" */;
-			productName = FluidGradient;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 450871BA2B291C4B00F938A2 /* Project object */;
 }

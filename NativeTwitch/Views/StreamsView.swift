@@ -22,7 +22,7 @@ struct StreamsView: View {
                 }
                 .scrollTargetLayout()
             }
-            .padding()
+            .padding(12)
         }
     }
 }

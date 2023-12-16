@@ -31,15 +31,18 @@ struct LoginView: View {
             Divider()
                 .opacity(0.125)
 
-            CustomTextField(text: "Client ID", value: $auth.clientID)
+            Group {
+                CustomTextField(text: "Client ID", value: $auth.clientID)
 
-            CustomTextField(text: "Access Token", value: $auth.accessToken)
+                CustomTextField(text: "Access Token", value: $auth.accessToken)
+            }
 
             Spacer()
+
             Group {
                 Button {} label: {
                     Label("Generate", systemImage: "globe")
-                        .longButton(foreground: .white, background: .purple)
+                        .longButton(foreground: .white, background: .blue)
                 }
 
                 Button {
@@ -63,8 +66,8 @@ struct LoginView: View {
         }
         .padding()
         .background(
-            FluidView(colors: [.twitch, .pink, .purple, .white, .twitch])
-                .opacity(0.25)
+            GenerativePreview(shader: .sineBow)
+                .blur(radius: 64)
         )
         .task {
             if let auth = KeychainSwift.getAuth() {

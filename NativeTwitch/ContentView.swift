@@ -13,10 +13,12 @@ struct ContentView: View {
     var body: some View {
         Group {
             if let streams = twitchVM.streams {
-                if streams.data.isEmpty {
-                    NoStreamsView
-                } else {
-                    StreamsView(streams)
+                Group {
+                    if streams.data.isEmpty {
+                        NoStreamsView
+                    } else {
+                        StreamsView(streams)
+                    }
                 }
             } else {
                 LoginView()

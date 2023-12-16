@@ -18,18 +18,20 @@ struct LiveBadge: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "circle.fill")
-                .foregroundStyle(.red.opacity(animate ? 1 : 0.5))
-                .shadow(
-                    color: .red,
-                    radius: animate ? 2 : 6,
-                    x: 0, y: 0
-                )
-                .animation(
-                    .easeIn(duration: 3)
-                        .repeatForever(autoreverses: true),
-                    value: animate
-                )
+            Group {
+                Image(systemName: "circle.fill")
+                    .foregroundStyle(.red.opacity(animate ? 1 : 0.5))
+                    .shadow(
+                        color: .red,
+                        radius: animate ? 2 : 6,
+                        x: 0, y: 0
+                    )
+                    .animation(
+                        .easeIn(duration: 3)
+                            .repeatForever(autoreverses: true),
+                        value: animate
+                    )
+            }
 
             Text(viewers)
                 .bold()

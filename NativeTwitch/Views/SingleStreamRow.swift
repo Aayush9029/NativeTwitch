@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingleStreamRow: View {
+    @Environment(\.openURL) var openURL
     let stream: StreamModel
     @State private var hovered = false
 
@@ -17,39 +18,45 @@ struct SingleStreamRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            if !hovered {
-                LiveBadge(stream.viewers)
-                    .blurReplace(edge: .trailing)
-                    .hSpacing(.trailing)
-                Spacer()
+            Group {
+                if !hovered {
+                    LiveBadge(stream.viewers)
+                        .blurReplace(edge: .trailing)
+                        .hSpacing(.trailing)
+                    Spacer()
 
-                Text(stream.title)
-                    .fontWeight(.semibold)
-                    .shadow(radius: 6)
-                    .hSpacing(.leading)
-                    .blurReplace(edge: .bottom)
+                    Text(stream.title)
+                        .fontWeight(.semibold)
+                        .shadow(radius: 6)
+                        .hSpacing(.leading)
+                        .blurReplace(edge: .bottom)
+                }
             }
         }
         .padding(8)
         .xSpacing(.center)
         .background(
             ZStack {
-                ScalledToFillImage(stream.thumbnail)
-                if !hovered {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(.ultraThickMaterial)
-                        .mask(LinearGradient.bottomMasked)
-                        .blurReplace(edge: .bottom)
+                Group {
+                    ScalledToFillImage(stream.thumbnail)
+                    if !hovered {
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(.ultraThickMaterial)
+                            .mask(LinearGradient.bottomMasked)
+                            .blurReplace(edge: .bottom)
+                    }
                 }
             }
         )
         .clipShape(.rect(cornerRadius: 8))
         .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(
-                    hovered ? .twitch : .gray.opacity(0.25),
-                    lineWidth: 4
-                )
+            Group {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(
+                        hovered ? .twitch : .gray.opacity(0.25),
+                        lineWidth: 2
+                    )
+            }
         )
         .frame(height: 164)
         .onHover { hovering in
@@ -57,6 +64,15 @@ struct SingleStreamRow: View {
                 hovered = hovering
             }
         }
+        .contextMenu(menuItems: {
+            Button("Open Stream") {
+                openURL(stream.streamURL)
+            }
+            Button("Popout Chat") {
+                openURL(stream.chatURL)
+            }
+
+        })
     }
 
     @ViewBuilder

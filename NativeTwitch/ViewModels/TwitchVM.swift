@@ -8,6 +8,7 @@
 import os
 import SwiftUI
 
+@MainActor
 @Observable
 class TwitchVM {
     static let shared: TwitchVM = .init()
