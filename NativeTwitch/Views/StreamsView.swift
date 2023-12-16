@@ -20,13 +20,13 @@ struct StreamsView: View {
                 ForEach(streams) { stream in
                     SingleStreamRow(stream)
                 }
-                .scrollTargetLayout()
             }
-            .padding(12)
+            .padding(8)
         }
     }
 }
 
 #Preview {
     StreamsView([.xQc, .pokelawls])
+        .frame(width: 360, height: 480)
 }

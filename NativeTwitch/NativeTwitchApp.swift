@@ -16,13 +16,13 @@ struct NativeTwitchApp: App {
         MenuBarExtra {
             Group {
                 if twitchVM.loggedIn {
-                    ContentView(streams: twitchVM.streams)
+                    ContentView()
                 } else {
                     LoginView()
                 }
             }
             .environment(twitchVM)
-            .frame(width: 360, height: 480)
+            .frame(width: 360, height: 524)
 
         } label: {
             Image(.menuBarIcon)

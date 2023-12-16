@@ -47,13 +47,13 @@ struct LoginView: View {
 
                 Button {
                     Task {
-                        let set = KeychainSwift.login(auth)
-                        print("AUTH: \(set)")
+                        let status = KeychainSwift.login(auth)
+                        print("AUTH: \(status)")
                         if let userID = await twitchVM.fetchUserID(with: auth.accessToken) {
-                            let set = KeychainSwift.setUserID(userID)
-                            print("USERID: \(set)")
+                            let status = KeychainSwift.setUserID(userID)
+                            print("USERID: \(status)")
                         }
-                        await twitchVM.fetchFollowedStreams()
+                        twitchVM.loading = false
                     }
 
                 } label: {

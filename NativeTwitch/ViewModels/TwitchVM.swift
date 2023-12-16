@@ -14,36 +14,50 @@ class TwitchVM {
     private let logger: Logger = .init(category: "TwitchVM")
     static let shared: TwitchVM = .init()
     
-    var loggedIn = false
-    var streams: [StreamModel] = []
-    
-    init() {
-        Task { await fetchFollowedStreams() }
+    var loggedIn = true
+
+    var loading = true {
+        didSet {
+            if loading {
+                // Start the 3.0 sec timeout in case it never stops loading.
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+                    // == true is necessary because loading can be nil.
+                    if self?.loading == true {
+                        self?.logger.log("3.0 seconds timeout for loading ended, toggling it to false")
+                        self?.loading = false
+                    }
+                }
+            }
+        }
     }
     
-    func fetchFollowedStreams() async {
+    init() {}
+    
+    func fetchFollowedStreams() async -> [StreamModel] {
+        loading = true
         logger.info("Fetching followed streams")
         
         guard let auth: AuthModel = KeychainSwift.getAuth() else {
             logger.error("AccessToken + ClientID not found")
-            return
+            return []
         }
         
         guard let userID: String = KeychainSwift.getUserID() else {
             logger.warning("UserID not fetched yet, going to fetch it now.")
-            guard let userID = await fetchUserID(with: auth.accessToken) else { return }
+            guard let userID = await fetchUserID(with: auth.accessToken) else {
+                loggedIn = false
+                return []
+            }
             
-            if KeychainSwift.setUserID(userID) { await fetchFollowedStreams() }
+            if KeychainSwift.setUserID(userID) { return await fetchFollowedStreams() }
             
-            return
+            return []
         }
         
         guard let url = Constants.followedAPIURL(with: userID) else {
             logger.error("Invalid endpoint for followed API")
-            return
+            return []
         }
-        
-        loggedIn = true
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -54,12 +68,15 @@ class TwitchVM {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 logger.error("Error: Non-200 HTTP response from twitch: \(response)")
-                return
+                return []
             }
-            streams = decode(TwitchResponse.self, from: data)?.data ?? []
+            loading = false
+            return decode(TwitchResponse.self, from: data)?.data ?? []
+            
         } catch {
             logger.error("Error fetching streams: \(String(describing: error))")
         }
+        return []
     }
 }
 
@@ -82,7 +99,6 @@ extension TwitchVM {
                 logger.error("Error decoding userID")
                 return nil
             }
-            loggedIn = false
             return userID
             
         } catch {

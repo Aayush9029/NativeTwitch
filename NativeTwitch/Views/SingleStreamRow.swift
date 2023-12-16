@@ -38,7 +38,7 @@ struct SingleStreamRow: View {
                             Text(stream.viewers)
                         }
                     }
-                    .padding(6)
+                    .padding(4)
                     .blurReplace(edge: .top)
                     Spacer()
                     VStack(alignment: .leading) {
@@ -53,7 +53,7 @@ struct SingleStreamRow: View {
                     .shadow(radius: 6)
                     .padding(6)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 4)
                             .fill(.thickMaterial)
                             .mask(LinearGradient.bottomMasked)
                     )
@@ -65,9 +65,9 @@ struct SingleStreamRow: View {
         .background(
             ScalledToFillImage(stream.thumbnail)
         )
-        .clipShape(.rect(cornerRadius: 8))
+        .clipShape(.rect(cornerRadius: 4))
         .overlay(
-            RoundedRectangle(cornerRadius: 8)
+            RoundedRectangle(cornerRadius: 4)
                 .stroke(
                     hovered ? .twitch : .gray.opacity(0.25),
                     lineWidth: 2

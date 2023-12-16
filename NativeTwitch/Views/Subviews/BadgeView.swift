@@ -30,7 +30,7 @@ struct BadgeView<Content: View>: View {
         .font(.caption)
         .padding(6)
         .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }
 
