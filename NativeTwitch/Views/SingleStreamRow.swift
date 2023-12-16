@@ -22,40 +22,48 @@ struct SingleStreamRow: View {
             Group {
                 if !hovered {
                     HStack {
-                        StreamTimer(stream.startedDate)
+                        BadgeView(
+                            symbol: "clock",
+                            symbolColor: .green
+                        ) {
+                            Text(stream.startedDate, style: .relative)
+                        }
+
                         Spacer()
-                        LiveBadge(stream.viewers)
+
+                        BadgeView(
+                            symbol: "person.2",
+                            symbolColor: .red
+                        ) {
+                            Text(stream.viewers)
+                        }
                     }
+                    .padding(6)
                     .blurReplace(edge: .top)
                     Spacer()
-                    Group {
+                    VStack(alignment: .leading) {
                         Text(stream.userName)
-                            .font(.title2.bold())
+                            .font(.headline)
                         Text(stream.title)
+                            .font(.subheadline)
                             .multilineTextAlignment(.leading)
                             .fontWeight(.medium)
                             .hSpacing(.leading)
                     }
-                    .shadow(radius: 4)
-
+                    .shadow(radius: 6)
+                    .padding(6)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(.thickMaterial)
+                            .mask(LinearGradient.bottomMasked)
+                    )
                     .blurReplace(edge: .bottom)
                 }
             }
         }
-        .padding(8)
         .xSpacing(.center)
         .background(
-            ZStack {
-                Group {
-                    ScalledToFillImage(stream.thumbnail)
-                    if !hovered {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(.ultraThickMaterial)
-                            .mask(LinearGradient.bottomMasked)
-                            .blurReplace(edge: .bottom)
-                    }
-                }
-            }
+            ScalledToFillImage(stream.thumbnail)
         )
         .clipShape(.rect(cornerRadius: 8))
         .overlay(

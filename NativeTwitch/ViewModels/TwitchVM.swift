@@ -14,7 +14,8 @@ class TwitchVM {
     private let logger: Logger = .init(category: "TwitchVM")
     static let shared: TwitchVM = .init()
     
-    var streams: Streams? = .none
+    var loggedIn = false
+    var streams: [StreamModel] = []
     
     init() {
         Task { await fetchFollowedStreams() }
@@ -42,6 +43,8 @@ class TwitchVM {
             return
         }
         
+        loggedIn = true
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("Bearer \(auth.accessToken)", forHTTPHeaderField: "Authorization")
@@ -53,7 +56,7 @@ class TwitchVM {
                 logger.error("Error: Non-200 HTTP response from twitch: \(response)")
                 return
             }
-            streams = decode(Streams.self, from: data)
+            streams = decode(TwitchResponse.self, from: data)?.data ?? []
         } catch {
             logger.error("Error fetching streams: \(String(describing: error))")
         }
@@ -79,7 +82,7 @@ extension TwitchVM {
                 logger.error("Error decoding userID")
                 return nil
             }
-            
+            loggedIn = false
             return userID
             
         } catch {

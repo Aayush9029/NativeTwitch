@@ -25,11 +25,10 @@
 		457128442B2AAE9A00838150 /* TwitchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457128432B2AAE9A00838150 /* TwitchVM.swift */; };
 		457128462B2AAFC700838150 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457128452B2AAFC700838150 /* AuthModel.swift */; };
 		457128482B2AB2EA00838150 /* OauthValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457128472B2AB2EA00838150 /* OauthValidate.swift */; };
-		45A4016E2B2E0EFF00CFA6CC /* StreamTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4016D2B2E0EFF00CFA6CC /* StreamTimer.swift */; };
+		45A401722B2E12F900CFA6CC /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A401712B2E12F900CFA6CC /* BadgeView.swift */; };
 		45B914182B2D17D500B8D3D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914172B2D17D500B8D3D1 /* LoginView.swift */; };
 		45B9141B2B2D1BFF00B8D3D1 /* LongButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */; };
 		45B9141D2B2D1D0500B8D3D1 /* CleanTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */; };
-		45B914252B2D27B400B8D3D1 /* LiveBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914242B2D27B400B8D3D1 /* LiveBadge.swift */; };
 		45B914272B2D29CF00B8D3D1 /* StreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914262B2D29CF00B8D3D1 /* StreamsView.swift */; };
 		45B914292B2D308500B8D3D1 /* SingleStreamRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */; };
 		45B9142B2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9142A2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift */; };
@@ -61,11 +60,10 @@
 		457128432B2AAE9A00838150 /* TwitchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchVM.swift; sourceTree = "<group>"; };
 		457128452B2AAFC700838150 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		457128472B2AB2EA00838150 /* OauthValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthValidate.swift; sourceTree = "<group>"; };
-		45A4016D2B2E0EFF00CFA6CC /* StreamTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTimer.swift; sourceTree = "<group>"; };
+		45A401712B2E12F900CFA6CC /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		45B914172B2D17D500B8D3D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongButtonModifier.swift; sourceTree = "<group>"; };
 		45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTextFieldStyle.swift; sourceTree = "<group>"; };
-		45B914242B2D27B400B8D3D1 /* LiveBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBadge.swift; sourceTree = "<group>"; };
 		45B914262B2D29CF00B8D3D1 /* StreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsView.swift; sourceTree = "<group>"; };
 		45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStreamRow.swift; sourceTree = "<group>"; };
 		45B9142A2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearGradient+Extensions.swift"; sourceTree = "<group>"; };
@@ -148,10 +146,10 @@
 			isa = PBXGroup;
 			children = (
 				45B914232B2D27AC00B8D3D1 /* Subviews */,
-				450871E72B291CDF00F938A2 /* AboutView.swift */,
-				45B914172B2D17D500B8D3D1 /* LoginView.swift */,
 				45B914262B2D29CF00B8D3D1 /* StreamsView.swift */,
 				45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */,
+				45B914172B2D17D500B8D3D1 /* LoginView.swift */,
+				450871E72B291CDF00F938A2 /* AboutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,8 +195,7 @@
 		45B914232B2D27AC00B8D3D1 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				45B914242B2D27B400B8D3D1 /* LiveBadge.swift */,
-				45A4016D2B2E0EFF00CFA6CC /* StreamTimer.swift */,
+				45A401712B2E12F900CFA6CC /* BadgeView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -291,7 +288,6 @@
 				45B9141B2B2D1BFF00B8D3D1 /* LongButtonModifier.swift in Sources */,
 				45B9141D2B2D1D0500B8D3D1 /* CleanTextFieldStyle.swift in Sources */,
 				450871DC2B291C8100F938A2 /* Logger+Extensions.swift in Sources */,
-				45A4016E2B2E0EFF00CFA6CC /* StreamTimer.swift in Sources */,
 				450871C82B291C4B00F938A2 /* ContentView.swift in Sources */,
 				450871E12B291C8800F938A2 /* VisualEffectView.swift in Sources */,
 				450871E62B291CDA00F938A2 /* AppDelegate.swift in Sources */,
@@ -301,8 +297,8 @@
 				45B914292B2D308500B8D3D1 /* SingleStreamRow.swift in Sources */,
 				45B9143B2B2D3C7600B8D3D1 /* Sinebow.metal in Sources */,
 				457128442B2AAE9A00838150 /* TwitchVM.swift in Sources */,
-				45B914252B2D27B400B8D3D1 /* LiveBadge.swift in Sources */,
 				450871E82B291CE400F938A2 /* AboutView.swift in Sources */,
+				45A401722B2E12F900CFA6CC /* BadgeView.swift in Sources */,
 				450871E42B291CBA00F938A2 /* KeychainHelper.swift in Sources */,
 				457128482B2AB2EA00838150 /* OauthValidate.swift in Sources */,
 				4571283C2B2AA90700838150 /* Streams.swift in Sources */,

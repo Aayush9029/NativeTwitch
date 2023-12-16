@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Streams
 
-struct Streams: Codable {
+struct TwitchResponse: Codable {
     let data: [StreamModel]
 }
 
@@ -73,9 +73,9 @@ struct StreamModel: Codable, Identifiable {
     }
 }
 
-extension Streams {
+extension TwitchResponse {
     // Mock Data
-    static let example: Streams = .init(data: [.xQc, .pokelawls])
+    static let example: TwitchResponse = .init(data: [.xQc, .pokelawls])
 }
 
 extension StreamModel {

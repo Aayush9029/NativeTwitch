@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct NativeTwitchApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    let twitchVM: TwitchVM = .shared
+    var twitchVM: TwitchVM = .shared
 
     var body: some Scene {
         MenuBarExtra {
             Group {
-                if let streams = twitchVM.streams {
-                    ContentView(streams: streams.data)
+                if twitchVM.loggedIn {
+                    ContentView(streams: twitchVM.streams)
                 } else {
                     LoginView()
                 }
