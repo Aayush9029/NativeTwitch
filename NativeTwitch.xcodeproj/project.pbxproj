@@ -37,6 +37,7 @@
 		45B9143A2B2D3C7600B8D3D1 /* AnimatedGradientFill.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */; };
 		45B9143B2B2D3C7600B8D3D1 /* Sinebow.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914352B2D3C5500B8D3D1 /* Sinebow.metal */; };
 		45B9143C2B2D3C7900B8D3D1 /* LightGrid.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914372B2D3C5500B8D3D1 /* LightGrid.metal */; };
+		45D1F1E62B2FBC0C0061D2C5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1F1E52B2FBC0C0061D2C5 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = AnimatedGradientFill.metal; sourceTree = "<group>"; };
 		45B914372B2D3C5500B8D3D1 /* LightGrid.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = LightGrid.metal; sourceTree = "<group>"; };
 		45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerativePreview.swift; sourceTree = "<group>"; };
+		45D1F1E52B2FBC0C0061D2C5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		450871D52B291C5500F938A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45D1F1E42B2FBBF30061D2C5 /* SettingsView */,
 				45B914232B2D27AC00B8D3D1 /* Subviews */,
 				45B914262B2D29CF00B8D3D1 /* StreamsView.swift */,
 				45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */,
@@ -209,6 +212,14 @@
 				45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		45D1F1E42B2FBBF30061D2C5 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				45D1F1E52B2FBC0C0061D2C5 /* SettingsView.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				457128482B2AB2EA00838150 /* OauthValidate.swift in Sources */,
 				4571283C2B2AA90700838150 /* Streams.swift in Sources */,
 				45B914392B2D3C6B00B8D3D1 /* GenerativePreview.swift in Sources */,
+				45D1F1E62B2FBC0C0061D2C5 /* SettingsView.swift in Sources */,
 				45B9142B2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift in Sources */,
 				450871DD2B291C8100F938A2 /* View+Extension.swift in Sources */,
 				45B914182B2D17D500B8D3D1 /* LoginView.swift in Sources */,

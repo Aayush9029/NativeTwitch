@@ -29,6 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-//        NSApp.setActivationPolicy(.prohibited)
+        NSApp.setActivationPolicy(.prohibited)
     }
 }

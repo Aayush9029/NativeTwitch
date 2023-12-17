@@ -34,5 +34,10 @@ struct NativeTwitchApp: App {
                 }
             }
         }
+
+        Settings {
+            SettingsView()
+                .frame(width: 480, height: 320)
+        }
     }
 }
