@@ -11,68 +11,31 @@ struct LoginView: View {
     @Environment(\.openURL) var openURL
     @Environment(TwitchVM.self) var twitchVM
 
-    @State private var auth: AuthModel = .empty
-
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                Image(.appIcon)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 64)
-                    .offset(x: -10)
-                Image(systemName: "questionmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(.secondary)
-                    .hSpacing(.trailing)
-            }
-
-            Text("Authenticate with twitch")
-                .font(.headline)
-
-            Divider()
-                .opacity(0.125)
-
-            Group {
-                CustomTextField(
-                    text: "Client ID",
-                    value: $auth.clientID
-                )
-
-                CustomTextField(
-                    text: "Access Token",
-                    value: $auth.accessToken
-                )
-            }
-
-            Spacer()
-
-            Group {
-                Button {
-                    openURL(Constants.tokenGeneratorURL)
-                } label: {
-                    Label("Generate", systemImage: "globe")
-                        .longButton(foreground: .white, background: .blue)
+        VStack {
+            if let deviceCodeInfo = twitchVM.deviceCodeInfo {
+                Text("Enter Code: \(deviceCodeInfo.userCode)")
+                    .font(.title)
+                Text("Go to: \(deviceCodeInfo.verificationUri)")
+                    .font(.caption)
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        if let url = URL(string: deviceCodeInfo.verificationUri) {
+                            openURL(url)
+                        }
+                    }
+            } else {
+                Button("Login with Twitch") {
+                    Task {
+                        await twitchVM.startDeviceAuthorization()
+                    }
                 }
-
-                Button {
-                    twitchVM.login(with: auth)
-                } label: {
-                    Label("Save", systemImage: "key.fill")
-                        .longButton(foreground: .white, background: .gray.opacity(0.5))
-                }
-                .disabled(auth.clientID.isEmpty || auth.accessToken.isEmpty)
             }
-            .buttonStyle(.plain)
         }
         .padding()
-        .background(
-            GenerativePreview(shader: .sineBow)
-                .blur(radius: 64)
-        )
-        .task {
-            if let auth = KeychainSwift.getAuth() {
-                self.auth = auth
+        .onAppear {
+            Task {
+                await twitchVM.login()
             }
         }
     }

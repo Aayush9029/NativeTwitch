@@ -11,6 +11,9 @@ import SwiftUI
 @Observable
 class TwitchVM {
     private let logger: Logger = .init(category: "TwitchVM")
+    var twitchAuth: TwitchDeviceAuth = .init()
+    var deviceCodeInfo: (userCode: String, verificationUri: String)?
+
     var loggedIn: Bool = true
     var streams: [StreamModel] = []
 
@@ -33,23 +36,60 @@ class TwitchVM {
         }
     }
     
-    @MainActor
-    func login(with auth: AuthModel) {
-        logger.log("Logging in with \(auth.accessToken) & \(auth.clientID)")
-        loggedIn = KeychainSwift.login(auth)
-        Task {
-            await fetchFollowedStreams()
+    func startDeviceAuthorization() async {
+        do {
+            let (deviceCode, userCode, verificationUri) = try await twitchAuth.startDeviceAuthorization()
+            deviceCodeInfo = (userCode, verificationUri)
+            await pollForToken(deviceCode: deviceCode)
+        } catch {
+            logger.error("Device Authorization Error: \(error.localizedDescription)")
         }
+    }
+
+    private func pollForToken(deviceCode: String) async {
+        var attempts = 0
+        let maxAttempts = 10 // Example limit for number of attempts
+        let pollingIntervalNanoseconds: UInt64 = 5_000_000_000 // 5 seconds
+
+        while attempts < maxAttempts {
+            do {
+                logger.info("Polling for token \(attempts)/\(maxAttempts)")
+                let accessToken = try await twitchAuth.pollForToken(deviceCode: deviceCode)
+                print("GOT ACCESSTOKEN: \(accessToken)")
+                let authModel = AuthModel(Constants.clientID, accessToken)
+                let loginSuccess = KeychainSwift.login(authModel)
+                loggedIn = loginSuccess
+                if loginSuccess {
+                    await fetchFollowedStreams()
+                    return
+                }
+            } catch {
+                logger.error("Error Polling for Token: \(error.localizedDescription)")
+            }
+            attempts += 1
+            try? await Task.sleep(nanoseconds: pollingIntervalNanoseconds)
+        }
+        logger.error("Max polling attempts reached or device code expired")
+    }
+
+    @MainActor
+    func login() async {
+        guard let auth = KeychainSwift.getAuth() else {
+            loggedIn = false
+            return
+        }
+        
+        logger.log("Logging in with \(auth.accessToken) & \(auth.clientID)")
+        loggedIn = true
+        await fetchFollowedStreams()
     }
     
     @MainActor
     func logout() {
         loggedIn = !KeychainSwift.logout()
-        Task {
-            streams = []
-        }
+        streams = []
     }
-    
+
     @MainActor
     func fetchFollowedStreams() async {
         loading = true

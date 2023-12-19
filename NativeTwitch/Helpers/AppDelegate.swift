@@ -29,6 +29,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApp.setActivationPolicy(.prohibited)
+//        NSApp.setActivationPolicy(.prohibited)
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        print(urls)
+        for url in urls {
+            if url.scheme == "nativetwitch" {
+                print("NATIVE")
+                print(url)
+                print("END")
+                // Handle the OAuth redirect
+                // Extract the token from the URL and proceed with the login process
+            }
+        }
     }
 }
