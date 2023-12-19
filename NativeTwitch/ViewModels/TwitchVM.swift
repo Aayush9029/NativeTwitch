@@ -12,10 +12,14 @@ import SwiftUI
 class TwitchVM {
     private let logger: Logger = .init(category: "TwitchVM")
     var twitchAuth: TwitchDeviceAuth = .init()
-    var deviceCodeInfo: (userCode: String, verificationUri: String)? = ("FCJVFGCG", "Wolrd")
+    var deviceCodeInfo: (userCode: String, verificationUri: String)?
 
     var loggedIn: Bool = true
     var streams: [StreamModel] = []
+    
+    // Login
+    var attempts = 1
+    let maxAttempts = 25
 
     init() {
         print("CREATED TWITCH VM")
@@ -38,6 +42,7 @@ class TwitchVM {
     
     func startDeviceAuthorization() async {
         do {
+            attempts = 1
             let (deviceCode, userCode, verificationUri) = try await twitchAuth.startDeviceAuthorization()
             deviceCodeInfo = (userCode, verificationUri)
             await pollForToken(deviceCode: deviceCode)
@@ -47,15 +52,11 @@ class TwitchVM {
     }
 
     private func pollForToken(deviceCode: String) async {
-        var attempts = 0
-        let maxAttempts = 10 // Example limit for number of attempts
         let pollingIntervalNanoseconds: UInt64 = 5_000_000_000 // 5 seconds
-
+        
         while attempts < maxAttempts {
             do {
-                logger.info("Polling for token \(attempts)/\(maxAttempts)")
                 let accessToken = try await twitchAuth.pollForToken(deviceCode: deviceCode)
-                print("GOT ACCESSTOKEN: \(accessToken)")
                 let authModel = AuthModel(Constants.clientID, accessToken)
                 let loginSuccess = KeychainSwift.login(authModel)
                 loggedIn = loginSuccess
@@ -69,6 +70,7 @@ class TwitchVM {
             attempts += 1
             try? await Task.sleep(nanoseconds: pollingIntervalNanoseconds)
         }
+        
         logger.error("Max polling attempts reached or device code expired")
     }
 
