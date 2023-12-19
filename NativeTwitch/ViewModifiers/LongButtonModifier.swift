@@ -20,7 +20,7 @@ struct LongButtonModifier: ViewModifier {
             .padding(8)
             .foregroundStyle(foreground)
             .background(background)
-            .clipShape(.rect(cornerRadius: 8))
+            .clipShape(.rect(cornerRadius: radius))
             .fontWeight(.semibold)
     }
 }

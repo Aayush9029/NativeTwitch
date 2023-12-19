@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import os
 
 class TwitchDeviceAuth {
+    let logger = Logger(category: "🔑")
+
     let clientID: String = Constants.clientID
     let scope: String = Constants.scopes
 
     func startDeviceAuthorization() async throws -> (deviceCode: String, userCode: String, verificationUri: String) {
+        logger.log("Starting Device Authorization")
         let url = URL(string: "https://id.twitch.tv/oauth2/device")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -33,6 +37,7 @@ class TwitchDeviceAuth {
     }
 
     func pollForToken(deviceCode: String) async throws -> String {
+        logger.log("Polling for Token")
         let url = URL(string: "https://id.twitch.tv/oauth2/token")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
