@@ -25,15 +25,14 @@ struct NativeTwitchApp: App {
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
                 Button("About NativeTwitch") { appDelegate.showAboutPanel() }
+                    .keyboardShortcut(KeyEquivalent("i"), modifiers: .command)
             }
             CommandGroup(replacing: .systemServices) {
-                if twitchVM.loggedIn {
-                    Button("Hide Application, Maintain Menu Bar") {
-                        twitchVM.showOnlyMenu.toggle()
-                        NSApp.setActivationPolicy(.prohibited)
-                    }
-                    .keyboardShortcut(KeyEquivalent("q"), modifiers: .option)
+                Button("Hide Application, Maintain Menu Bar") {
+                    twitchVM.showOnlyMenu.toggle()
+                    NSApp.setActivationPolicy(.prohibited)
                 }
+                .keyboardShortcut(KeyEquivalent("q"), modifiers: .option)
             }
             CommandGroup(replacing: .appVisibility) {
                 if twitchVM.loggedIn {

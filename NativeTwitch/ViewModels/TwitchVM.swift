@@ -26,6 +26,7 @@ class TwitchVM {
 
     init() {
         print("CREATED TWITCH VM")
+        loggedIn = (KeychainSwift.getUserID() != nil)
     }
 
     var loading = false {
