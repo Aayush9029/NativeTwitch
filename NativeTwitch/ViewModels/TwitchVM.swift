@@ -12,7 +12,7 @@ import SwiftUI
 class TwitchVM {
     private let logger: Logger = .init(category: "TwitchVM")
     var twitchAuth: TwitchDeviceAuth = .init()
-    var deviceCodeInfo: (userCode: String, verificationUri: String)? = ("Hello", "Wolrd")
+    var deviceCodeInfo: (userCode: String, verificationUri: String)? = ("FCJVFGCG", "Wolrd")
 
     var loggedIn: Bool = true
     var streams: [StreamModel] = []
