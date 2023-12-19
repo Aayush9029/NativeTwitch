@@ -26,11 +26,21 @@ struct NativeTwitchApp: App {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
                 Button("About NativeTwitch") { appDelegate.showAboutPanel() }
             }
-            if twitchVM.loggedIn {
-                CommandGroup(after: .appInfo) {
+            CommandGroup(replacing: .systemServices) {
+                if twitchVM.loggedIn {
+                    Button("Hide Application, Maintain Menu Bar") {
+                        twitchVM.showOnlyMenu.toggle()
+                        NSApp.setActivationPolicy(.prohibited)
+                    }
+                    .keyboardShortcut(KeyEquivalent("q"), modifiers: .option)
+                }
+            }
+            CommandGroup(replacing: .appVisibility) {
+                if twitchVM.loggedIn {
                     Button("Log Out") {
                         twitchVM.logout()
                     }
+                    .keyboardShortcut(KeyEquivalent("q"), modifiers: .shift)
                 }
             }
         }

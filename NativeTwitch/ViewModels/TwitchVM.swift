@@ -18,8 +18,11 @@ class TwitchVM {
     var streams: [StreamModel] = []
     
     // Login
-    var attempts = 1
+    var attempts = 0
     let maxAttempts = 25
+    
+    // UI
+    var showOnlyMenu = false
 
     init() {
         print("CREATED TWITCH VM")
@@ -90,6 +93,7 @@ class TwitchVM {
     func logout() {
         loggedIn = !KeychainSwift.logout()
         streams = []
+        deviceCodeInfo = nil
     }
 
     @MainActor
