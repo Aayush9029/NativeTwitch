@@ -8,6 +8,7 @@
 import Foundation
 
 enum Constants {
+    static let donateLink = "https://www.buymeacoffee.com/swiftdev".toURL()!
     static let baseAPI = "https://api.twitch.tv/helix"
     static let followedAPI = "\(baseAPI)/streams/followed"
     static let streamerInfoURL = "\(baseAPI)/users".toURL()!
@@ -17,5 +18,7 @@ enum Constants {
         return "\(followedAPI)?user_id=\(userID)".toURL()
     }
 
-    static let tokenGeneratorURL = "https://twitchtokengenerator.com/quick/NIaMdzGYBR".toURL()!
+    // Oauth flow
+    static let clientID = "gp762nuuoqcoxypju8c569th9wz7q5"
+    static let scopes = ["user:read:follows", "user:read:email", "user:edit:follows"].joined(separator: "+")
 }

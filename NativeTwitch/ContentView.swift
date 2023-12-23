@@ -25,7 +25,6 @@ struct ContentView: View {
         .task {
             await twitchVM.fetchFollowedStreams()
         }
-
         .onKeyboardShortcut(key: "r", modifiers: .command) {
             Task {
                 await twitchVM.fetchFollowedStreams()

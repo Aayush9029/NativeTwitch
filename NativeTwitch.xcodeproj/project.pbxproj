@@ -26,6 +26,7 @@
 		457128462B2AAFC700838150 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457128452B2AAFC700838150 /* AuthModel.swift */; };
 		457128482B2AB2EA00838150 /* OauthValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457128472B2AB2EA00838150 /* OauthValidate.swift */; };
 		45A401722B2E12F900CFA6CC /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A401712B2E12F900CFA6CC /* BadgeView.swift */; };
+		45AE499D2B3193DB00B6CBEF /* TwitchDeviceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE499C2B3193DB00B6CBEF /* TwitchDeviceAuth.swift */; };
 		45B914182B2D17D500B8D3D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B914172B2D17D500B8D3D1 /* LoginView.swift */; };
 		45B9141B2B2D1BFF00B8D3D1 /* LongButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */; };
 		45B9141D2B2D1D0500B8D3D1 /* CleanTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */; };
@@ -37,7 +38,6 @@
 		45B9143A2B2D3C7600B8D3D1 /* AnimatedGradientFill.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */; };
 		45B9143B2B2D3C7600B8D3D1 /* Sinebow.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914352B2D3C5500B8D3D1 /* Sinebow.metal */; };
 		45B9143C2B2D3C7900B8D3D1 /* LightGrid.metal in Sources */ = {isa = PBXBuildFile; fileRef = 45B914372B2D3C5500B8D3D1 /* LightGrid.metal */; };
-		45D1F1E62B2FBC0C0061D2C5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1F1E52B2FBC0C0061D2C5 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +62,8 @@
 		457128452B2AAFC700838150 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		457128472B2AB2EA00838150 /* OauthValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthValidate.swift; sourceTree = "<group>"; };
 		45A401712B2E12F900CFA6CC /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		45AE499B2B317FE600B6CBEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		45AE499C2B3193DB00B6CBEF /* TwitchDeviceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchDeviceAuth.swift; sourceTree = "<group>"; };
 		45B914172B2D17D500B8D3D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		45B9141A2B2D1BFF00B8D3D1 /* LongButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongButtonModifier.swift; sourceTree = "<group>"; };
 		45B9141C2B2D1D0400B8D3D1 /* CleanTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTextFieldStyle.swift; sourceTree = "<group>"; };
@@ -73,7 +75,6 @@
 		45B914362B2D3C5500B8D3D1 /* AnimatedGradientFill.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = AnimatedGradientFill.metal; sourceTree = "<group>"; };
 		45B914372B2D3C5500B8D3D1 /* LightGrid.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = LightGrid.metal; sourceTree = "<group>"; };
 		45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerativePreview.swift; sourceTree = "<group>"; };
-		45D1F1E52B2FBC0C0061D2C5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 		450871C42B291C4B00F938A2 /* NativeTwitch */ = {
 			isa = PBXGroup;
 			children = (
+				45AE499B2B317FE600B6CBEF /* Info.plist */,
 				450871C52B291C4B00F938A2 /* NativeTwitchApp.swift */,
 				450871C72B291C4B00F938A2 /* ContentView.swift */,
 				450871D52B291C5500F938A2 /* Views */,
@@ -147,7 +149,6 @@
 		450871D52B291C5500F938A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45D1F1E42B2FBBF30061D2C5 /* SettingsView */,
 				45B914232B2D27AC00B8D3D1 /* Subviews */,
 				45B914262B2D29CF00B8D3D1 /* StreamsView.swift */,
 				45B914282B2D308500B8D3D1 /* SingleStreamRow.swift */,
@@ -172,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				457128432B2AAE9A00838150 /* TwitchVM.swift */,
+				45AE499C2B3193DB00B6CBEF /* TwitchDeviceAuth.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,14 +214,6 @@
 				45B914382B2D3C5500B8D3D1 /* GenerativePreview.swift */,
 			);
 			path = Shaders;
-			sourceTree = "<group>";
-		};
-		45D1F1E42B2FBBF30061D2C5 /* SettingsView */ = {
-			isa = PBXGroup;
-			children = (
-				45D1F1E52B2FBC0C0061D2C5 /* SettingsView.swift */,
-			);
-			path = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +308,6 @@
 				457128482B2AB2EA00838150 /* OauthValidate.swift in Sources */,
 				4571283C2B2AA90700838150 /* Streams.swift in Sources */,
 				45B914392B2D3C6B00B8D3D1 /* GenerativePreview.swift in Sources */,
-				45D1F1E62B2FBC0C0061D2C5 /* SettingsView.swift in Sources */,
 				45B9142B2B2D36B800B8D3D1 /* LinearGradient+Extensions.swift in Sources */,
 				450871DD2B291C8100F938A2 /* View+Extension.swift in Sources */,
 				45B914182B2D17D500B8D3D1 /* LoginView.swift in Sources */,
@@ -325,6 +318,7 @@
 				45B9142D2B2D375200B8D3D1 /* TransitionModifier.swift in Sources */,
 				450871DE2B291C8100F938A2 /* Double+Extension.swift in Sources */,
 				450871C62B291C4B00F938A2 /* NativeTwitchApp.swift in Sources */,
+				45AE499D2B3193DB00B6CBEF /* TwitchDeviceAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +457,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NativeTwitch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NativeTwitch;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -492,6 +487,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NativeTwitch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NativeTwitch;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

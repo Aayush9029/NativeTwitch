@@ -87,7 +87,7 @@ struct AboutView: View {
             Link(destination: URL(string: "https://apps.aayush.art/privacy")!) {
                 Text("Privacy Policy")
             }
-            Link(destination: URL(string: "https://love.aayush.art")!) {
+            Link(destination: Constants.donateLink) {
                 Text("Support Developer")
             }
             Link(destination: URL(string: "https://apps.aayush.art")!) {
