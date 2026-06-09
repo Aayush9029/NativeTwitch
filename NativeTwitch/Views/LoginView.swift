@@ -19,7 +19,7 @@ struct LoginView: View {
         VStack {
             VStack {
                 if startedAttempt {
-                    ThankYouNote
+                    thankYouNote
                         .blurReplace(edge: .top)
                 }
             }.animation(.easeInOut, value: startedAttempt)
@@ -81,16 +81,14 @@ struct LoginView: View {
                     .clipShape(.rect(cornerRadius: 6))
 
                 Button {
-                    if let url = URL(string: deviceCode.verificationUri) {
-                        openURL(url)
-                    }
+                    continueOnTwitchButtonTapped(verificationUri: deviceCode.verificationUri)
                 } label: {
                     Label("Continue on twitch.tv", systemImage: "safari")
                         .longButton(foreground: .white, background: .twitch, radius: 6)
                 }
                 .buttonStyle(.plain)
             } else {
-                RefreshDeviceAuthorization
+                refreshDeviceAuthorization
             }
         }
         .xSpacing(.center)
@@ -101,12 +99,9 @@ struct LoginView: View {
         )
     }
 
-    var RefreshDeviceAuthorization: some View {
+    private var refreshDeviceAuthorization: some View {
         Button {
-            Task {
-                await twitchVM.startDeviceAuthorization()
-            }
-
+            getDeviceCodeButtonTapped()
         } label: {
             Label("Get Device Code", systemImage: "hands.sparkles")
                 .longButton(foreground: .twitch, background: .white, radius: 6)
@@ -114,7 +109,7 @@ struct LoginView: View {
         .buttonStyle(.plain)
     }
 
-    var ThankYouNote: some View {
+    private var thankYouNote: some View {
         VStack {
             if showNote {
                 Group {
@@ -126,7 +121,7 @@ struct LoginView: View {
                                 .foregroundStyle(.secondary)
 
                             VStack {
-                                Button(action: { openURL(Constants.donateLink) }, label: {
+                                Button(action: donateButtonTapped, label: {
                                     Text("☕\nBuy me a coffee")
                                         .foregroundStyle(.secondary)
                                         .padding(4)
@@ -144,8 +139,7 @@ struct LoginView: View {
                 .transition(.move(edge: .top).combined(with: .opacity))
             } else {
                 Button {
-                    showNote.toggle()
-
+                    thankYouNoteButtonTapped()
                 } label: {
                     Label("Read Thank You Note.", systemImage: "heart.fill")
                         .fontWeight(.medium)
@@ -170,6 +164,23 @@ struct LoginView: View {
                 .stroke(showNote ? .twitch : .gray.opacity(0.25), lineWidth: 2)
                 .shadow(color: showNote ? .twitch : .red.opacity(0.1), radius: 32)
         )
+    }
+
+    private func continueOnTwitchButtonTapped(verificationUri: String) {
+        guard let url = URL(string: verificationUri) else { return }
+        openURL(url)
+    }
+
+    private func getDeviceCodeButtonTapped() {
+        Task { await twitchVM.startDeviceAuthorization() }
+    }
+
+    private func donateButtonTapped() {
+        openURL(Constants.donateLink)
+    }
+
+    private func thankYouNoteButtonTapped() {
+        showNote.toggle()
     }
 }
 

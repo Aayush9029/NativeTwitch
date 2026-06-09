@@ -8,11 +8,11 @@
 import Foundation
 import os
 
-class TwitchDeviceAuth {
-    let logger = Logger(category: "🔑")
+actor TwitchDeviceAuth {
+    private let logger = Logger(category: "TwitchDeviceAuth")
 
-    let clientID: String = Constants.clientID
-    let scope: String = Constants.scopes
+    private let clientID: String = Constants.clientID
+    private let scope: String = Constants.scopes
 
     func startDeviceAuthorization() async throws -> (deviceCode: String, userCode: String, verificationUri: String) {
         logger.log("Starting Device Authorization")
@@ -24,13 +24,15 @@ class TwitchDeviceAuth {
         request.httpBody = bodyParameters.data(using: .utf8)
 
         let (data, _) = try await URLSession.shared.data(for: request)
-        let json = try JSONSerialization.jsonObject(with: data) as! [String: Any]
-        print("Start Device Authorization \(json)")
+        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            throw TwitchDeviceAuthError.invalidResponse
+        }
+        logger.debug("Received device authorization response")
         guard let deviceCode = json["device_code"] as? String,
               let userCode = json["user_code"] as? String,
               let verificationUri = json["verification_uri"] as? String
         else {
-            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid response data"])
+            throw TwitchDeviceAuthError.invalidResponse
         }
 
         return (deviceCode, userCode, verificationUri)
@@ -46,13 +48,28 @@ class TwitchDeviceAuth {
         request.httpBody = bodyParameters.data(using: .utf8)
 
         let (data, _) = try await URLSession.shared.data(for: request)
-        let json = try JSONSerialization.jsonObject(with: data) as! [String: Any]
-        print("pollForToken \(json)")
+        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            throw TwitchDeviceAuthError.invalidResponse
+        }
+        logger.debug("Received token polling response")
         if let accessToken = json["access_token"] as? String {
-            // Store the access token securely
             return accessToken
         } else {
-            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Authorization pending or other error"])
+            throw TwitchDeviceAuthError.authorizationPending
+        }
+    }
+}
+
+enum TwitchDeviceAuthError: LocalizedError {
+    case invalidResponse
+    case authorizationPending
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidResponse:
+            "Invalid response data"
+        case .authorizationPending:
+            "Authorization pending or other error"
         }
     }
 }

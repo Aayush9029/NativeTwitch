@@ -13,12 +13,14 @@
 // ----------------------------
 
 import Foundation
+import os
 import Security
 
 // MARK: - Setter Helpers
 
 extension KeychainSwift {
     static let shared = KeychainSwift()
+    private static let logger = Logger(category: "KeychainSwift")
 
     // AuthModel: Added by the user
     static let authKey: String = "com.nativeTwitch.secure.login"
@@ -33,7 +35,7 @@ extension KeychainSwift {
             let auth = try decoder.decode(AuthModel.self, from: data)
             return auth
         } catch {
-            print("Error decoding AuthModel: \(error)")
+            logger.error("Error decoding AuthModel: \(error.localizedDescription)")
             return nil
         }
     }
@@ -44,7 +46,7 @@ extension KeychainSwift {
             let data = try encoder.encode(auth)
             return shared.set(data, forKey: authKey, withAccess: .accessibleWhenUnlocked)
         } catch {
-            print("Error encoding AuthModel: \(error)")
+            logger.error("Error encoding AuthModel: \(error.localizedDescription)")
             return false
         }
     }

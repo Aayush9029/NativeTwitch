@@ -17,33 +17,41 @@ struct ContentView: View {
             } else if twitchVM.loading {
                 ProgressView()
             } else if twitchVM.streams.isEmpty {
-                NoStreamsView
+                noStreamsView
             } else {
                 StreamsView(twitchVM.streams)
             }
         }
         .task {
-            await twitchVM.fetchFollowedStreams()
+            await task()
         }
         .onKeyboardShortcut(key: "r", modifiers: .command) {
-            Task {
-                await twitchVM.fetchFollowedStreams()
-            }
+            refreshKeyboardShortcutPressed()
         }
     }
 
-    var NoStreamsView: some View {
+    var noStreamsView: some View {
         ContentUnavailableView {
             Label("Streamers Offline", systemImage: "person.3.fill")
         } description: {
             Text("Seems like streamers you follow are offline time to follow new ones or touch some grass.")
         } actions: {
             Button("Refresh", systemImage: "arrow.counterclockwise") {
-                Task {
-                    await twitchVM.fetchFollowedStreams()
-                }
+                refreshButtonTapped()
             }
         }
+    }
+
+    private func task() async {
+        await twitchVM.fetchFollowedStreams()
+    }
+
+    private func refreshKeyboardShortcutPressed() {
+        Task { await twitchVM.fetchFollowedStreams() }
+    }
+
+    private func refreshButtonTapped() {
+        Task { await twitchVM.fetchFollowedStreams() }
     }
 }
 

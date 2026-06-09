@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct NativeTwitchApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var twitchVM: TwitchVM = .init()
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @State private var twitchVM = TwitchVM()
 
     var body: some Scene {
         MenuBarExtra {
@@ -24,24 +24,36 @@ struct NativeTwitchApp: App {
         .menuBarExtraStyle(.window)
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                Button("About NativeTwitch") { appDelegate.showAboutPanel() }
+                Button("About NativeTwitch") { aboutNativeTwitchButtonTapped() }
                     .keyboardShortcut(KeyEquivalent("i"), modifiers: .command)
             }
             CommandGroup(replacing: .systemServices) {
                 Button("Hide Application, Maintain Menu Bar") {
-                    twitchVM.showOnlyMenu.toggle()
-                    NSApp.setActivationPolicy(.prohibited)
+                    hideApplicationButtonTapped()
                 }
                 .keyboardShortcut(KeyEquivalent("q"), modifiers: .option)
             }
             CommandGroup(replacing: .appVisibility) {
                 if twitchVM.loggedIn {
                     Button("Log Out") {
-                        twitchVM.logout()
+                        logOutButtonTapped()
                     }
                     .keyboardShortcut(KeyEquivalent("q"), modifiers: .shift)
                 }
             }
         }
+    }
+
+    private func aboutNativeTwitchButtonTapped() {
+        appDelegate.showAboutPanel()
+    }
+
+    private func hideApplicationButtonTapped() {
+        twitchVM.showOnlyMenu.toggle()
+        NSApp.setActivationPolicy(.prohibited)
+    }
+
+    private func logOutButtonTapped() {
+        twitchVM.logout()
     }
 }
